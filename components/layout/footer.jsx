@@ -7,7 +7,7 @@ import css from '../../styles/structure/footer.module.scss'
 
 import content from '../../content/footer.json'
 
-export default function Footer() {	
+export default function Footer() {
 	return (
 		<footer className={css.container}>
 			<Container spacing={['verticalXXLrg', 'bottomLrg']}>
@@ -15,38 +15,44 @@ export default function Footer() {
 					<ul className={css.thanks}>
 						<li><h4>Acknowledgments</h4></li>
 						{
-						content.acknowledgments.map( ({ person, link, note }, index) => {
-							return (
-								<li key={index}>
-									<a href={link} rel="noreferrer" target="_blank">{person} <Icon icon={[ 'fad', 'arrow-up-right-from-square' ]} /></a>
-									<p>{note}</p>
-								</li>
-							)
-						})
+							content.acknowledgments.map(({ person, link, note }, index) => {
+								return (
+									<li key={index}>
+										<a href={link} rel="noreferrer" target="_blank" className="flex items-center">
+											<span>{person}</span>
+											<Icon icon="iconamoon:link-external-duotone" />
+										</a>
+										<p>{note}</p>
+									</li>
+								)
+							})
 						}
 					</ul>
 					<ul className={css.links}>
 						<li><h4>Links</h4></li>
 						{
-						content.links.map( ({ person, link, note }, index) => {
-							return (
-								<li key={index}>
-									<a href={link} rel="noreferrer" target="_blank">{person} <Icon icon={[ 'fad', 'arrow-up-right-from-square' ]} /></a>
-									<p>{note}</p>
-								</li>
-							)
-						})
+							content.links.map(({ person, link, note }, index) => {
+								return (
+									<li key={index}>
+										<a href={link} rel="noreferrer" target="_blank" className="flex items-center">
+											<span>{person}</span>
+											<Icon icon="iconamoon:link-external-duotone" />
+										</a>
+										<p>{note}</p>
+									</li>
+								)
+							})
 						}
 					</ul>
 					<ul className={css.social}>
 						<li><h4>Social</h4></li>
 						<li className={css.socialList}>
 							{
-							content.social.map( ({ url, icon }, index) => {
-								return (
-									<a  key={index} href={url} rel="noreferrer" target="_blank"><Icon icon={[ 'fab', icon ]} /></a>
-								)
-							})
+								content.social.map(({ url, icon }, index) => {
+									return (
+										<a key={index} href={url} rel="noreferrer" target="_blank"><Icon icon={icon} width={32} /></a>
+									)
+								})
 							}
 						</li>
 					</ul>

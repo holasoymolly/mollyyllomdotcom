@@ -14,18 +14,18 @@ import badges from '../../styles/blocks/badges.module.scss';
 export default function Badges({ list, block, color, fullContainer }) {
 
 	const controls = useAnimation();
-	const { ref, inView  } = useInView({
+	const { ref, inView } = useInView({
 		"threshold": 0.5,
 		"triggerOnce": false
 	})
 
-	useEffect( () => {
-		if ( inView ) {	controls.start("visible") }
-		if ( !inView ) { controls.start("hidden") }
-	}, [ controls, inView ] );
+	useEffect(() => {
+		if (inView) { controls.start("visible") }
+		if (!inView) { controls.start("hidden") }
+	}, [controls, inView]);
 
 	const container = {
-		hidden: { 
+		hidden: {
 			opacity: 1,
 			transition: {
 				delayChildren: 0.25,
@@ -40,11 +40,11 @@ export default function Badges({ list, block, color, fullContainer }) {
 			}
 		}
 	}
-	
+
 	const item = {
-		hidden: { 
-			y: 20, 
-			opacity: -0.5 
+		hidden: {
+			y: 20,
+			opacity: -0.5
 		},
 		visible: {
 			y: 0,
@@ -56,45 +56,30 @@ export default function Badges({ list, block, color, fullContainer }) {
 		<m.ul
 			className={`${badges.list} ${badges[block]} ${badges[fullContainer]}`}
 			//Animations
-				ref={ref}
-				variants={container}
-				initial="hidden"
-				animate={controls}
-				whileHover="hover"
+			ref={ref}
+			variants={container}
+			initial="hidden"
+			animate={controls}
+			whileHover="hover"
 		>
-		{
-		list.map( ({ key, name, type }) => {
-			return ( 
-				<m.li 
-					key={name} 
-					className={`${badges.item} ${key}`}
-					//Animations
-					variants={item} >
-					<IconModule iconKey={key} iconType={type} color={color}/>
-					<span className={badges.title}>{name}</span>
-				</m.li> 
-				)
-			}) 
-		}
+			{
+				list.map(({ key, name }) => {
+					return (
+						<m.li
+							key={name}
+							className={`${badges.item} ${key}`}
+							//Animations
+							variants={item} >
+							<div className="flex items-center">
+								<Icon icon={key} color={color} width={32} height={32} />
+								<span className={badges.title}>{name}</span>
+							</div>
+
+						</m.li>
+					)
+				})
+			}
 		</m.ul>
 	)
 }
 
-function IconModule({ iconKey, iconType, color }) {
-	let colored = 'colored'
-	if (color === false) { colored = '' }
-
-	switch (iconType) {
-		case 'far':
-		case 'fad':
-		case 'fat':
-		case 'fas':
-			return ( <Icon icon={[ iconType, iconKey ]} /> )
-		case 'devicon':
-			return ( <i className={`devicon-${iconKey}-plain ${colored}`} /> )
-		default:
-			return ( '' )
-	}
-}
-		
-		

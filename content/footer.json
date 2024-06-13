@@ -31,23 +31,23 @@
 	"social": [
 		{
 			"url": "https://www.instagram.com/holasoymolly/",
-			"icon": "instagram"
+			"icon": "mdi:instagram"
 		},
 		{
 			"url": "https://www.tiktok.com/@soymollyyllom",
-			"icon": "tiktok"
+			"icon": "ic:baseline-tiktok"
 		},
 		{
 			"url": "https://www.facebook.com/holasoymolly",
-			"icon": "facebook"
+			"icon": "ri:facebook-fill"
 		},
 		{
 			"url": "https://www.behance.net/holasoymolly",
-			"icon": "behance"
+			"icon": "ri:behance-fill"
 		},
 		{
 			"url": "https://www.linkedin.com/in/mollyyllom/",
-			"icon": "linkedin"
+			"icon": "ri:linkedin-fill"
 		}
 	]
 }

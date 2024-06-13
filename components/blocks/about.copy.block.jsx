@@ -18,7 +18,7 @@ export default function CopyBlock({ containerClass, iconClass, icon, title, copy
 		<>
 		<div className={containerClass}>
 			<span className={iconClass}>
-				<Icon icon={icon} />
+				<Icon icon={icon} width={42} />
 			</span>
 			<h3>{title}</h3>
 			<p>
