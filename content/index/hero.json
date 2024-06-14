@@ -10,17 +10,17 @@
 	},
 
 	"header": {
-		"name": "Molly Yllom",
-		"usp": "I design and build meaningful experiences."
+		"name": "Molly.",
+		"usp": "Creo diseños que comunican y marcas que impactan."
 	},
 
-	"paragraph": "I am a digital polymath — a constantly evolving digital creator driven by a passion for lifelong learning and the desire to leave a lasting impact.",
+	"paragraph": "En mi estudio de diseño, convierto la esencia de tu marca en piezas visuales memorables. Desde logotipos con narrativa hasta sitios web cautivadores. Elevo tu presencia y te ayudo a alcanzar tus metas.",
 
 	"buttons": {
 		"primary": {
-			"title": "Contact Me",
-			"url": "",
-			"leaveSite": false
+			"title": "Cotiza tu proyecto aquí",
+			"url": "https://forms.gle/grLPXZzQ5qo3mSvs6",
+			"leaveSite": "true"
 		},
 		"secondary": {
 			"title": "LinkedIn",
