@@ -1,6 +1,6 @@
 {
 	"intro": {
-		"start": "Hola, soy...",
+		"start": "Hola, soy...", 
 		"speed": 60,
 		"deletionSpeed": 80,
 		"wrapper": "h2",
@@ -11,10 +11,10 @@
 
 	"header": {
 		"name": "Molly.",
-		"usp": "Creo diseños que comunican y marcas que impactan."
+		"usp": "Mi misión: Crear diseños que comunican y marcas que impactan."
 	},
 
-	"paragraph": "En mi estudio de diseño, convierto la esencia de tu marca en piezas visuales memorables. Desde logotipos con narrativa hasta sitios web cautivadores. Elevo tu presencia y te ayudo a alcanzar tus metas.",
+	"paragraph": "En mi estudio de diseño, convierto la esencia de tu marca en piezas visuales memorables. Desde logotipos con narrativa hasta sitios web cautivadores. Elevo tu marca y te ayudo a alcanzar tus metas con ella.",
 
 	"buttons": {
 		"primary": {

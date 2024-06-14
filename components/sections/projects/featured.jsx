@@ -17,9 +17,9 @@ export default function FeaturedProjects() {
 		<Section classProp={css.hasBg}>	
 			<Container spacing={'verticalXXXXLrg'}>
 				<SectionTitle
-					title="Featured Projects"
-					preTitle="UX and Full Stack"
-					subTitle="Focused on the experience, driven by the engineering."
+					title="¿Listx para llevar tu proyecto al siguiente nivel?"
+					preTitle=""
+					subTitle="En el mundo del diseño gráfico, cada decisión cuenta. Desde la elección de colores hasta la tipografía utilizada, cada detalle comunica un mensaje único sobre tu marca. Con mi asesoría personalizada, te guiaré en cada paso del proceso para asegurarnos de que cada aspecto de tu proyecto refleje la esencia y los valores de la marca."
 				/> 				{
 				content.map( (data, index) => {
 					return (

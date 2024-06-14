@@ -3,13 +3,12 @@
 //global.module.scss
 .section {
 	border-bottom: 1px solid var(--primary-dark);
-	
-	max-height: 1440px;
-	height: 100vh;
+	height: auto;
 	justify-content: center;
-	
+
 	> .container {
 		height: fit-content;
+		text-align: left;
 	}
 	
 	.preHeader {
@@ -18,13 +17,15 @@
 		font-size: 1.2rem;
 		font-weight: 400;
 		margin: 1rem 0;
+		margin-bottom: -0.5rem;
+		text-align: left;
 	}
 	
 	.header {
 		color: var(--primary-bright);
 		font-family: var(--font-sans);
 		font-size: 5rem;
-		margin: 0;
+		text-align: left;
 	}
 	
 	.primaryDim {
@@ -34,7 +35,17 @@
 	.primaryBright {
 		color: var(--primary);
 	}
+	
+	.usp {
+		font-size: 55px; /* Mi misión.... */
+		margin-bottom: -40px;
+		line-height: 1.25;
+	}
 
+	.subtitle {
+		margin-top: 0px;
+	}
+	
 	.tempBright {
 		font-size: .875rem;
 		width: 60%;
@@ -53,12 +64,27 @@
 		}
 	}
 
+	.textContainer {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		text-align: left;
+		margin: 0;
+		padding: 0;
+	}
+
+	.ctaButton {
+		margin-bottom: 0;
+	}
+
 	@include media($max: $mobile) {
 		.preHeader {
 			font-size: 1rem;
+			text-align: left;
 		}
 		.header {
 			font-size: 2.9rem;
+			text-align: left;
 		}
 		.tempBright {
 			width: 100%;
@@ -67,6 +93,9 @@
 		button {
 			font-size: .875rem;
 			padding: 0.75rem 2rem;
+		}
+		.ctaButton {
+			margin-bottom: 0;
 		}
 	}
 }
@@ -77,14 +106,14 @@
 	--hero-gradient-bg-2: var(--neon-1-2);
 	--hero-gradient-bg-3: var(--neon-2-1);
 	--hero-gradient-bg-4: var(--neon-2-2);
-	
+
 	position: absolute;
 	pointer-events: none;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	
+
 	.svg_background {
 		position: absolute;
 		z-index: -1;
@@ -97,12 +126,12 @@
 		max-inline-size: unset;
 		max-block-size: unset;
 	}
-	
+
 	.radialContainer {
 		position: absolute;
 		width: 100%;
-		height: 100%;
-		
+		height: calc(100% - 50px);
+
 		.radialGradient {
 			position: absolute;
 			right: -30%;
@@ -115,40 +144,40 @@
 			transform: translateZ(0);
 			opacity: 20%;
 			background: var(--bar-gradient);
-			--bar-gradient: radial-gradient( 
-			circle, 
-			var(--hero-gradient-bg-1) 0%, 
-			var(--hero-gradient-bg-2) 24%, 
-			var(--hero-gradient-bg-3) 44%, 
-			var(--hero-gradient-bg-4) 57%, 
-			transparent 70% 
+			--bar-gradient: radial-gradient(
+				circle,
+				var(--hero-gradient-bg-1) 0%,
+				var(--hero-gradient-bg-2) 24%,
+				var(--hero-gradient-bg-3) 44%,
+				var(--hero-gradient-bg-4) 57%,
+				transparent 70%
 			);
 		}
 	}
-	
+
 	.barContainer {
 		position: absolute;
 		left: 0;
 		bottom: 0;
 		width: 100%;
-		height: 100px;
+		height: 0px;
 	}
-	
-	.barGradient {	
-		--bar-opacity:0.15; 
-		--bar-blend-mode:screen;
-		--bar-gradient: linear-gradient( 
-		90deg, 
-		var(--hero-gradient-bg-1) 0%, 
-		var(--hero-gradient-bg-2) 26.88%, 
-		var(--hero-gradient-bg-3) 48.46%, 
-		var(--hero-gradient-bg-4) 74.51% 
+
+	.barGradient {
+		--bar-opacity: 0.15;
+		--bar-blend-mode: screen;
+		--bar-gradient: linear-gradient(
+			90deg,
+			var(--hero-gradient-bg-1) 0%,
+			var(--hero-gradient-bg-2) 26.88%,
+			var(--hero-gradient-bg-3) 48.46%,
+			var(--hero-gradient-bg-4) 74.51%
 		);
-		
+
 		opacity: var(--bar-opacity);
 		background-blend-mode: var(--bar-blend-mode);
 		background: var(--bar-gradient);
-		
+
 		position: absolute;
 		pointer-events: none;
 		-webkit-user-select: none;
