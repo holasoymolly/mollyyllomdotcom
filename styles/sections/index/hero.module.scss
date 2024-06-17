@@ -99,10 +99,13 @@
 		}
 
 		.usp {
-			margin-bottom: 6rem; /* Ajusta este valor según sea necesario */
+			margin-bottom: -1rem;
 		}
 		.subtitle {
-			margin-top: 6rem; /* Ajusta este valor según sea necesario */
+			margin-top: -1rem;
+		}
+		.name {
+			font-size: 5rem;
 		}
 	}
 }
