@@ -13,11 +13,16 @@ export default function FeaturedProjects() {
         <>
             <Section classProp={css.hasBg}>
                 <Container spacing={'verticalXXXXLrg'} classProp={css.titleContainer}>
-                    <SectionTitle
-                        title={content.title}
-                        preTitle=""
-                        subTitle={content.subTitle}
-                    />
+                    <div className={css.titleContent}>
+                        <div className={css.titleImageContainer}>
+                            <img src="/img/SEV_1699 copy.jpg" alt="Imagen de proyecto" className={css.titleImage} />
+                        </div>
+                        <SectionTitle
+                            title={content.title}
+                            preTitle=""
+                            subTitle={content.subTitle}
+                        />
+                    </div>
                 </Container>
             </Section>
             <Section classProp={css.hasBg}>

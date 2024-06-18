@@ -6,7 +6,26 @@
 
 .titleContainer {
     background-color: var(--bg-color-3);
-    padding: 2rem; /* Ajusta el padding según tus necesidades */
+    padding: -2; /* Remover padding */
+}
+
+.titleContent {
+    display: flex;
+    align-items: stretch; /* Asegurarse de que los elementos hijos se estiren */
+}
+
+.titleImageContainer {
+    flex: 0 0 auto; /* No permitir que la imagen se estire más allá de su tamaño natural */
+    width: 60%; /* Ajustar el ancho según sea necesario */
+    max-width: 300px; /* Ajustar el ancho máximo según sea necesario */
+    height: 100%;
+}
+
+.titleImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegurarse de que la imagen cubra el contenedor */
+    border-radius: 0; /* Remover bordes redondeados */
 }
 
 .projectsContainer {
