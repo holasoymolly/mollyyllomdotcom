@@ -1,18 +1,19 @@
-import FeaturedProject from '../../blocks/projects/featured'
+import FeaturedProject from '../../blocks/projects/featured';
 
 // Section structure
 import Section from '../../structure/section';
 import Container from '../../structure/container';
-import SectionTitle from '../../blocks/section.title.block'
+import SectionTitle from '../../blocks/section.title.block';
 
-import css from '../../../styles/sections/projects/featured.module.scss'
-import content from '../../../content/projects/featured.json'
+import css from '../../../styles/sections/projects/featured.module.scss';
+import containerCss from '../../../styles/structure/container.module.scss'; // Importar las nuevas clases de espaciado
+import content from '../../../content/projects/featured.json';
 
 export default function FeaturedProjects() {
     return (
         <>
             <Section classProp={css.hasBg}>
-                <Container spacing={'verticalXXXXLrg'} classProp={css.titleContainer}>
+                <Container spacing={'verticalXXXXLrg'} classProp={`${css.titleContainer} ${containerCss.spacingTopNone} ${containerCss.spacingBottomMedium} ${containerCss.spacingLeftNone} ${containerCss.spacingRightMedium}`}>
                     <div className={css.titleContent}>
                         <div className={css.titleImageContainer}>
                             <img src="/img/SEV_1699 copy.jpg" alt="Imagen de proyecto" className={css.titleImage} />
@@ -26,7 +27,7 @@ export default function FeaturedProjects() {
                 </Container>
             </Section>
             <Section classProp={css.hasBg}>
-                <Container spacing={'verticalXXXXLrg'} classProp={css.projectsContainer}>
+                <Container spacing={'verticalXXXXLrg'} classProp={`${css.projectsContainer} ${containerCss.spacingTopLarge} ${containerCss.spacingBottomNone} ${containerCss.spacingLeftSmall} ${containerCss.spacingRightSmall}`}>
                     {content.projects.map((data, index) => (
                         <FeaturedProject content={data} index={index} key={index} />
                     ))}

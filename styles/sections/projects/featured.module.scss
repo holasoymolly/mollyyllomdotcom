@@ -6,32 +6,39 @@
 
 .titleContainer {
     background-color: var(--bg-color-3);
-    padding: -2;
+    padding: 0;
+    height: 130vh; /* Asegurarse de que ocupe toda la altura disponible */
+    display: flex;
+    align-items: center;
 }
 
 .titleContent {
     display: flex;
     align-items: stretch;
+    height: 100%;
+    width: 100%;
 }
 
 .titleImageContainer {
-	overflow: hidden;
-    flex: 0 0 auto;
-    width: 60%;
-    max-width: 300px;
+    flex: 0 0 75%; /* Ajustar el ancho del contenedor según sea necesario */
     height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .titleImage {
-    width: 100%;
+    width: 85%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 0;
+    object-fit: cover; /* Asegurarse de que la imagen cubra el contenedor */
+    border-radius: 0; /* Remover bordes redondeados */
+    transform: scale(1.0); /* Aplicar zoom del X% */
+    transform-origin: center; /* Asegurar que el zoom se centre */
 }
 
 .projectsContainer {
     background-color: var(--bg-color-1);
-    padding: 2rem;
+    padding: 2rem; /* Ajusta el padding según tus necesidades */
 }
 
 .project {
@@ -270,6 +277,20 @@
 }
 
 @include media($max: $mobile) {
+    .titleContent {
+        flex-direction: column;
+    }
+
+    .titleImageContainer {
+        width: 100%;
+        height: auto;
+    }
+
+    .titleImage {
+        width: 100%;
+        height: auto;
+    }
+
     .project {
         &:nth-of-type(n) {
             flex-direction: column;
