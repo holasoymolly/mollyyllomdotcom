@@ -133,7 +133,7 @@ export default function Navbar() {
 			<ul className={css.menu}>
 				<li className={css.menuHeader}>
 					<Link className={css.logo} href="/"  >
-						<img className="w-32" src="/img/logo.png" />
+						<img className="w-20" src="/img/logo.png" />
 					</Link>
 					<button onClick={toggleMenu} className={css.mobileToggle} data-open={menuState}>
 						<div>
