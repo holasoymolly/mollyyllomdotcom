@@ -67,12 +67,12 @@ export default function Hero() {
 					</p>
 				</section>
 				<section>
-					<button
-						className={`button ${button.primary} ${hero.ctaButton}`}
-						onClick={() => (window.location = 'mailto:hola@mollyyllom.com')}
-					>
-						{content.buttons.primary.title}
-					</button>
+				<button
+    className={`button ${button.primary} ${hero.ctaButton}`}
+    onClick={() => window.open('https://forms.gle/grLPXZzQ5qo3mSvs6', '_blank')}
+>
+    {content.buttons.primary.title}
+</button>
 				</section>
 			</Container>
 			<HeroBg theme="bg-color-1" />
