@@ -7,9 +7,15 @@
 .titleContainer {
     background-color: var(--bg-color-3);
     padding: 0;
-    height: 130vh; /* Asegurarse de que ocupe toda la altura disponible */
+    height: 70vh; /* Asegurarse de que ocupe toda la altura disponible */
     display: flex;
     align-items: center;
+
+    @include media($max: $mobile) {
+        height: auto; /* Ajustar la altura para móvil */
+        flex-direction: column;
+        align-items: stretch; /* Asegurar que los elementos hijos se estiren */
+    }
 }
 
 .titleContent {
@@ -17,6 +23,11 @@
     align-items: stretch;
     height: 100%;
     width: 100%;
+
+    @include media($max: $mobile) {
+        flex-direction: column;
+        height: auto;
+    }
 }
 
 .titleImageContainer {
@@ -25,15 +36,28 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
+
+    @include media($max: $mobile) {
+        flex: none;
+        width: 100%;
+        height: 50vh; /* Ajustar la altura del contenedor de la imagen para móvil */
+        overflow: hidden; /* Asegurar que la imagen no salga del contenedor */
+    }
 }
 
 .titleImage {
-    width: 85%;
+    width: 100%;
     height: 100%;
     object-fit: cover; /* Asegurarse de que la imagen cubra el contenedor */
     border-radius: 0; /* Remover bordes redondeados */
     transform: scale(1.0); /* Aplicar zoom del X% */
     transform-origin: center; /* Asegurar que el zoom se centre */
+
+    @include media($max: $mobile) {
+        width: 100%;
+        height: 100%; /* Asegurarse de que la imagen cubra el contenedor en móvil */
+        object-fit: cover; /* Asegurar que la imagen cubra el contenedor sin distorsión */
+    }
 }
 
 .projectsContainer {
@@ -279,89 +303,22 @@
 @include media($max: $mobile) {
     .titleContent {
         flex-direction: column;
+        align-items: stretch;
+        height: auto;
     }
 
     .titleImageContainer {
         width: 100%;
-        height: auto;
+        height: 90vh; /* Ajustar la altura del contenedor de la imagen */
+        margin: 0;
+        padding: 0;
     }
 
     .titleImage {
         width: 100%;
-        height: auto;
-    }
-
-    .project {
-        &:nth-of-type(n) {
-            flex-direction: column;
-
-            &:hover {
-                .details {
-                    border-color: var(--primary-dim2);
-                }
-            }
-
-            .details {
-                border-radius: 1rem;
-                padding: var(--size-2x);
-            }
-
-            .stackContainer {
-                --padding-top: 1.5rem;
-
-                h4 {
-                    text-align: center;
-                    display: none;
-                }
-                ul {
-                    font-size: .6rem;
-                }
-            }
-
-            .imageContainer {
-                height: 100px;
-                width: 100%;
-            }
-
-            .imageAnimationContainer {
-                height: calc(100% + 6rem);
-                width: 100%;
-
-                > div > div {
-                    > span {
-                        img {
-                            width: calc(556px / 2) !important;
-                        }
-                    }
-                }
-            }
-        }
-
-        &:nth-of-type(2n+1) {
-            .imageAnimationContainer {
-                > div > div {
-                    > span {
-                        right: 2rem;
-                    }
-                }
-            }
-        }
-
-        &:nth-of-type(2n) {
-            .imageAnimationContainer {
-                > div > div {
-                    > span {
-                        right: 0rem;
-                    }
-                }
-            }
-        }
-    }
-
-    .bgContainer {
-        .orbitalBg {
-            width: unset;
-            height: 100%;
-        }
+        height: 100%; /* Ajustar para cubrir el contenedor */
+        object-fit: cover; /* Asegurar que la imagen cubra el contenedor sin distorsión */
+        margin: 0;
+        padding: 0;
     }
 }
