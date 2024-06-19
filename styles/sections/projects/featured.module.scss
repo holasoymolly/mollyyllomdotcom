@@ -305,13 +305,15 @@
         flex-direction: column;
         align-items: stretch;
         height: auto;
+        overflow-x: hidden; /* Asegurar que no haya desbordamiento horizontal */
     }
 
     .titleImageContainer {
         width: 100%;
-        height: 60vh; /* Ajustar la altura del contenedor de la imagen */
+        height: 50vh; /* Ajustar la altura del contenedor de la imagen */
         margin: 0;
         padding: 0;
+        overflow-x: hidden; /* Asegurar que no haya desbordamiento horizontal */
     }
 
     .titleImage {
@@ -320,5 +322,6 @@
         object-fit: cover; /* Asegurar que la imagen cubra el contenedor sin distorsión */
         margin: 0;
         padding: 0;
+        overflow-x: hidden; /* Asegurar que no haya desbordamiento horizontal */
     }
 }

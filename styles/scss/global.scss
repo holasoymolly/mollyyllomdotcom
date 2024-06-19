@@ -2,33 +2,37 @@
 @import '_mixins';
 
 ::selection {
-	color: 		var(--background);
+	color: var(--background);
 	background: var(--secondary);
 }
 
 html {
 	font-size: 16px;
 	font-family: var(--font-sans);
-
 	color: var(--primary-dim);
 	background: var(--background);
-	
 	text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+	overflow-x: hidden; /* Evitar desbordamiento horizontal */
 }
 
 #__next {
 	width: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evitar desbordamiento horizontal */
+}
+
+* {
+	box-sizing: border-box; /* Asegurar que padding y border se incluyan en el tamaño total de los elementos */
+	margin: 0;
+	padding: 0;
 }
 
 img {
 	border-radius: .5rem;
-	//width: 100%;
-	filter: brightness( var(--brightness-low) );
+	filter: brightness(var(--brightness-low));
 
 	&:hover {
-		filter: brightness( var(--brightness-high) );
+		filter: brightness(var(--brightness-high));
 	}
 }
 
@@ -43,6 +47,7 @@ button.button {
 	margin-right: 1rem;
 
 	@include transition(750ms);
+
 	&:hover {
 		@include transition(750ms);
 	}
@@ -117,8 +122,6 @@ a {
 		}
 	}
 
-	
-
 	[data-prefix="far"][data-icon="arrow-up-right-from-square"] {
 		height: .75rem;
 		vertical-align: -1.5px;
@@ -137,6 +140,7 @@ a {
 .list {
 	list-style: disc;
 	margin-left: 1.5rem;
+
 	li {
 		&::marker {
 			content: normal;
@@ -174,10 +178,10 @@ a {
     height: 100%;
     transform: rotate(180deg);
     aspect-ratio: auto;
-    --gradient-color-1: var( --mesh-color-1 );
-	--gradient-color-2: var( --mesh-color-2 );
-	--gradient-color-3: var( --mesh-color-3 );
-	--gradient-color-4: var( --mesh-color-4 );
+    --gradient-color-1: var(--mesh-color-1);
+	--gradient-color-2: var(--mesh-color-2);
+	--gradient-color-3: var(--mesh-color-3);
+	--gradient-color-4: var(--mesh-color-4);
 }
 
 .highlight {
