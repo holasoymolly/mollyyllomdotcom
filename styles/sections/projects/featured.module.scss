@@ -7,15 +7,14 @@
 .titleContainer {
     background-color: var(--bg-color-3);
     padding: 0;
-    height: 70vh; /* Asegúrate de que ocupe toda la altura disponible */
+    height: 70vh; /* Asegurarse de que ocupe toda la altura disponible */
     display: flex;
     align-items: center;
-    overflow-x: hidden; /* Asegura que no haya desbordamiento horizontal */
 
     @include media($max: $mobile) {
-        height: auto; /* Ajusta la altura para móvil */
+        height: auto; /* Ajustar la altura para móvil */
         flex-direction: column;
-        align-items: stretch; /* Asegura que los elementos hijos se estiren */
+        align-items: stretch; /* Asegurar que los elementos hijos se estiren */
     }
 }
 
@@ -28,12 +27,11 @@
     @include media($max: $mobile) {
         flex-direction: column;
         height: auto;
-        overflow-x: hidden; /* Asegura que no haya desbordamiento horizontal */
     }
 }
 
 .titleImageContainer {
-    flex: 0 0 65%; /* Ajusta el ancho del contenedor según sea necesario */
+    flex: 0 0 65%; /* Ajustar el ancho del contenedor según sea necesario */
     height: 100%;
     overflow: hidden;
     margin: 0;
@@ -42,24 +40,23 @@
     @include media($max: $mobile) {
         flex: none;
         width: 100%;
-        height: 50vh; /* Ajusta la altura del contenedor de la imagen para móvil */
-        overflow: hidden; /* Asegura que la imagen no salga del contenedor */
+        height: 50vh; /* Ajustar la altura del contenedor de la imagen para móvil */
+        overflow: hidden; /* Asegurar que la imagen no salga del contenedor */
     }
 }
 
 .titleImage {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegúrate de que la imagen cubra el contenedor */
-    border-radius: 0; /* Remueve bordes redondeados */
-    transform: scale(1.0); /* Aplica zoom del X% */
-    transform-origin: center; /* Asegura que el zoom se centre */
-    overflow-x: hidden; /* Asegura que no haya desbordamiento horizontal */
+    object-fit: cover; /* Asegurarse de que la imagen cubra el contenedor */
+    border-radius: 0; /* Remover bordes redondeados */
+    transform: scale(1.0); /* Aplicar zoom del X% */
+    transform-origin: center; /* Asegurar que el zoom se centre */
 
     @include media($max: $mobile) {
         width: 100%;
-        height: 100%; /* Asegúrate de que la imagen cubra el contenedor en móvil */
-        object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsión */
+        height: 100%; /* Asegurarse de que la imagen cubra el contenedor en móvil */
+        object-fit: cover; /* Asegurar que la imagen cubra el contenedor sin distorsión */
     }
 }
 
@@ -73,6 +70,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     user-select: none;
+
     border-radius: 2rem;
     background-color: var(--background-dim2);
     border: 1px solid var(--primary-dark);
@@ -142,6 +140,7 @@
     flex-shrink: 1;
     gap: var(--size-3x);
     overflow: hidden;
+
     padding: 2rem;
 
     h3 {
@@ -306,23 +305,23 @@
         flex-direction: column;
         align-items: stretch;
         height: auto;
-        overflow-x: hidden; /* Asegura que no haya desbordamiento horizontal */
+        overflow-x: hidden; /* Asegurar que no haya desbordamiento horizontal */
     }
 
     .titleImageContainer {
         width: 100%;
-        height: 50vh; /* Ajusta la altura del contenedor de la imagen */
+        height: 50vh; /* Ajustar la altura del contenedor de la imagen */
         margin: 0;
         padding: 0;
-        overflow-x: hidden; /* Asegura que no haya desbordamiento horizontal */
+        overflow-x: hidden; /* Asegurar que no haya desbordamiento horizontal */
     }
 
     .titleImage {
         width: 100%;
-        height: 100%; /* Asegura que la imagen cubra el contenedor */
-        object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsión */
+        height: 100%; /* Ajustar para cubrir el contenedor */
+        object-fit: cover; /* Asegurar que la imagen cubra el contenedor sin distorsión */
         margin: 0;
         padding: 0;
-        overflow-x: hidden; /* Asegura que no haya desbordamiento horizontal */
+        overflow-x: hidden; /* Asegurar que no haya desbordamiento horizontal */
     }
 }
