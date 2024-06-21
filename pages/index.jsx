@@ -19,7 +19,6 @@ export default function HomePage() {
 			{/* <Looking /> */}
 			<FeaturedProjects />
 			<About />
-			<Technical />
 			{/* <Career /> */}
 		</>
 	);

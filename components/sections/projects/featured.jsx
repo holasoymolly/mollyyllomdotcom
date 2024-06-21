@@ -13,8 +13,8 @@ export default function FeaturedProjects() {
     return (
         <>
             <Section classProp={css.hasBg}>
-                <Container spacing={'verticalXXXXLrg'} classProp={`${css.titleContainer} ${containerCss.spacingTopNone} ${containerCss.spacingBottomMedium} ${containerCss.spacingLeftNone} ${containerCss.spacingRightMedium}`}>
-                    <div className={css.titleContent}>
+                <Container spacing={'verticalXXXXLrg'} classProp={` w-full m-0`}>
+                    <div className={`${css.titleContent} w-full`}>
                         <div className={css.titleImageContainer}>
                             <img src="/img/SEV_1699 copy.jpg" alt="Imagen de proyecto" className={css.titleImage} />
                         </div>
