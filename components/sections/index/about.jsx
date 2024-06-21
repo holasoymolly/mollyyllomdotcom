@@ -28,13 +28,17 @@ export default function About() {
 		<Section classProp={about.section}>
 			<Container spacing={['verticalXXXLrg']}>
 				<SectionTitle
-					title="About Me"
-					preTitle="Synopsis"
-					subTitle="With a diverse skill set that includes UX design, UI design, full stack development, operational architecture, systems design, photography, and branding, I am a well-rounded digital professional."
+					title="Conóceme"
+					preTitle=""
+					subTitle="Con más de 15 años de experiencia en diseño gráfico y dirección de arte, mi pasión es crear historias visuales que conecten con las audiencias y dejen una impresión duradera.
+
+He liderado y colaborado con equipos talentosos, estrechamente con clientes y socios externos para garantizar la ejecución exitosa de estrategias creativas y campañas publicitarias.
+
+Poseo una Maestría en Dirección de Arte y una Licenciatura en Publicidad y con los años me he ido especializando en la creación de logos e identidades visuales que impactan. Mi enfoque es desarrollar soluciones creativas para marcas en diversos sectores."
 				/>
 				<section className={about.content}>
 					<div className={about.image}>
-						<img src="/img/family-photo.jpg" alt="Nelson family photo" />
+						<img src="/img/SEV_1720.jpg" alt="Molly Yllom" />
 						{/* <Image src="/img/family-photo.jpg" width={600} height={800}/> */}
 					</div>
 					<div className={about.copy} >

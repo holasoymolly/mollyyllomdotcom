@@ -3,11 +3,11 @@
     "subTitle": "En el mundo del diseño gráfico, cada decisión cuenta. Desde la elección de colores hasta la tipografía utilizada, cada detalle comunica un mensaje único sobre tu marca. Con mi asesoría personalizada, te guiaré en cada paso del proceso para asegurarnos de que cada aspecto de tu proyecto refleje la esencia y los valores de la marca.",
     "projects": [
         {
-            "project": "My Supply Co.",
+            "project": "Servicios",
             "url": "https://mysupplyco.com",
-            "repo": "Private",
-            "descriptionTitle": "D2C & B2B ecommerce site and blog",
-            "description": "with elegant solutions for a complex codebase and customer journey.",
+            "repo": "",
+            "descriptionTitle": "Logos e Identidad Visual,",
+            "description": "Creación de Marca, Diseño Editorial, Web, para Grandes Formatos, Redes Sociales, Banners y más.",
             "images": [
                 { "key": "mock-stack", "hover": "right", "h": "1200", "w": "556", "url": "/img/msc-mock_stack/03.png" },
                 { "key": "mock-stack", "hover": "right", "h": "1200", "w": "556", "url": "/img/msc-mock_stack/02.png" },
@@ -28,11 +28,11 @@
             ]
         },
         {
-            "project": "Haz tu cita!",
+            "project": "",
             "url": "https://calendly.com/hola-msny/30min",
-            "repo": "Public",
-            "descriptionTitle": "An open source portfolio",
-            "description": "built on Next.js and React. A fast and agile MERN stack single page application.",
+            "repo": "",
+            "descriptionTitle": "Diseño que comunica,",
+            "description": "Marca que impacta.",
             "images": [
                 { "key": "portfolio", "hover": "left", "h": "797", "w": "556", "url": "/img/portfolio-mock_single.png" }
             ],
