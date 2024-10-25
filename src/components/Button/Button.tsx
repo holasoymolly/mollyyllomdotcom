@@ -6,7 +6,7 @@ interface ButtonProps {
   href: string;
   text: string;
   size?: 'small' | 'medium' | 'large';
-  variant?: 'white' | 'black';
+  variant?: 'stone-200' | 'violet-900';
   className?: string; // Add className prop for external customization
 }
 
@@ -18,8 +18,8 @@ export const Button = ({ href, text, size = 'medium', variant = 'white', classNa
   });
 
   const variantClasses = cn({
-    'bg-black text-white': variant === 'black',
-    'bg-white text-gray-800': variant === 'white',
+    'bg-indigo-950 text-stone-200': variant === 'black',
+    'bg-stone-200 text-indigo-950': variant === 'white',
   });
 
   return (

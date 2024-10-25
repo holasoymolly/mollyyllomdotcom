@@ -13,10 +13,10 @@ export const MediaSection = () => {
         />
       </figure>
       <div className="w-full h-full md:w-1/2 flex flex-col items-center md:items-start justify-between p-6 md:p-12 space-y-4 md:space-y-6 text-center md:text-left">
-        <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-5xl font-bold">
+        <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-5xl font-bold text-indigo-950">
           ¿Listx para llevar tu proyecto al siguiente nivel?
         </h2>
-        <p className="text-base sm:text-lg md:text-base lg:text-xl xl:text-2xl">
+        <p className="text-base sm:text-lg md:text-base lg:text-xl xl:text-2xl text-indigo-950">
           En el mundo del diseño gráfico, cada decisión cuenta. Desde la elección de colores hasta
           la tipografía utilizada, cada detalle comunica un mensaje único sobre tu marca.
         </p>

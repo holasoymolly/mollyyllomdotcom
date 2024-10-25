@@ -8,7 +8,7 @@ import { QuoteBanner } from '../../../components/QuoteBanner';
 
 export const Main = () => {
   return (
-    <main className="bg-white">
+    <main className="bg-stone-200">
       <Banner />
       <MediaSection />
       <PortfolioGrid />

@@ -11,7 +11,7 @@ export const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-white shadow-md w-full">
+    <header className="bg-stone-200 shadow-md w-full">
       <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
         <div className="flex-shrink-0">
           <Link href="/">

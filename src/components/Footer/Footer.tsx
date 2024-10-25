@@ -8,19 +8,19 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="w-full py-6 bg-white">
+    <footer className="w-full py-6 bg-stone-200">
       <div className="flex flex-col md:flex-row items-center justify-between px-4 md:px-8">
         <nav className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 text-center md:text-left">
-          <Link href="/conoceme/" className="text-black font-bold">
+          <Link href="/conoceme/" className="text-indigo-950 font-bold">
             Conóceme
           </Link>
-          <Link href="/proyectos" className="text-black font-bold">
+          <Link href="/proyectos" className="text-indigo-950 font-bold">
             Proyectos
           </Link>
-          <Link href="/contacto" className="text-black font-bold">
+          <Link href="/contacto" className="text-indigo-950 font-bold">
             Contacto
           </Link>
-          <Link href="/descargas" className="text-black font-bold">
+          <Link href="/descargas" className="text-indigo-950 font-bold">
             Descargas
           </Link>
         </nav>

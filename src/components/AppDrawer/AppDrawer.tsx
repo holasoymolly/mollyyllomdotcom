@@ -28,7 +28,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
       <div className="flex flex-col h-full">
         {/* Close button */}
         <button
-          className="self-end p-4 text-gray-700"
+          className="self-end p-4 text-violet-900"
           onClick={onClose}
           aria-label="Close menu"
         >
@@ -58,16 +58,16 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
 
         {/* Navigation Links */}
         <nav className="flex flex-col items-center space-y-6 mt-8">
-          <Link href="/conoceme" onClick={onClose} className="text-gray-800 font-semibold text-lg hover:text-blue-600">
+          <Link href="/conoceme" onClick={onClose} className="text-#2D2C4D font-semibold text-lg hover:text-violet-900">
             Conóceme
           </Link>
-          <Link href="/proyectos" onClick={onClose} className="text-gray-800 font-semibold text-lg hover:text-blue-600">
+          <Link href="/proyectos" onClick={onClose} className="text-#2D2C4D font-semibold text-lg hover:text-violet-900">
             Proyectos
           </Link>
-          <Link href="/contacto" onClick={onClose} className="text-gray-800 font-semibold text-lg hover:text-blue-600">
+          <Link href="/contacto" onClick={onClose} className="text-#2D2C4D font-semibold text-lg hover:text-violet-900">
             Contacto
           </Link>
-          <Link href="/descargas" onClick={onClose} className="text-gray-800 font-semibold text-lg hover:text-blue-600">
+          <Link href="/descargas" onClick={onClose} className="text-#2D2C4D font-semibold text-lg hover:text-violet-900">
             Descargas
           </Link>
         </nav>
