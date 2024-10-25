@@ -1,0 +1,31 @@
+'use client';
+
+import { Header } from "@/components/Header";
+import { FC } from "react";
+import { Footer } from "@/components/Footer";
+import { PortfolioGrid } from "@/components/PortfolioGrid";
+import { QuoteBanner } from "@/components/QuoteBanner";
+
+export const ProjectsPage: FC = () => {
+  return (
+    <div>
+      <Header />
+      <main className="max-w-5xl mx-auto px-6 py-12 space-y-16"> {/* No background color */}
+        <section className="text-center space-y-6">
+          <h1 className="text-4xl font-bold text-gray-900">Proyectos</h1>
+          <p className="text-lg leading-relaxed text-gray-700">
+            ¡Bienvenidx a la galería de proyectos! Aquí encontrarás algunos de los trabajos en los que he dejado mi huella creativa. Cada proyecto cuenta una historia única que espero te inspire y te motive.
+          </p>
+        </section>
+
+        <section className="space-y-12">
+          <div className="bg-white shadow-xl rounded-lg p-8 border border-gray-200"> {/* Stronger shadow and border */}
+            <PortfolioGrid />
+          </div>
+        </section>
+      </main>
+      <QuoteBanner />
+      <Footer />
+    </div>
+  );
+};
