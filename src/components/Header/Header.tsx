@@ -57,16 +57,16 @@ export const Header = () => {
 
         {/* Navigation links for desktop */}
         <nav className="hidden lg:flex items-center space-x-6">
-          <Link href="/conoceme" className="text-gray-800 font-semibold hover:text-blue-600">
+          <Link href="/conoceme" className="text-indigo-950 font-semibold hover:text-violet-900">
             Conóceme
           </Link>
-          <Link href="/proyectos" className="text-gray-800 font-semibold hover:text-blue-600">
+          <Link href="/proyectos" className="text-indigo-950 font-semibold hover:text-violet-900">
             Proyectos
           </Link>
-          <Link href="/contacto" className="text-gray-800 font-semibold hover:text-blue-600">
+          <Link href="/contacto" className="text-indigo-950 font-semibold hover:text-violet-900">
             Contacto
           </Link>
-          <Link href="/descargas" className="text-gray-800 font-semibold hover:text-blue-600">
+          <Link href="/descargas" className="text-indigo-950 font-semibold hover:text-violet-900">
             Descargas
           </Link>
         </nav>
