@@ -50,7 +50,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
     <div>
       <Header />
       <main className="max-w-5xl mx-auto px-6 py-12 space-y-16">
-        <section className="text-center space-y-6">
+        <section className="text-left space-y-6">
           <h1 className="text-4xl font-bold text-gray-900">{project.title}</h1>
         </section>
 

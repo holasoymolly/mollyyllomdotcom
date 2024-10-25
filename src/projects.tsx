@@ -325,12 +325,13 @@ const cdtLogoProject: Project = {
   images: [],
 };
 
-export const allProjects = [
+
+export const activeProjects = [
+  neustackProject,
   allianceProject,
   materDesignProject,
   neuschoolProject,
   momProject,
-  neustackProject,
   dinerologyProject,
   riccieOriachProject,
   mlLogoProject,
@@ -342,7 +343,7 @@ export const allProjects = [
   cdtLogoProject,
 ];
 
-export const projectsBySlug: Record<string, Project> = allProjects.reduce((acc, project) => {
+export const projectsBySlug: Record<string, Project> = activeProjects.reduce((acc, project) => {
   acc[project.slug] = project;
   return acc;
 }, {} as Record<string, Project>);

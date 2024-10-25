@@ -1,12 +1,12 @@
 'use client';
 
-import { allProjects } from "@/projects";
+import { activeProjects } from "@/projects";
 
 export const PortfolioGrid = () => {
   return (
     <section>
       <div className="grid grid-cols-3 gap-0">
-        {allProjects.map((item, index) => (
+        {activeProjects.map((item, index) => (
           <figure key={index} className="w-full aspect-square overflow-hidden">
             {item.slug ? (
               <a href={`/proyectos/${item.slug}`} rel="noreferrer">
