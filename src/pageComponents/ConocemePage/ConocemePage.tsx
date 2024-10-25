@@ -11,9 +11,9 @@ export const ConocemePage: FC = () => {
       <Header />
 
       {/* Main Bio Section */}
-      <main className="bg-stone-200 max-w-5xl mx-auto px-6 py-12 space-y-16">
+      <main className="max-w-5xl mx-auto px-6 py-12 space-y-16">
         {/* Artist Bio Section */}
-        <section className= " bg-stone-200 flex flex-col md:flex-row items-center space-y-12 md:space-y-0 md:space-x-12">
+        <section className="flex flex-col md:flex-row items-center space-y-12 md:space-y-0 md:space-x-12">
           <div className="w-full md:w-1/2">
             <img
               src="/img/molly/molly2.jpg"
@@ -49,13 +49,11 @@ export const ConocemePage: FC = () => {
               <strong>asesoría personalizada</strong>, te guiaré en cada paso del proceso para que el diseño
               de tu marca sea inolvidable.
             </p>
-            <div className="mt-6">
-              <QuoteBanner />
-            </div>
+           
           </div>
         </section>
       </main>
-
+      <QuoteBanner />
       <Footer />
     </div>
   );

@@ -4,7 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FC } from "react";
 import { DeviconPlainLinkedin } from '@/icons/DeviconPlainLinkedin';
-import { IconParkTwotoneTiktok } from "@/icons/IconParkTwotoneTiktok";
+import { IcOutlineTiktok } from "@/icons/IcOutlineTiktok";
 import { IcRoundFacebook } from "@/icons/IcRoundFacebook";
 import { RiBehanceFill } from "@/icons/RiBehanceFill";
 import { RiInstagramLine } from "@/icons/RiInstagramLine";
@@ -59,7 +59,7 @@ export const ContactPage: FC = () => {
                     <IcRoundFacebook className="w-8 h-8" />
                   </a>
                   <a href="https://www.tiktok.com/@soymollyyllom" aria-label="TikTok" className="text-gray-800 hover:text-blue-600">
-                    <IconParkTwotoneTiktok className="w-8 h-8" />
+                    <IcOutlineTiktok className="w-8 h-8" />
                   </a>
                   <a href="https://www.linkedin.com/in/mollyyllom" aria-label="LinkedIn" className="text-gray-800 hover:text-blue-600">
                     <DeviconPlainLinkedin className="w-8 h-8" />

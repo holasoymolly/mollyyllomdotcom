@@ -26,7 +26,7 @@ export const MediaSection = () => {
             text="Haz tu cita aquí"
             size="large"
             className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-base lg:px-8 lg:py-4 lg:text-lg"
-            variant="black"
+            variant="dark"
           />
         </div>
       </div>

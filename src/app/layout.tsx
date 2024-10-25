@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import { GoogleTagManager } from '@next/third-parties/google'
 import "./globals.css";
 
-const inter = Inter({
+const font = Roboto({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: "400",
   display: "swap",
 });
 
@@ -44,7 +44,7 @@ export default function RootLayout({
       <head>
         <meta name="robots" content="max-image-preview:large" />
       </head>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${font.className} antialiased`}>
         {children}
         <SpeedInsights />
         <Analytics />
