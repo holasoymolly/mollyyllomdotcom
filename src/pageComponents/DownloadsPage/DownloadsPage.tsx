@@ -14,8 +14,8 @@ export const DownloadsPage: FC = () => {
       <main className="max-w-5xl mx-auto px-6 py-12 space-y-16">
         {/* Introduction */}
         <section className="text-center space-y-6">
-          <h1 className="text-4xl font-bold text-gray-900">Descargas</h1>
-          <p className="text-lg leading-relaxed text-gray-700">
+          <h1 className="text-4xl font-bold text-indigo-950">Descargas</h1>
+          <p className="text-lg leading-relaxed text-indigo-950">
             Explora nuestras plantillas y recursos gratuitos que puedes descargar para mejorar tu proceso creativo.
           </p>
         </section>
@@ -29,12 +29,12 @@ export const DownloadsPage: FC = () => {
                 alt={item.title}
                 className="w-full h-60 object-cover rounded-lg"
               />
-              <h3 className="text-xl font-bold text-gray-900 text-center">{item.title}</h3>
+              <h3 className="text-xl font-bold text-indigo-950 text-center">{item.title}</h3>
               <a
                 href={item.downloadUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full transition hover:bg-blue-700"
+                className="px-6 py-3 bg-indigo-950 text-stone-200 font-semibold rounded-full transition hover:bg-violet-900"
               >
                 Descarga Gratis
               </a>

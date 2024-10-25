@@ -45,7 +45,7 @@ export const ConocemePage: FC = () => {
             <h2 className="text-3xl font-bold">¿Listx para llevar tu marca al siguiente nivel?</h2>
             <p className="text-lg leading-relaxed">
               En el mundo del diseño gráfico, cada decisión cuenta. Desde la elección de colores hasta la
-              tipografía utilizada, cada detalle comunica un mensaje único sobre tu marca. Con mi{" "}
+              tipografía utilsizada, cada detalle comunica un mensaje único sobre tu marca. Con mi{" "}
               <strong>asesoría personalizada</strong>, te guiaré en cada paso del proceso para que el diseño
               de tu marca sea inolvidable.
             </p>
