@@ -21,6 +21,7 @@ export const Header = () => {
               width={137}
               height={88}
               priority
+              draggable={false}
             />
           </Link>
         </div>

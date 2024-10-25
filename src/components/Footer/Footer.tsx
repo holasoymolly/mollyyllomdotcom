@@ -31,6 +31,7 @@ export const Footer: React.FC = () => {
               src="/img/logo/molly-yllom-logo-homepage.png"
               alt="Molly Yllom"
               className="w-32 h-auto md:w-48"
+              draggable={false}
             />
           </Link>
         </div>
