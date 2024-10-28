@@ -19,7 +19,7 @@ export const ProjectsPage: FC = () => {
         </section>
 
         <section className="space-y-12">
-          <div className="bg-stone-200"> {/* Stronger shadow and border */}
+          <div className="bg-stone-200"> {/* Stronger border */}
             <PortfolioGrid />
           </div>
         </section>

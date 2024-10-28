@@ -24,7 +24,7 @@ export const ContactPage: FC = () => {
               <img
                 src="/img/molly/molly2.jpg"
                 alt="Molly Yllom"
-                className="w-full h-auto object-cover rounded-lg shadow-lg"
+                className="w-full h-auto object-cover rounded-lg"
               />
             </div>
 

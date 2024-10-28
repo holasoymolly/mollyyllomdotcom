@@ -59,7 +59,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
           <img
             src={project.heroImage}
             alt={`${project.title} Hero Image`}
-            className="w-full h-[400px] object-cover rounded-lg shadow-lg"
+            className="w-full h-[400px] object-cover rounded-lg"
           />
         </section>
 
@@ -74,7 +74,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
         {/* Portfolio Images Grid */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {project.images.map((image, index) => (
-            <div key={index} className="overflow-hidden rounded-lg shadow-lg cursor-pointer" onClick={() => openModal(index + 1)}>
+            <div key={index} className="overflow-hidden rounded-lg cursor-pointer" onClick={() => openModal(index + 1)}>
               <img
                 src={image}
                 alt={`${project.title} Image ${index + 1}`}
@@ -91,7 +91,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
           <div className="relative w-full max-w-5xl h-[90vh] flex flex-col justify-center items-center">
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 w-12 h-12 bg-stone-200 text-indigo-950 rounded-full flex justify-center items-center text-2xl font-bold z-50 shadow-lg transition hover:bg-stone-200"
+              className="absolute top-4 right-4 w-12 h-12 bg-stone-200 text-indigo-950 rounded-full flex justify-center items-center text-2xl font-bold z-50 transition hover:bg-stone-200"
             >
               &times;
             </button>

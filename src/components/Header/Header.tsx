@@ -11,7 +11,7 @@ export const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-stone-200 shadow-md w-full">
+    <header className="bg-stone-200 w-full">
       <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
         <div className="flex-shrink-0">
           <Link href="/">
@@ -27,7 +27,7 @@ export const Header = () => {
         </div>
 
         <button
-          className="lg:hidden block text-gray-800"
+          className="lg:hidden block text-indigo-950"
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >

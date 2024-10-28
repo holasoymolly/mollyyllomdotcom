@@ -23,7 +23,7 @@ export const DownloadsPage: FC = () => {
         {/* Downloads Grid */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {downloadData.map((item, index) => (
-            <div key={index} className="flex flex-col items-center space-y-4 p-6 bg-stone-200 rounded-lg shadow-lg">
+            <div key={index} className="flex flex-col items-center space-y-4 p-6 bg-stone-200 rounded-lg">
               <img
                 src={item.image}
                 alt={item.title}

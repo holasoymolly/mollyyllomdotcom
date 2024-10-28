@@ -1,9 +1,10 @@
 'use client';
 
 import { Header } from "@/components/Header";
-import { FC } from "react";
 import { Footer } from "@/components/Footer";
 import { QuoteBanner } from "@/components/QuoteBanner";
+import { Button } from "@/components/Button";
+import { FC } from "react";
 
 export const ConocemePage: FC = () => {
   return (
@@ -11,49 +12,60 @@ export const ConocemePage: FC = () => {
       <Header />
 
       {/* Main Bio Section */}
-      <main className="max-w-5xl mx-auto px-6 py-12 space-y-16">
-        {/* Artist Bio Section */}
-        <section className="flex flex-col md:flex-row items-center space-y-12 md:space-y-0 md:space-x-12">
-          <div className="w-full md:w-1/2">
-            <img
-              src="/img/molly/molly2.jpg"
-              alt="Molly Yllom"
-              className="w-full h-auto object-cover"
-            />
+      <main className="px-0 lg:px-0 py-11 space-y-1">
+        {/* Introductory Bio Section */}
+        <section className="max-w-5xl mx-auto flex flex-col md:flex-row md:space-x-8">
+          <div className="w-full md:w-1/2 pl-6 lg:pl-0">
+            <h1 className="text-4xl font-bold text-indigo-950 lg:ml-[-2rem]">
+              Conóceme
+            </h1>
           </div>
-          <div className="w-full md:w-1/2 space-y-6">
-            <h1 className="text-4xl font-bold text-indigo-950">Conóceme</h1>
-            <p className="text-lg leading-relaxed text-indigo-950">
+          <div className="w-full md:w-1/2">
+            <p className="text-lg leading-relaxed text-indigo-950 text-justify-left">
               Con más de 15 años de experiencia en diseño gráfico y dirección de arte, mi pasión es
               crear historias visuales que conecten con las audiencias y dejen una impresión duradera.
-            </p>
-            <p className="text-lg leading-relaxed text-indigo-950">
               He liderado y colaborado con equipos talentosos, estrechamente con clientes y socios
               externos para garantizar la ejecución exitosa de estrategias creativas y campañas
-              publicitarias.
-            </p>
-            <p className="text-lg leading-relaxed text-indigo-950">
-              Mi enfoque es desarrollar soluciones creativas que impactan, con un ojo siempre puesto
-              en los detalles que hacen la diferencia.
+              publicitarias. Mi enfoque es desarrollar soluciones creativas que impactan, con un ojo 
+              siempre puesto en los detalles que hacen la diferencia.
             </p>
           </div>
         </section>
 
-        {/* Call to Action Section */}
-        <section className="bg-stone-200 text-indigo-950 rounded-lg p-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold">¿Listx para llevar tu marca al siguiente nivel?</h2>
-            <p className="text-lg leading-relaxed">
-              En el mundo del diseño gráfico, cada decisión cuenta. Desde la elección de colores hasta la
-              tipografía utilsizada, cada detalle comunica un mensaje único sobre tu marca. Con mi{" "}
+        {/* Image and Call to Action Section */}
+        <section className="flex flex-col md:flex-row items-center md:items-stretch md:py-16 mb-0">
+          <div className="w-screen md:w-1/2 h-[41.47rem] overflow-hidden">
+            <img
+              src="/img/molly/molly2.jpg"
+              alt="Molly Yllom"
+              className="object-cover w-full h-full mb-0"
+            />
+          </div>
+          <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-12 bg-stone-200 space-y-6 text-center md:text-left">
+            <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-5xl font-bold text-indigo-950">
+              ¿Listx para llevar tu marca al siguiente nivel?
+            </h2>
+            <p className="text-lg leading-relaxed text-indigo-950 text-justify-left">
+              En el mundo del diseño gráfico, cada decisión cuenta. Desde la elección de colores hasta
+              la tipografía utilizada, cada detalle comunica un mensaje único sobre tu marca. Con mi{" "}
               <strong>asesoría personalizada</strong>, te guiaré en cada paso del proceso para que el diseño
               de tu marca sea inolvidable.
             </p>
-           
+            <div className="mt-6">
+              <Button
+                href="https://calendly.com/hola-msny/30min"
+                text="Haz tu cita aquí"
+                size="large"
+                className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-base lg:px-8 lg:py-4 lg:text-lg"
+                variant="dark"
+              />
+            </div>
           </div>
         </section>
       </main>
-      <QuoteBanner />
+
+      <QuoteBanner className="mt-0" />
+
       <Footer />
     </div>
   );
