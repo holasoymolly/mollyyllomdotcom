@@ -325,6 +325,14 @@ const cdtLogoProject: Project = {
   images: [],
 };
 
+const advanced: Project = {
+  slug: "",
+  title: "Advanced Therapy",
+  portfolioImage: "/img/projects/advanced-therapy/ATOSF-Logo-Animation.gif",
+  heroImage: "",
+  paragraphs: [],
+  images: [],
+};
 
 export const activeProjects = [
   neustackProject,
@@ -341,6 +349,7 @@ export const activeProjects = [
   ditoDicoProject,
   bhMobiliarioProject,
   cdtLogoProject,
+  advanced,
 ];
 
 export const projectsBySlug: Record<string, Project> = activeProjects.reduce((acc, project) => {
