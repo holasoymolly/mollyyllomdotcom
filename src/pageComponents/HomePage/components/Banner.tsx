@@ -4,7 +4,7 @@ import { Button } from "@/components/Button";
 
 export const Banner = () => {
   return (
-    <section className="bg-cover bg-center py-10 text-center bg-indigo-950 text-white">
+    <section className="bg-cover bg-center py-10 text-center bg-indigo-950 text-stone-200">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
           Diseño que comunica, marca que impacta

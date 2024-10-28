@@ -10,7 +10,7 @@ interface AppDrawerProps {
 export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
   return (
     <motion.div
-      className="fixed inset-0 bg-white z-50"
+      className="fixed inset-0 bg-stone-200 z-50"
       initial={{ opacity: 0, x: "100%" }}
       animate={{
         opacity: isOpen ? 1 : 0,

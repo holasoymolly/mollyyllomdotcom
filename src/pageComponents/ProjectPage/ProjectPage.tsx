@@ -26,7 +26,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
         <main className="flex flex-col justify-center items-center h-[80vh] text-center">
           <h1 className="text-4xl font-bold text-indigo-950">Proyecto No Encontrado</h1>
           <p className="text-lg text-indigo-950 mt-4">Lo sentimos, el proyecto que estás buscando no existe.</p>
-          <Link href="/" className="mt-6 bg-blue-600 text-stone-200 font-semibold py-3 px-6 rounded-full transition hover:bg-blue-700">
+          <Link href="/" className="mt-6 bg-violet-900 text-stone-200 font-semibold py-3 px-6 rounded-full transition hover:bg-violet-900">
             Volver a la página principal
           </Link>
         </main>
@@ -51,7 +51,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
       <Header />
       <main className="max-w-5xl mx-auto px-6 py-12 space-y-16">
         <section className="text-left space-y-6">
-          <h1 className="text-4xl font-bold text-gray-900">{project.title}</h1>
+          <h1 className="text-4xl font-bold text-indigo-950">{project.title}</h1>
         </section>
 
         {/* Hero Image */}
@@ -65,7 +65,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
 
         <section className="space-y-6">
           {project.paragraphs.map((paragraph, index) => (
-            <p key={index} className="text-lg text-gray-700 leading-relaxed">
+            <p key={index} className="text-lg text-indigo-950 leading-relaxed">
               {paragraph}
             </p>
           ))}
@@ -87,11 +87,11 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
 
       {/* Lightbox Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex justify-center items-center">
+        <div className="fixed inset-0 z-50 bg-indigo-950 bg-opacity-90 flex justify-center items-center">
           <div className="relative w-full max-w-5xl h-[90vh] flex flex-col justify-center items-center">
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 w-12 h-12 bg-white text-black rounded-full flex justify-center items-center text-2xl font-bold z-50 shadow-lg transition hover:bg-gray-300"
+              className="absolute top-4 right-4 w-12 h-12 bg-stone-200 text-indigo-950 rounded-full flex justify-center items-center text-2xl font-bold z-50 shadow-lg transition hover:bg-stone-200"
             >
               &times;
             </button>
