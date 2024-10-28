@@ -14,13 +14,13 @@ export const ConocemePage: FC = () => {
       {/* Main Bio Section */}
       <main className="px-0 lg:px-0 py-11 space-y-1">
         {/* Introductory Bio Section */}
-        <section className="max-w-5xl mx-auto flex flex-col md:flex-row md:space-x-8">
+        <section className="max-w-7xl mx-auto flex flex-col md:flex-row md:space-x-8"> {/* Ampliado a max-w-7xl */}
           <div className="w-full md:w-1/2 pl-6 lg:pl-0">
-            <h1 className="text-4xl font-bold text-indigo-950 lg:ml-[-2rem]">
+            <h1 className="text-4xl font-bold text-indigo-950 lg:ml-[1rem]">
               Conóceme
             </h1>
           </div>
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 pl-8"> {/* Eliminado max-w para permitir más espacio */}
             <p className="text-lg leading-relaxed text-indigo-950 text-justify-left">
               Con más de 15 años de experiencia en diseño gráfico y dirección de arte, mi pasión es
               crear historias visuales que conecten con las audiencias y dejen una impresión duradera.
@@ -38,7 +38,7 @@ export const ConocemePage: FC = () => {
             <img
               src="/img/molly/molly2.jpg"
               alt="Molly Yllom"
-              className="object-cover w-full h-full mb-0"
+              className="object-cover w-full h-full"
             />
           </div>
           <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-12 bg-stone-200 space-y-6 text-center md:text-left">
@@ -64,7 +64,7 @@ export const ConocemePage: FC = () => {
         </section>
       </main>
 
-      <QuoteBanner className="mt-0" />
+      <QuoteBanner /> 
 
       <Footer />
     </div>
