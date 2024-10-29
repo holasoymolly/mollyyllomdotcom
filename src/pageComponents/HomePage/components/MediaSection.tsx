@@ -7,7 +7,7 @@ export const MediaSection = () => {
     <section className="flex flex-col md:flex-row items-center md:py-16 max-h-[600px] overflow-hidden">
       <figure className="w-full lg:w-1/2 h-full overflow-hidden">
         <img
-          src="/img/molly/molly1.jpg"
+          src="/img/molly/molly1.webp"
           alt="Media Image"
           className="object-cover w-full h-full"
         />

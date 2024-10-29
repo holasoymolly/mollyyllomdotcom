@@ -36,7 +36,7 @@ export const ConocemePage: FC = () => {
         <section className="flex flex-col md:flex-row items-center md:items-stretch md:py-16 mb-0">
           <div className="w-screen md:w-1/2 h-[41.47rem] overflow-hidden">
             <img
-              src="/img/molly/molly2.jpg"
+              src="/img/molly/molly2.webp"
               alt="Molly Yllom"
               className="object-cover w-full h-full"
             />
