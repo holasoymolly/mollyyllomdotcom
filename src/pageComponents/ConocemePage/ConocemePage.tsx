@@ -43,7 +43,7 @@ export const ConocemePage: FC = () => {
           </div>
           <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-12 bg-stone-200 space-y-6 text-center md:text-left">
             <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-5xl font-bold text-indigo-950">
-              ¿Listx para llevar tu marca al siguiente nivel?
+              ¿Listx para llevar tu proyecto al siguiente nivel?
             </h2>
             <p className="text-lg leading-relaxed text-indigo-950 text-justify-left">
               En el mundo del diseño gráfico, cada decisión cuenta. Desde la elección de colores hasta

@@ -2,26 +2,32 @@
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { FC } from "react";
+import { QuoteBannerDownloads } from "@/components/QuoteBannerDownloads";
 import { downloadData } from "./downloadData";
 
-export const DownloadsPage: FC = () => {
+export const DownloadsPage: React.FC = () => {
   return (
     <div>
       <Header />
 
       {/* Main Section */}
-      <main className="max-w-5xl mx-auto px-6 py-12 space-y-16">
+      <main className="px-0 lg:px-0 py-12 space-y-16"> {/* Eliminado max-w para ancho completo */}
         {/* Introduction */}
-        <section className="text-center space-y-6">
-          <h1 className="text-4xl font-bold text-indigo-950">Descargas</h1>
-          <p className="text-lg leading-relaxed text-indigo-950">
-            Explora nuestras plantillas y recursos gratuitos que puedes descargar para mejorar tu proceso creativo.
-          </p>
+        <section className="max-w-7xl mx-auto flex flex-col md:flex-row md:space-x-8">
+          <div className="w-full md:w-1/2 pl-6 lg:pl-0">
+            <h1 className="text-4xl font-bold text-indigo-950">
+              Descargas
+            </h1>
+          </div>
+          <div className="w-full md:w-1/2 pl-8">
+            <p className="text-lg leading-relaxed text-indigo-950">
+              Explora mis plantillas y recursos gratuitos que puedes descargar para mejorar tu proceso creativo.
+            </p>
+          </div>
         </section>
 
         {/* Downloads Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto px-6">
           {downloadData.map((item, index) => (
             <div key={index} className="flex flex-col items-center space-y-4 p-6 bg-stone-200 rounded-lg">
               <img
@@ -41,6 +47,10 @@ export const DownloadsPage: FC = () => {
             </div>
           ))}
         </section>
+
+        {/* Quote Banner Section */}
+        <section style={{ marginTop: "3rem", marginBottom: "-0.25rem" }}>
+        <QuoteBannerDownloads />        </section>
       </main>
 
       <Footer />
