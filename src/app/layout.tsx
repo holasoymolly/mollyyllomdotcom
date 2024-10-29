@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: "https://mollyyllom.com/",
     images: [
       {
-        url: "/img/logo/molly-yllom-logo-site-icon.png",
+        url: "/img/logo/molly-yllom-icon.webp",
         width: 200,
         height: 200,
         alt: "Molly Yllom Logo",
