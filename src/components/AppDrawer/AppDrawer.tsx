@@ -47,7 +47,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
         <div className="flex justify-center py-4">
           <Link href="/" onClick={onClose}>
             <Image
-              src="/img/logo/molly-yllom-logo-homepage.png"
+              src="/img/logo/molly-yllom-logo-homepage.webp"
               alt="Molly Yllom"
               width={120}
               height={80}

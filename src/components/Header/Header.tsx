@@ -16,7 +16,7 @@ export const Header = () => {
         <div className="flex-shrink-0">
           <Link href="/">
             <Image
-              src="/img/logo/molly-yllom-logo-homepage.png"
+              src="/img/logo/molly-yllom-logo-homepage.webp"
               alt="Molly Yllom"
               width={137}
               height={88}
