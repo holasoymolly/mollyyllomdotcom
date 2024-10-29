@@ -11,7 +11,7 @@ export const QuoteBanner: React.FC = () => {
           href="https://forms.gle/KjbtdoYvXz4PL1Ek6"
           target="_blank"
           rel="noreferrer noopener"
-          className="bg-stone-200 text-indigo-950 font-bold px-8 py-4 rounded-full transition"
+          className="bg-stone-200 text-indigo-950 font-bold px-8 py-4 rounded-full transition hover:bg-violet-900 hover:text-stone-200"
         >
           Cotiza tu proyecto aquí
         </a>

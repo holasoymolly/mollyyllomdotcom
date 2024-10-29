@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Roboto } from "next/font/google";
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 const font = Roboto({
@@ -14,7 +14,6 @@ const font = Roboto({
 export const metadata: Metadata = {
   title: "MOLLY YLLOM | Estudio de Diseño Gráfico especializado en Branding",
   description: "MOLLY YLLOM | Estudio de Diseño Gráfico especializado en Branding",
-  viewport: "width=device-width, initial-scale=1",
   robots: "max-image-preview:large",
   openGraph: {
     type: "website",
@@ -40,11 +39,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <GoogleTagManager gtmId="G-Q3TSX67D2J" />
       <head>
+        {/* Meta tags and other head elements */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="max-image-preview:large" />
       </head>
       <body className={`${font.className} antialiased`}>
+        <GoogleTagManager gtmId="G-Q3TSX67D2J" />
         {children}
         <SpeedInsights />
         <Analytics />

@@ -11,7 +11,7 @@ export const QuoteBannerDownloads: React.FC = () => {
           href="https://forms.gle/descargaGratis" // Cambia este enlace por el que prefieras
           target="_blank"
           rel="noreferrer noopener"
-          className="bg-stone-200 text-indigo-950 font-bold px-8 py-4 rounded-full transition"
+          className="bg-stone-200 text-indigo-950 font-bold px-8 py-4 rounded-full transition hover:bg-violet-900 hover:text-stone-200"
         >
           Cita una asesoría aquí
         </a>

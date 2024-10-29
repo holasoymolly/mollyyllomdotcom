@@ -1,5 +1,3 @@
-'use client';
-
 import cn from 'classnames';
 
 interface ButtonProps {
@@ -7,7 +5,7 @@ interface ButtonProps {
   text: string;
   size?: 'small' | 'medium' | 'large';
   variant?: 'light' | 'dark';
-  className?: string; // Add className prop for external customization
+  className?: string;
 }
 
 export const Button = ({ href, text, size = 'medium', variant = 'light', className }: ButtonProps) => {
@@ -18,14 +16,19 @@ export const Button = ({ href, text, size = 'medium', variant = 'light', classNa
   });
 
   const variantClasses = cn({
-    'bg-indigo-950 text-stone-200': variant === 'dark',
-    'bg-stone-200 text-indigo-950': variant === 'light',
+    'bg-indigo-950 text-stone-200 hover:bg-violet-900 hover:text-stone-200': variant === 'dark',
+    'bg-stone-200 text-indigo-950 hover:bg-violet-900 hover:text-stone-200': variant === 'light',
   });
 
   return (
     <a
       href={href}
-      className={cn('rounded-full font-bold inline-block', sizeClasses, variantClasses, className)} // Merge external className
+      className={cn(
+        'rounded-full font-bold inline-block transition-colors duration-300',
+        sizeClasses,
+        variantClasses,
+        className
+      )}
       target="_blank"
       rel="noreferrer noopener"
     >
