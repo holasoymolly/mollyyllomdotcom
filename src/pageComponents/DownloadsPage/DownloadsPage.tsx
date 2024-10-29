@@ -11,11 +11,11 @@ export const DownloadsPage: React.FC = () => {
       <Header />
 
       {/* Main Section */}
-      <main className="px-0 lg:px-0 py-12 space-y-16"> {/* Eliminado max-w para ancho completo */}
+      <main className="px-0 lg:px-0 py-12 space-y-16">
         {/* Introduction */}
         <section className="max-w-7xl mx-auto flex flex-col md:flex-row md:space-x-8">
           <div className="w-full md:w-1/2 pl-6 lg:pl-0">
-            <h1 className="text-4xl font-bold text-indigo-950">
+            <h1 className="text-4xl font-bold text-indigo-950 lg:ml-[1rem]"> {/* Ajustado con margen izquierdo */}
               Descargas
             </h1>
           </div>
@@ -50,7 +50,8 @@ export const DownloadsPage: React.FC = () => {
 
         {/* Quote Banner Section */}
         <section style={{ marginTop: "3rem", marginBottom: "-0.25rem" }}>
-        <QuoteBannerDownloads />        </section>
+          <QuoteBannerDownloads />
+        </section>
       </main>
 
       <Footer />

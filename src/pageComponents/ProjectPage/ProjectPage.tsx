@@ -25,7 +25,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
         <Header />
         <main className="flex flex-col justify-center items-center h-[80vh] text-center">
           <h1 className="text-4xl font-bold text-indigo-950">Proyecto No Encontrado</h1>
-          <p className="text-lg text-indigo-950 mt-4">Lo sentimos, el proyecto que estás buscando no existe.</p>
+          <p className="text-lg text-indigo-950 mt-4">Lo siento, el proyecto que estás buscando no existe.</p>
           <Link href="/" className="mt-6 bg-violet-900 text-stone-200 font-semibold py-3 px-6 rounded-full transition hover:bg-violet-900">
             Volver a la página principal
           </Link>
