@@ -26,9 +26,9 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
       }}
     >
       <div className="flex flex-col h-full">
-        {/* Close button */}
+        {/* Botón de cierre */}
         <button
-          className="self-end p-4 text-violet-900"
+          className="self-end p-4 text-[#1e1b4b] hover:text-violet-900"
           onClick={onClose}
           aria-label="Close menu"
         >
@@ -38,6 +38,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
             width="24"
             height="24"
             aria-hidden="true"
+            className="fill-current text-[#1e1b4b] hover:text-violet-900"
           >
             <path d="M13.06 12l6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z" />
           </svg>
@@ -56,18 +57,34 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
           </Link>
         </div>
 
-        {/* Navigation Links */}
+        {/* Enlaces de navegación */}
         <nav className="flex flex-col items-center space-y-6 mt-8">
-          <Link href="/conoceme" onClick={onClose} className="text-#2D2C4D font-semibold text-lg hover:text-violet-900">
+          <Link
+            href="/conoceme"
+            onClick={onClose}
+            className="text-[#1e1b4b] font-semibold text-lg hover:text-violet-900"
+          >
             Conóceme
           </Link>
-          <Link href="/proyectos" onClick={onClose} className="text-#2D2C4D font-semibold text-lg hover:text-violet-900">
+          <Link
+            href="/proyectos"
+            onClick={onClose}
+            className="text-[#1e1b4b] font-semibold text-lg hover:text-violet-900"
+          >
             Proyectos
           </Link>
-          <Link href="/contacto" onClick={onClose} className="text-#2D2C4D font-semibold text-lg hover:text-violet-900">
+          <Link
+            href="/contacto"
+            onClick={onClose}
+            className="text-[#1e1b4b] font-semibold text-lg hover:text-violet-900"
+          >
             Contacto
           </Link>
-          <Link href="/descargas" onClick={onClose} className="text-#2D2C4D font-semibold text-lg hover:text-violet-900">
+          <Link
+            href="/descargas"
+            onClick={onClose}
+            className="text-[#1e1b4b] font-semibold text-lg hover:text-violet-900"
+          >
             Descargas
           </Link>
         </nav>

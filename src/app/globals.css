@@ -4,7 +4,7 @@
 
 :root {
   --background: #e7e5e4;
-  --foreground: #171717;
+  --foreground: #1e1b4b;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -18,4 +18,13 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu-text {
+  color: #1e1b4b !important; /* Aplica el color al texto del menú */
+}
+
+.menu-icon {
+  fill: #1e1b4b !important; /* Aplica el color de relleno al ícono */
+  color: #1e1b4b !important; /* Asegura el color del ícono de cierre */
 }

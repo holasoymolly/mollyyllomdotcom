@@ -13,9 +13,9 @@ export const Header = () => {
   return (
     <header className="bg-stone-200 w-full">
       <div
-  className="w-full flex items-center justify-between py-5 px-4"
-  style={{ paddingLeft: "65px", paddingRight: "65px" }}
->
+        className="w-full flex items-center justify-between py-5 px-4"
+        style={{ paddingLeft: "65px", paddingRight: "65px" }}
+      >
         <div className="flex-shrink-0">
           <Link href="/">
             <Image
@@ -30,12 +30,15 @@ export const Header = () => {
         </div>
 
         <button
-          className="lg:hidden block text-indigo-950"
+          className={`lg:hidden block ${
+            isMenuOpen ? "text-violet-600" : "text-indigo-950"
+          } hover:text-violet-800 transition-colors duration-300`}
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMenuOpen ? (
             <svg
+              className="w-6 h-6 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               width="24"
@@ -46,6 +49,7 @@ export const Header = () => {
             </svg>
           ) : (
             <svg
+              className="w-6 h-6 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               width="24"
