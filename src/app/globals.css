@@ -7,13 +7,6 @@
   --foreground: #1e1b4b;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
 body {
   color: var(--foreground);
   background: var(--background);
@@ -21,10 +14,17 @@ body {
 }
 
 .menu-text {
-  color: #1e1b4b !important; /* Aplica el color al texto del menú */
+  color: #1e1b4b !important;
 }
 
 .menu-icon {
-  fill: #1e1b4b !important; /* Aplica el color de relleno al ícono */
-  color: #1e1b4b !important; /* Asegura el color del ícono de cierre */
+  fill: #1e1b4b !important;
+  color: #1e1b4b !important;
+}
+
+/* Solo afecta la imagen en el ancho más grande de desktop (1536px o más) */
+@media (min-width: 1536px) {
+  .extra-large-image-position {
+    object-position: center 20%; /* Ajuste para enfocar el rostro en pantallas grandes */
+  }
 }
