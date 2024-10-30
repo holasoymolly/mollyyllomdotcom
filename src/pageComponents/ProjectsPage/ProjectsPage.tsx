@@ -10,10 +10,10 @@ export const ProjectsPage: FC = () => {
   return (
     <div>
       <Header />
-      <main className="px-0 py-12 space-y-16"> {/* Removido max-w-5xl para el ancho completo */}
-        <section className="max-w-7xl mx-auto flex flex-col md:flex-row md:space-x-8 items-start px-6">
+      <main className="px-0 py-12 space-y-16">
+        <section className="max-w-full flex flex-col md:flex-row md:space-x-8 items-start px-4 lg:px-12">
           <div className="w-full md:w-1/2">
-            <h1 className="text-4xl font-bold text-indigo-950">Proyectos</h1>
+            <h1 className="text-4xl font-bold text-indigo-950 ml-4">Proyectos</h1>
           </div>
           <div className="w-full md:w-1/2">
             <p className="text-lg leading-relaxed text-indigo-950">
@@ -22,13 +22,13 @@ export const ProjectsPage: FC = () => {
           </div>
         </section>
 
-        <section className="pb-0 mb-0"> {/* Margen inferior negativo para ajustar */}
-          <div className="bg-stone-200"> {/* Contenedor para PortfolioGrid */}
+        <section className="pb-0 mb-0">
+          <div className="bg-stone-200">
             <PortfolioGrid />
           </div>
         </section>
       </main>
-      <div className="mt-[-50px]"> {/* Margen superior negativo en QuoteBanner para eliminar el espacio */}
+      <div className="mt-[-50px]">
         <QuoteBanner />
       </div>
       <Footer />

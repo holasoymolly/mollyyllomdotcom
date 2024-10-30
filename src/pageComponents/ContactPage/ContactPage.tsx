@@ -17,15 +17,13 @@ export const ContactPage: FC = () => {
       <Header />
 
       {/* Contact Section */}
-      <main className="px-0 lg:px-0 py-11 space-y-1">
-        <section className="max-w-7xl mx-auto flex flex-col md:flex-row md:space-x-8">
-          <div className="w-full md:w-1/2 pl-6 lg:pl-0">
-            <h1 className="text-4xl font-bold text-indigo-950 lg:ml-[1rem]">
-              Contáctame
-            </h1>
+      <main className="px-4 lg:px-12 py-11 space-y-1">
+        <section className="max-w-full flex flex-col md:flex-row md:space-x-8">
+          <div className="w-full md:w-1/2">
+            <h1 className="text-4xl font-bold text-indigo-950 ml-4">Contáctame</h1>
           </div>
-          <div className="w-full md:w-1/2 pl-8 space-y-6">
-            <p className="text-lg leading-relaxed text-indigo-950 text-justify-left">
+          <div className="w-full md:w-1/2 space-y-6">
+            <p className="text-lg leading-relaxed text-indigo-950">
               Si tienes alguna pregunta o te gustaría trabajar conmigo, no dudes en contactarme a través del correo o en mis redes sociales.
             </p>
 
@@ -59,12 +57,12 @@ export const ContactPage: FC = () => {
         </section>
 
         {/* Quote Banner Section */}
-        <section style={{ marginTop: "3rem", marginBottom: "-0.25rem" }}> {/* Margen inferior negativo para reducir espacio */}
+        <section className="-mx-4 lg:-mx-12" style={{ marginTop: "2rem" }}>
           <QuoteBanner />
         </section>
 
         {/* Media Section */}
-        <section className="mt-[-10px]"> {/* Margen superior negativo para acercarlo más al QuoteBanner */}
+        <section className="-mx-4 lg:-mx-12" style={{ marginTop: "-0rem" }}>
           <MediaSection />
         </section>
         
