@@ -12,7 +12,10 @@ export const Header = () => {
 
   return (
     <header className="bg-stone-200 w-full">
-      <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
+      <div
+  className="w-full flex items-center justify-between py-5 px-4"
+  style={{ paddingLeft: "65px", paddingRight: "65px" }}
+>
         <div className="flex-shrink-0">
           <Link href="/">
             <Image
@@ -56,7 +59,7 @@ export const Header = () => {
         </button>
 
         {/* Navigation links for desktop */}
-        <nav className="hidden lg:flex items-center space-x-6">
+        <nav className="hidden lg:flex items-center space-x-6 ml-auto">
           <Link href="/conoceme" className="text-indigo-950 font-semibold hover:text-violet-900">
             Conóceme
           </Link>
