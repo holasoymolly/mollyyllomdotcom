@@ -6,7 +6,7 @@ export const QuoteBannerDownloads: React.FC = () => {
       <h2 className="text-center text-stone-200 text-4xl md:text-5xl font-bold max-w-2xl"
       style={{ lineHeight: '1.1' }}
       >
-      ¿Quieres llevar tu proyecto al siguiente nivel?
+      ¿Quieres llevar tu proyecto<br />al siguiente nivel?
       </h2>
       <div className="mt-8 flex justify-center">
         <a

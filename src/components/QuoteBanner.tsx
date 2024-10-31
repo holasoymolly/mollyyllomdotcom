@@ -2,9 +2,11 @@ import React from 'react';
 
 export const QuoteBanner: React.FC = () => {
   return (
-    <section className="w-full flex flex-col justify-center items-center bg-indigo-950 px-4 py-8">
-      <h2 className="text-center text-stone-200 text-4xl md:text-5xl font-bold max-w-2xl">
-        Diseño que comunica, marca que impacta
+    <section
+      className="w-full flex flex-col justify-center items-center bg-indigo-950 py-8 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-24"
+    >
+      <h2 className="text-center text-stone-200 text-4xl md:text-5xl font-bold max-w-2xl leading-tight">
+        Diseño que comunica, <br /> marca que impacta
       </h2>
       <div className="mt-8 flex justify-center">
         <a
