@@ -65,3 +65,41 @@ body {
     margin-top: 1rem !important;
   }
 }
+
+/* Ajustes de margen laterales solo para móviles en el Call to Action */
+@media (max-width: 640px) {
+  .mobile-call-to-action-padding {
+    padding-left: 4.2rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Ajustes específicos para el Call to Action en pantallas más grandes de móvil */
+@media (min-width: 640px) {
+  .mobile-call-to-action-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-call-to-action-padding {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* Disminuir padding para desktop (1024px y superior) */
+@media (min-width: 1024px) {
+  .mobile-call-to-action-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mobile-call-to-action-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
