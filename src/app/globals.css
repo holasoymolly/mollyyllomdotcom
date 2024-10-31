@@ -104,9 +104,9 @@ body {
   }
 }
 
-/* Solo en móviles */
-@media (max-width: 640px) {
+/* Ajuste para todas las versiones móviles */
+@media (max-width: 768px) {
   .mobile-contact-padding {
-    padding-left: 2.2rem; /* Aumenta el padding para moverlo más hacia la derecha */
+    padding-left: 2.1rem; /* Mantiene el mismo padding en todas las versiones móviles */
   }
 }
