@@ -15,10 +15,12 @@ export const DownloadsPage: React.FC = () => {
         {/* Introduction */}
         <section className="max-w-full flex flex-col md:flex-row md:space-x-8">
           <div className="w-full md:w-1/2">
-            <h1 className="text-4xl font-bold text-indigo-950 ml-4">Descargas</h1>
+            <h1 className="text-4xl font-bold text-indigo-950 ml-12 sm:ml-12 md:ml-12 lg:ml-4 mb-4 sm:mb-6">
+              Descargas
+            </h1>
           </div>
-          <div className="w-full md:w-1/2">
-            <p className="text-lg leading-relaxed text-indigo-950">
+          <div className="w-full md:w-1/2 pl-4 md:pl-8">
+            <p className="text-lg leading-relaxed text-indigo-950 ml-9 sm:ml-8 md:ml-0 mb-4 sm:mb-6 pr-4 sm:pr-6">
               Explora mis plantillas y recursos gratuitos que puedes descargar para mejorar tu proceso creativo.
             </p>
           </div>

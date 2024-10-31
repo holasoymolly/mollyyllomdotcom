@@ -103,3 +103,10 @@ body {
     padding-right: 1rem;
   }
 }
+
+/* Solo en móviles */
+@media (max-width: 640px) {
+  .mobile-contact-padding {
+    padding-left: 2.2rem; /* Aumenta el padding para moverlo más hacia la derecha */
+  }
+}
