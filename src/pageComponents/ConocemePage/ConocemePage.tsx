@@ -43,11 +43,14 @@ export const ConocemePage: FC = () => {
               }}
             />
           </div>
-          <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-10 bg-stone-200 space-y-4 md:space-y-6 text-center">
+          <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-10 bg-stone-200 space-y-4 md:space-y-6 text-left">
             <div className="mx-auto md:mx-0">
-              <h2 className="text-2xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-5xl font-bold text-indigo-950">
-                ¿Listx para llevar tu proyecto al siguiente nivel?
-              </h2>
+            <h2
+            className="text-2xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-5xl font-bold text-indigo-950"
+            style={{ lineHeight: '1.1' }}
+          >
+            ¿Listx para llevar tu proyecto al siguiente nivel?
+            </h2>
               <p className="text-lg leading-relaxed text-indigo-950">
                 En el mundo del diseño gráfico, cada decisión cuenta. Desde la elección de colores hasta
                 la tipografía utilizada, cada detalle comunica un mensaje único sobre tu marca. Con mi{" "}
