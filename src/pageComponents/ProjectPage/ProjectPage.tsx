@@ -54,12 +54,12 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
           <h1 className="text-4xl font-bold text-indigo-950">{project.title}</h1>
         </section>
 
-        {/* Hero Image */}
-        <section onClick={() => openModal(0)} className="cursor-pointer">
+        {/* Hero Image - Full Width */}
+        <section onClick={() => openModal(0)} className="cursor-pointer w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
           <img
             src={project.heroImage}
             alt={`${project.title} Hero Image`}
-            className="w-full h-[400px] object-cover rounded-lg"
+            className="w-full h-[400px] object-cover"
           />
         </section>
 
@@ -72,14 +72,19 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
           ))}
         </section>
 
-        {/* Portfolio Images Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Full Width Portfolio Images */}
+        <section className="space-y-0">
           {project.images.map((image, index) => (
-            <div key={index} className="overflow-hidden rounded-lg cursor-pointer" onClick={() => openModal(index + 1)}>
+            <div
+              key={index}
+              className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] cursor-pointer"
+              onClick={() => openModal(index + 1)}
+            >
               <img
                 src={image}
                 alt={`${project.title} Image ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
+                className="w-full h-auto object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
+                style={{ marginBottom: index === project.images.length - 1 ? '0' : '' }}
               />
             </div>
           ))}
@@ -119,7 +124,10 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
         </div>
       )}
 
-      <QuoteBanner />
+      <div className="-mt-12">
+        <QuoteBanner />
+      </div>
+
       <Footer />
     </div>
   );
