@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   robots: "max-image-preview:large",
   openGraph: {
     type: "website",
-    title: "(sin título)",
+    title: "MOLLY YLLOM",
     description: "MOLLY YLLOM | Estudio de Diseño Gráfico especializado en Branding",
     url: "https://mollyyllom.com/",
     images: [
