@@ -3,7 +3,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { QuoteBanner } from "@/components/QuoteBanner";
-import { MediaSection } from "../HomePage/components/MediaSection";
 import { NewsletterBanner } from "@/components/NewsletterBanner"; // Importar el NewsletterBanner
 import { FC } from "react";
 import { DeviconPlainLinkedin } from '@/icons/DeviconPlainLinkedin';
