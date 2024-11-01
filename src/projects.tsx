@@ -11,7 +11,7 @@ const allianceProject: Project = {
   slug: "alliance",
   title: "Alliance",
   portfolioImage: "/img/projects/alliance/alliance-gif-1.gif",
-  heroImage: "/img/projects/alliance/alliance-logo-behance-01.webp",
+  heroImage: "/img/projects/alliance/alliance-logo-gold-emboss-mockup.webp",
   paragraphs: [
     "Alliance es una firma de abogados con sede en la Ciudad de Nueva York. Inspirada en la esencia de Alliance y su compromiso con la excelencia legal, creamos un diseño que refleja su enfoque fresco y moderno.",
     "La idea detrás del concepto es representar el equilibrio ideal que los abogados y el derecho en general deben aportar a la sociedad. Con una combinación de elementos visuales, logramos transmitir la integridad, profesionalismo y confianza que caracterizan a Alliance.",

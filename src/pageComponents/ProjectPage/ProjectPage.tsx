@@ -59,7 +59,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
           <img
             src={project.heroImage}
             alt={`${project.title} Hero Image`}
-            className="w-full h-[400px] object-cover"
+            className="w-full h-[600px] object-cover"
           />
         </section>
 
