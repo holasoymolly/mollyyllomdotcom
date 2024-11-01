@@ -41,19 +41,19 @@ export const Footer: React.FC = () => {
 
         {/* Iconos de redes sociales alineados a la derecha en tablet/desktop, centrados en móvil */}
         <div className="flex space-x-4 mt-6 md:mt-0 md:flex-1 justify-center md:justify-end">
-          <Link href="https://www.instagram.com/holasoymolly" aria-label="Instagram">
+          <Link href="https://www.instagram.com/holasoymolly" aria-label="Instagram" className="transform transition-transform duration-200 hover:scale-110">
             <RiInstagramLine className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
           </Link>
-          <Link href="https://www.behance.net/holasoymolly" aria-label="Behance">
+          <Link href="https://www.behance.net/holasoymolly" aria-label="Behance" className="transform transition-transform duration-200 hover:scale-110">
             <RiBehanceFill className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
           </Link>
-          <Link href="https://www.facebook.com/holasoymolly" aria-label="Facebook">
+          <Link href="https://www.facebook.com/holasoymolly" aria-label="Facebook" className="transform transition-transform duration-200 hover:scale-110">
             <IcRoundFacebook className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
           </Link>
-          <Link href="https://www.tiktok.com/@soymollyyllom" aria-label="TikTok">
+          <Link href="https://www.tiktok.com/@soymollyyllom" aria-label="TikTok" className="transform transition-transform duration-200 hover:scale-110">
             <IcOutlineTiktok className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
           </Link>
-          <Link href="https://www.linkedin.com/in/mollyyllom" aria-label="LinkedIn">
+          <Link href="https://www.linkedin.com/in/mollyyllom" aria-label="LinkedIn" className="transform transition-transform duration-200 hover:scale-110">
             <DeviconPlainLinkedin className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
           </Link>
         </div>
