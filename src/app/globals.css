@@ -112,6 +112,17 @@ body {
 }
 
 .footer-logo {
-  width: 130px; /* Ajusta el tamaño según tus necesidades */
+  width: 130px;
   height: auto;
+  /* Ajuste de márgenes laterales para versiones pequeñas de desktop */
+  margin-left: 1rem; /* Puedes ajustar el valor según la separación deseada */
+  margin-right: 1rem;
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  /* Ajuste específico para pantallas pequeñas de desktop */
+  .footer-logo {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }

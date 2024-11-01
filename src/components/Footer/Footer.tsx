@@ -9,8 +9,10 @@ import React from 'react';
 export const Footer: React.FC = () => {
   return (
     <footer className="w-full py-6 bg-stone-200">
-      <div className="flex flex-col md:flex-row items-center justify-between px-4 md:px-8">
-        <nav className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 text-center md:text-left">
+      <div className="flex flex-col items-center px-4 md:px-8 md:flex-row md:justify-between">
+        
+        {/* Menú de navegación alineado a la izquierda en tablet/desktop, centrado en móvil */}
+        <nav className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 text-center md:text-left md:flex-1">
           <Link href="/conoceme/" className="text-indigo-950 font-bold hover:text-violet-900">
             Conóceme
           </Link>
@@ -25,18 +27,20 @@ export const Footer: React.FC = () => {
           </Link>
         </nav>
 
-        <div className="mt-6 md:mt-0">
+        {/* Logo centrado horizontalmente con márgenes controlados */}
+        <div className="mt-8 mb-4 md:mt-0 md:mb-0 lg:mt-0 lg:mb-0 md:flex-none flex justify-center">
           <Link href="/" aria-current="page">
-          <img
-           src="/img/logo/molly-yllom-logo-homepage.webp"
-           alt="Molly Yllom"
-           className="footer-logo" // Aplica la clase footer-logo aquí
-           draggable={false}
-/>
+            <img
+              src="/img/logo/molly-yllom-logo-homepage.webp"
+              alt="Molly Yllom"
+              className="footer-logo"
+              draggable={false}
+            />
           </Link>
         </div>
 
-        <div className="flex space-x-4 mt-6 md:mt-0">
+        {/* Iconos de redes sociales alineados a la derecha en tablet/desktop, centrados en móvil */}
+        <div className="flex space-x-4 mt-6 md:mt-0 md:flex-1 justify-center md:justify-end">
           <Link href="https://www.instagram.com/holasoymolly" aria-label="Instagram">
             <RiInstagramLine className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
           </Link>
