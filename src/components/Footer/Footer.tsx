@@ -27,12 +27,12 @@ export const Footer: React.FC = () => {
 
         <div className="mt-6 md:mt-0">
           <Link href="/" aria-current="page">
-            <img
-              src="/img/logo/molly-yllom-logo-homepage.webp"
-              alt="Molly Yllom"
-              className="w-32 h-auto md:w-32"
-              draggable={false}
-            />
+          <img
+           src="/img/logo/molly-yllom-logo-homepage.webp"
+           alt="Molly Yllom"
+           className="footer-logo" // Aplica la clase footer-logo aquí
+           draggable={false}
+/>
           </Link>
         </div>
 

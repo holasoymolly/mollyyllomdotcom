@@ -110,3 +110,8 @@ body {
     padding-left: 2.1rem; /* Mantiene el mismo padding en todas las versiones móviles */
   }
 }
+
+.footer-logo {
+  width: 130px; /* Ajusta el tamaño según tus necesidades */
+  height: auto;
+}
