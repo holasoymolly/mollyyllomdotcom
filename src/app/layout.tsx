@@ -12,13 +12,11 @@ const font = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Estudio de Diseño Gráfico especializado en Branding",
-  description: "MOLLY YLLOM | Estudio de Diseño Gráfico especializado en Branding",
   robots: "max-image-preview:large",
   openGraph: {
     type: "website",
     title: "MOLLY YLLOM",
-    description: "MOLLY YLLOM | Estudio de Diseño Gráfico especializado en Branding",
+    description: "Estudio de Diseño Gráfico especializado en Branding",
     url: "https://mollyyllom.com/",
     images: [
       {
