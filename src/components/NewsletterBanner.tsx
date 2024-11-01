@@ -5,7 +5,7 @@ export const NewsletterBanner: React.FC = () => {
     <div className="w-full">
       <section className="flex flex-col md:flex-row items-center justify-between bg-stone-200 py-8 px-4 sm:px-8 md:px-10 lg:px-10 xl:px-10 rounded-md">
         {/* Título */}
-        <h2 className="text-4xl md:text-5xl font-bold text-indigo-950 mb-4 md:mb-0 leading-tight text-center md:text-left">
+        <h2 className="text-4xl md:text-4xl font-bold text-indigo-950 mb-4 md:mb-0 leading-none text-center md:text-left">
           Suscríbete a <span className="block sm:inline">mi newsletter</span>
         </h2>
 
