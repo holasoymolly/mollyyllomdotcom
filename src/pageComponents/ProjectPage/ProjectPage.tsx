@@ -49,8 +49,8 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
   return (
     <div>
       <Header />
-      <main className="max-w-5xl mx-auto px-6 py-12 space-y-16">
-        <section className="text-left space-y-6">
+      <main className="w-full mx-auto px-16 sm:px-16 md:px-16 lg:px-16 xl:px-16 2xl:px-22 py-12 space-y-16">
+        <section className="flex flex-col space-y-6">
           <h1 className="text-4xl font-bold text-indigo-950">{project.title}</h1>
         </section>
 
@@ -63,6 +63,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
           />
         </section>
 
+        {/* Paragraph Section */}
         <section className="space-y-6">
           {project.paragraphs.map((paragraph, index) => (
             <p key={index} className="text-lg text-indigo-950 leading-relaxed">
@@ -104,7 +105,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
                 infiniteLoop={true}
                 useKeyboardArrows={true}
                 className="h-full"
-                thumbWidth={80} // Adjust thumbnail width
+                thumbWidth={80}
                 dynamicHeight={false}
               >
                 {allImages.map((image, index) => (
