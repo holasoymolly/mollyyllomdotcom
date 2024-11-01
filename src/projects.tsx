@@ -309,7 +309,7 @@ const bhMobiliarioProject: Project = {
 
 const mlLogoProject: Project = {
   slug: "",
-  title: "ML",
+  title: "Maria Lunares",
   portfolioImage: "/img/projects/ml/ml-logo-animado-1x1-1.gif",
   heroImage: "",
   paragraphs: [],
@@ -318,7 +318,7 @@ const mlLogoProject: Project = {
 
 const cdtLogoProject: Project = {
   slug: "",
-  title: "CDT",
+  title: "Canteras del Trópico",
   portfolioImage: "/img/projects/cdt/cdt-logo-2022-animation.gif",
   heroImage: "",
   paragraphs: [],
