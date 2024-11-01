@@ -1,9 +1,10 @@
-'use client';
+// 'use client';
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { QuoteBanner } from "@/components/QuoteBanner";
 import { MediaSection } from "../HomePage/components/MediaSection";
+import { NewsletterBanner } from "@/components/NewsletterBanner"; // Importar el NewsletterBanner
 import { FC } from "react";
 import { DeviconPlainLinkedin } from '@/icons/DeviconPlainLinkedin';
 import { IcOutlineTiktok } from "@/icons/IcOutlineTiktok";
@@ -62,14 +63,14 @@ export const ContactPage: FC = () => {
         <section className="-mx-4 lg:-mx-12" style={{ marginTop: "2rem" }}>
           <QuoteBanner />
         </section>
-
-        {/* Media Section */}
-        <section className="-mx-4 lg:-mx-12" style={{ marginTop: "-0rem" }}>
-          <MediaSection />
-        </section>
         
       </main>
-      
+
+      {/* Newsletter Banner */}
+      <div className="-mt-11"> {/* Eliminar el margen superior */}
+        <NewsletterBanner />
+      </div>
+
       <Footer />
     </div>
   );

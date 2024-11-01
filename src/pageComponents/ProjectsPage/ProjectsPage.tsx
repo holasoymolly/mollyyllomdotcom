@@ -1,10 +1,11 @@
-'use client';
+// 'use client';
 
 import { Header } from "@/components/Header";
 import { FC } from "react";
 import { Footer } from "@/components/Footer";
 import { PortfolioGrid } from "@/components/PortfolioGrid";
 import { QuoteBanner } from "@/components/QuoteBanner";
+import { NewsletterBanner } from "@/components/NewsletterBanner"; // Importar el NewsletterBanner
 
 export const ProjectsPage: FC = () => {
   return (
@@ -33,6 +34,10 @@ export const ProjectsPage: FC = () => {
       <div className="mt-[-50px]">
         <QuoteBanner />
       </div>
+
+      {/* Newsletter Banner */}
+      <NewsletterBanner /> {/* Agregar el NewsletterBanner aquí */}
+
       <Footer />
     </div>
   );

@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { QuoteBanner } from "@/components/QuoteBanner";
 import { Button } from "@/components/Button";
+import { NewsletterBanner } from "@/components/NewsletterBanner"; // Importar el NewsletterBanner
 import { FC } from "react";
 
 export const ConocemePage: FC = () => {
@@ -75,6 +76,9 @@ export const ConocemePage: FC = () => {
       <section className="-mt-6 md:-mt-21 lg:-mt-21 xl:-mt-21 2xl:-mt-21">
         <QuoteBanner />
       </section>
+
+      {/* Newsletter Banner */}
+      <NewsletterBanner /> {/* Agregar el NewsletterBanner aquí */}
 
       <Footer />
     </div>

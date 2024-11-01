@@ -1,8 +1,9 @@
-'use client';
+// 'use client';
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { QuoteBannerDownloads } from "@/components/QuoteBannerDownloads";
+import { NewsletterBanner } from "@/components/NewsletterBanner"; // Importar el NewsletterBanner
 import { downloadData } from "./downloadData";
 
 export const DownloadsPage: React.FC = () => {
@@ -53,6 +54,9 @@ export const DownloadsPage: React.FC = () => {
       <section className="-mx-4 lg:-mx-12 mt-12">
         <QuoteBannerDownloads />
       </section>
+
+      {/* Newsletter Banner */}
+      <NewsletterBanner /> {/* Agregar el NewsletterBanner aquí */}
 
       <Footer />
     </div>
