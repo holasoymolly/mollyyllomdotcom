@@ -3,7 +3,7 @@ import React from 'react';
 export const QuoteBanner: React.FC = () => {
   return (
     <section className="w-full flex flex-col justify-center items-center bg-indigo-950 py-8 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-24">
-      <h2 className="text-center text-stone-200 text-4xl md:text-5xl font-bold max-w-2xl leading-tight mobile-padding quote-banner-title">
+      <h2 className="text-center text-stone-200 text-3xl md:text-5xl font-bold max-w-2xl leading-tight mobile-padding quote-banner-title">
         Diseño que comunica, <br /> marca que impacta
       </h2>
       <div className="mt-4 sm:mt-6 md:mt-8 flex justify-center quote-button">
