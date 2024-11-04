@@ -21,7 +21,7 @@ export const DownloadsPage: React.FC = () => {
             </h1>
           </div>
           <div className="w-full md:w-1/2 pl-4 md:pl-8">
-            <p className="text-lg leading-relaxed text-indigo-950 ml-9 sm:ml-8 md:ml-0 mb-4 sm:mb-6 pr-4 sm:pr-6">
+            <p className="text-lg leading-relaxed text-indigo-950 ml-9 sm:ml-8 md:ml-0 -mb-16 sm:mb-6 pr-4 sm:pr-6">
               Explora mis plantillas y recursos gratuitos que puedes descargar para mejorar tu proceso creativo.
             </p>
           </div>
