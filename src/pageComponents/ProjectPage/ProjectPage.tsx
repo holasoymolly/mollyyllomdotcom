@@ -16,6 +16,7 @@ interface ProjectPageProps {
 export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHoveringImage, setIsHoveringImage] = useState(false); // Nuevo estado
 
   const project = projectsBySlug[slug];
 
@@ -103,132 +104,73 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
 
       {/* Lightbox Modal */}
       {isModalOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-indigo-950 bg-opacity-100 flex justify-center items-center hoverable-container"
-          onClick={closeModal} 
-        >
+  <div
+    className="fixed inset-0 z-50 bg-indigo-950 bg-opacity-100 flex justify-center items-center"
+    onClick={closeModal}
+  >
+    <div
+      className="relative w-full max-w-5xl flex flex-col justify-center items-center"
+      onMouseEnter={() => setIsHoveringImage(true)} // Detectar cuando el cursor está sobre la imagen
+      onMouseLeave={() => setIsHoveringImage(false)} // Detectar cuando el cursor sale de la imagen
+      onClick={(e) => e.stopPropagation()}
+      style={{ minHeight: '600px' }} // Asegura una altura mínima del contenedor
+    >
+      <Carousel
+        selectedItem={currentSlide}
+        showArrows={false}
+        showThumbs={false}
+        showIndicators={false}
+        infiniteLoop={true}
+        useKeyboardArrows={true}
+        className="w-full"
+        dynamicHeight={false} // Desactiva el ajuste de altura dinámica
+        showStatus={false}
+        onChange={setCurrentSlide}
+        emulateTouch={true}
+        swipeable={false}
+      >
+        {allImages.map((image, index) => (
           <div
-            className="relative w-full max-w-5xl flex flex-col justify-center items-center"
-            onClick={(e) => e.stopPropagation()} 
+            key={index}
+            className="flex justify-center items-center relative h-full" // Centrar verticalmente
           >
-            <Carousel
-              selectedItem={currentSlide}
-              showArrows={false} 
-              showThumbs={false} 
-              showIndicators={false} 
-              infiniteLoop={true}
-              useKeyboardArrows={true}
-              className="w-full fade-carousel"
-              dynamicHeight={true} 
-              showStatus={false}
-              onChange={setCurrentSlide} 
-              emulateTouch={true}
-              swipeable={false} 
-            >
-              {allImages.map((image, index) => (
-                <div key={index} className="flex justify-center items-center relative fade-item">
-                  <img src={image} alt={`${project.title} Image ${index + 1}`} className="object-contain hover-image" />
-                </div>
-              ))}
-            </Carousel>
+            <img src={image} alt={`${project.title} Image ${index + 1}`} className="object-contain max-h-[600px]" />
           </div>
+        ))}
+      </Carousel>
+    </div>
 
-          {/* SVG Flechas personalizadas */}
-          <button onClick={prevSlide} className="absolute left-8 top-1/2 transform -translate-y-1/2 arrow-button hoverable">
-            <svg width="50" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15 18L9 12L15 6" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-          <button onClick={nextSlide} className="absolute right-8 top-1/2 transform -translate-y-1/2 arrow-button hoverable">
-            <svg width="50" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 18L15 12L9 6" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+    {/* SVG Flechas personalizadas */}
+    {!isHoveringImage && ( // Condicionar la visibilidad con base al estado
+      <>
+        <button onClick={prevSlide} className="w-[60px] h-[100px] flex items-center justify-center absolute left-8 top-1/2 -translate-y-1/2 transition-transform duration-200 scale-100 hover:scale-110 opacity-100">
+          <svg width="50" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <button onClick={nextSlide} className="w-[60px] h-[100px] flex items-center justify-center absolute right-8 top-1/2 -translate-y-1/2 transition-transform duration-200 scale-100 hover:scale-110 opacity-100">
+          <svg width="50" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18L15 12L9 6" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
 
-          {/* Botón de cierre (SVG X) */}
-          <button onClick={closeModal} className="absolute right-8 top-8 close-button hoverable">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 6L6 18" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M6 6L18 18" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-        </div>
-      )}
+        {/* Botón de cierre (SVG X) */}
+        <button onClick={closeModal} className="bg-none border-none cursor-pointer outline-none w-10 h-10 absolute right-8 top-8 transition-transform duration-200 scale-100 hover:scale-110 opacity-100">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M6 6L18 18" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      </>
+    )}
+  </div>
+)}
 
       <div className="-mt-12">
         <QuoteBanner />
       </div>
 
       <Footer />
-
-      <style jsx global>{`
-        .carousel .control-arrow {
-          display: none !important;
-        }
-
-        .fade-carousel .slide {
-          transition: opacity 1s ease !important;
-          opacity: 0 !important;
-          transform: none !important;
-        }
-
-        .fade-carousel .slide.selected {
-          opacity: 1 !important;
-        }
-
-        .hoverable-container:hover .hoverable {
-          opacity: 1;
-          transition: opacity 0.3s ease;
-        }
-
-        .hover-image:hover ~ .hoverable {
-          opacity: 0 !important;
-          transition: opacity 0.3s ease;
-        }
-
-        .hoverable {
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        button.absolute {
-          background: none !important;
-          border: none;
-          cursor: pointer;
-          outline: none;
-        }
-
-        .arrow-button {
-          width: 60px;
-          height: 100px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: transform 0.2s ease;
-          transform-origin: center;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        .arrow-button:hover {
-          transform: scale(1.1) translateY(-50%);
-        }
-
-        .close-button {
-          background: none;
-          border: none;
-          cursor: pointer;
-          outline: none;
-          width: 40px;
-          height: 40px;
-          transition: transform 0.2s ease;
-        }
-
-        .close-button:hover {
-          transform: scale(1.2);
-        }
-      `}</style>
     </div>
   );
-};
+}
