@@ -16,18 +16,32 @@ export const Header = () => {
         className="w-full flex items-center justify-between py-5 px-4"
         style={{ paddingLeft: "65px", paddingRight: "65px" }}
       >
-        <div className="flex-shrink-0">
-          <Link href="/">
-            <Image
-              src="/img/logo/molly-yllom-logo-homepage.webp"
-              alt="Molly Yllom"
-              width={137}
-              height={88}
-              priority
-              draggable={false}
-            />
-          </Link>
-        </div>
+        <div className="flex-shrink-0 group">
+  <Link href="/">
+    <div className="relative">
+      {/* Imagen normal */}
+      <Image
+        src="/img/logo/molly-yllom-logo-homepage.webp"
+        alt="Molly Yllom"
+        width={137}
+        height={88}
+        priority
+        draggable={false}
+        className="group-hover:opacity-0 transition-opacity duration-300"
+      />
+      {/* Imagen al hacer hover */}
+      <Image
+        src="/img/logo/molly-yllom-logo-homepage-2.webp" // Cambia esta ruta por la imagen que desees mostrar al hacer hover
+        alt="Molly Yllom Hover"
+        width={137}
+        height={88}
+        priority
+        draggable={false}
+        className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      />
+    </div>
+  </Link>
+</div>
 
         <button
           className={`lg:hidden block ${

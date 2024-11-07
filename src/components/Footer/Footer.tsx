@@ -28,16 +28,26 @@ export const Footer: React.FC = () => {
         </nav>
 
         {/* Logo centrado horizontalmente con márgenes controlados */}
-        <div className="mt-8 mb-4 md:mt-0 md:mb-0 lg:mt-0 lg:mb-0 md:flex-none flex justify-center">
-          <Link href="/" aria-current="page">
-            <img
-              src="/img/logo/molly-yllom-logo-homepage.webp"
-              alt="Molly Yllom"
-              className="footer-logo"
-              draggable={false}
-            />
-          </Link>
-        </div>
+        <div className="mt-8 mb-4 md:mt-0 md:mb-0 lg:mt-0 lg:mb-0 md:flex-none flex justify-center group">
+  <Link href="/" aria-current="page">
+    <div className="relative w-[137px] h-[88px]">
+      {/* Imagen normal */}
+      <img
+        src="/img/logo/molly-yllom-logo-homepage.webp"
+        alt="Molly Yllom"
+        className="w-full h-full object-contain group-hover:opacity-0 transition-opacity duration-300"
+        draggable={false}
+      />
+      {/* Imagen al hacer hover */}
+      <img
+        src="/img/logo/molly-yllom-logo-homepage-2.webp"
+        alt="Molly Yllom Hover"
+        className="absolute top-0 left-0 w-full h-full object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        draggable={false}
+      />
+    </div>
+  </Link>
+</div>
 
         {/* Iconos de redes sociales alineados a la derecha en tablet/desktop, centrados en móvil */}
         <div className="flex space-x-4 mt-6 md:mt-0 md:flex-1 justify-center md:justify-end">
