@@ -43,6 +43,19 @@ export default function RootLayout({
         {/* Meta tags and other head elements */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="max-image-preview:large" />
+        
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3TSX67D2J"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Q3TSX67D2J');
+            `,
+          }}
+        />
       </head>
       <body className={`${font.className} antialiased`}>
         <GoogleTagManager gtmId="G-Q3TSX67D2J" />
