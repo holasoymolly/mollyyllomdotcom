@@ -40,19 +40,19 @@ export const ContactPage: FC = () => {
             {/* Social Media Links */}
             <div className="flex justify-start space-x-6 mobile-contact-padding">
               <a href="https://www.instagram.com/holasoymolly" aria-label="Instagram" className="text-indigo-950 hover:text-violet-900">
-                <RiInstagramLine className="w-8 h-8" />
+                <RiInstagramLine className="w-6 h-6" />
               </a>
               <a href="https://www.behance.net/holasoymolly" aria-label="Behance" className="text-indigo-950 hover:text-violet-900">
-                <RiBehanceFill className="w-8 h-8" />
+                <RiBehanceFill className="w-6 h-6" />
               </a>
               <a href="https://www.facebook.com/holasoymolly" aria-label="Facebook" className="text-indigo-950 hover:text-violet-900">
-                <IcRoundFacebook className="w-8 h-8" />
+                <IcRoundFacebook className="w-6 h-6" />
               </a>
               <a href="https://www.tiktok.com/@soymollyyllom" aria-label="TikTok" className="text-indigo-950 hover:text-violet-900">
-                <IcOutlineTiktok className="w-8 h-8" />
+                <IcOutlineTiktok className="w-6 h-6" />
               </a>
               <a href="https://www.linkedin.com/in/mollyyllom" aria-label="LinkedIn" className="text-indigo-950 hover:text-violet-900">
-                <DeviconPlainLinkedin className="w-8 h-8" />
+                <DeviconPlainLinkedin className="w-6 h-6" />
               </a>
             </div>
           </div>
