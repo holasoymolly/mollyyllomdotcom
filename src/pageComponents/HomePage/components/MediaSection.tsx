@@ -1,11 +1,9 @@
-// 'use client';
-
 import { Button } from "@/components/Button";
 
 export const MediaSection = () => {
   return (
     <section className="flex flex-col md:flex-row items-center md:py-16 max-h-[600px] overflow-hidden">
-      <figure className="w-full md:w-[65%] lg:w-[78%] xl:w-[78%] 2xl:w-[80%] h-[40rem] overflow-hidden flex items-center justify-center md:justify-end pr-4 lg:pr-8">
+      <figure className="w-full md:w-[65%] lg:w-[78%] xl:w-[78%] 2xl:w-[80%] h-auto md:h-[40rem] overflow-hidden flex items-center justify-center md:justify-end">
         <img
           src="/img/molly/molly1.webp"
           alt="Media Image"
