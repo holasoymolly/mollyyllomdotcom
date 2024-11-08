@@ -1,16 +1,32 @@
+import { useState, useEffect } from 'react'; // Importar useState y useEffect
+import Link from 'next/link';
+import Image from 'next/image';
 import { DeviconPlainLinkedin } from '@/icons/DeviconPlainLinkedin';
 import { IcOutlineTiktok } from '@/icons/IcOutlineTiktok';
 import { IcRoundFacebook } from '@/icons/IcRoundFacebook';
 import { RiBehanceFill } from '@/icons/RiBehanceFill';
 import { RiInstagramLine } from '@/icons/RiInstagramLine';
-import Link from 'next/link';
 import React from 'react';
 
 export const Footer: React.FC = () => {
+  const [logoSrc, setLogoSrc] = useState("/img/logo/molly-yllom-logo-homepage.webp"); // Estado inicial del logo
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      // Cambiar la imagen del logo cada segundo
+      setLogoSrc((currentSrc) =>
+        currentSrc === "/img/logo/molly-yllom-logo-homepage.webp"
+          ? "/img/logo/molly-yllom-logo-homepage-2.webp"
+          : "/img/logo/molly-yllom-logo-homepage.webp"
+      );
+    }, 1000);
+
+    return () => clearInterval(timerId); // Limpiar el intervalo al desmontar el componente
+  }, []);
+
   return (
     <footer className="w-full py-6 bg-stone-200">
       <div className="flex flex-col items-center px-4 md:px-8 md:flex-row md:justify-between">
-        
         {/* Menú de navegación alineado a la izquierda en tablet/desktop, centrado en móvil */}
         <nav className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 text-center md:text-left md:flex-1">
           <Link href="/conoceme/" className="text-indigo-950 font-bold hover:text-violet-900">
@@ -27,29 +43,22 @@ export const Footer: React.FC = () => {
           </Link>
         </nav>
 
-        {/* Logo centrado horizontalmente con márgenes controlados */}
-        <div className="mt-8 mb-4 md:mt-0 md:mb-0 lg:mt-0 lg:mb-0 md:flex-none flex justify-center group">
-  <Link href="/" aria-current="page">
-    <div className="relative w-[137px] h-[88px]">
-      {/* Imagen normal */}
-      <img
-        src="/img/logo/molly-yllom-logo-homepage.webp"
-        alt="Molly Yllom"
-        className="w-full h-full object-contain group-hover:opacity-0 transition-opacity duration-300"
-        draggable={false}
-      />
-      {/* Imagen al hacer hover */}
-      <img
-        src="/img/logo/molly-yllom-logo-homepage-2.webp"
-        alt="Molly Yllom Hover"
-        className="absolute top-0 left-0 w-full h-full object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        draggable={false}
-      />
-    </div>
-  </Link>
-</div>
+        {/* Logo que cambia automáticamente */}
+        <div className="mt-8 mb-4 md:mt-0 md:mb-0 lg:mt-0 lg:mb-0 md:flex-none flex justify-center">
+          <Link href="/">
+            <Image
+              src={logoSrc}
+              alt="Molly Yllom"
+              width={137}
+              height={88}
+              priority
+              draggable={false}
+              className="transition-opacity duration-300"
+            />
+          </Link>
+        </div>
 
-        {/* Iconos de redes sociales alineados a la derecha en tablet/desktop, centrados en móvil */}
+        {/* Iconos de redes sociales */}
         <div className="flex space-x-4 mt-6 md:mt-0 md:flex-1 justify-center md:justify-end">
           <Link href="https://www.instagram.com/holasoymolly" aria-label="Instagram" className="transform transition-transform duration-200 hover:scale-110">
             <RiInstagramLine className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
