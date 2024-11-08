@@ -1,12 +1,23 @@
-'use client';
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AppDrawer } from "../AppDrawer";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [logoSrc, setLogoSrc] = useState("/img/logo/molly-yllom-logo-homepage.webp");
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setLogoSrc(currentSrc =>
+        currentSrc === "/img/logo/molly-yllom-logo-homepage.webp"
+          ? "/img/logo/molly-yllom-logo-homepage-2.webp"
+          : "/img/logo/molly-yllom-logo-homepage.webp"
+      );
+    }, 1000); // Cambia cada 1 segundo
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -17,31 +28,20 @@ export const Header = () => {
         style={{ paddingLeft: "65px", paddingRight: "65px" }}
       >
         <div className="flex-shrink-0 group">
-  <Link href="/">
-    <div className="relative">
-      {/* Imagen normal */}
-      <Image
-        src="/img/logo/molly-yllom-logo-homepage.webp"
-        alt="Molly Yllom"
-        width={137}
-        height={88}
-        priority
-        draggable={false}
-        className="group-hover:opacity-0 transition-opacity duration-300"
-      />
-      {/* Imagen al hacer hover */}
-      <Image
-        src="/img/logo/molly-yllom-logo-homepage-2.webp" // Cambia esta ruta por la imagen que desees mostrar al hacer hover
-        alt="Molly Yllom Hover"
-        width={137}
-        height={88}
-        priority
-        draggable={false}
-        className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-      />
-    </div>
-  </Link>
-</div>
+          <Link href="/">
+            <div className="relative">
+              <Image
+                src={logoSrc}
+                alt="Molly Yllom"
+                width={137}
+                height={88}
+                priority
+                draggable={false}
+                className="transition-opacity duration-300"
+              />
+            </div>
+          </Link>
+        </div>
 
         <button
           className={`lg:hidden block ${
