@@ -19,13 +19,14 @@ const allianceProject: Project = {
   ],
   images: [
     "/img/projects/alliance/alliance-logo-behance-01.webp",
-    "/img/projects/alliance/embossed-logo-mockup-black-paper.webp",
+    "/img/projects/alliance/alliance-logo-behance-02.webp",
     "/img/projects/alliance/vintage-wooden-stamp-mockup-design.webp",
     "/img/projects/alliance/alliance-logo-behance-03.webp",
     "/img/projects/alliance/alliance-logo-behance-04.webp",
     "/img/projects/alliance/alliance-logo-behance-05.webp",
     "/img/projects/alliance/alliance-logo-behance-06.webp",
     "/img/projects/alliance/alliance-logo-behance-07.webp",
+    "/img/projects/alliance/embossed-logo-mockup-black-paper.webp",
   ],
 };
 
