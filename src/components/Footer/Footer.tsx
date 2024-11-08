@@ -15,17 +15,18 @@ export const Footer = () => {
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setLogoIndex((current) => (current === 0 ? 1 : 0));
-    }, 1000); // Cambia cada 1 segundo
-
-    return () => clearInterval(timer);
+    // Solo ejecuta el cambio en el lado del cliente
+    if (typeof window !== 'undefined') {
+      const timer = setInterval(() => {
+        setLogoIndex((current) => (current === 0 ? 1 : 0));
+      }, 1000); // Cambia cada 1 segundo
+      return () => clearInterval(timer);
+    }
   }, []);
 
   return (
     <footer className="w-full py-6 bg-stone-200">
       <div className="flex flex-col items-center px-4 md:px-8 md:flex-row md:justify-between">
-        {/* Menú de navegación */}
         <nav className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 text-center md:text-left md:flex-1">
           <Link href="/conoceme/" className="text-indigo-950 font-bold hover:text-violet-900">Conóceme</Link>
           <Link href="/proyectos" className="text-indigo-950 font-bold hover:text-violet-900">Proyectos</Link>
@@ -33,7 +34,6 @@ export const Footer = () => {
           <Link href="/descargas" className="text-indigo-950 font-bold hover:text-violet-900">Descargas</Link>
         </nav>
 
-        {/* Logo que cambia automáticamente */}
         <div className="mt-8 mb-4 md:mt-0 md:mb-0 lg:mt-0 lg:mb-0 md:flex-none flex justify-center">
           <Link href="/">
             <Image
@@ -48,7 +48,6 @@ export const Footer = () => {
           </Link>
         </div>
 
-        {/* Iconos de redes sociales */}
         <div className="flex space-x-4 mt-6 md:mt-0 md:flex-1 justify-center md:justify-end">
           <Link href="https://www.instagram.com/holasoymolly" aria-label="Instagram" className="transform transition-transform duration-200 hover:scale-110">
             <RiInstagramLine className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
