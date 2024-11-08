@@ -40,19 +40,19 @@ const materDesignProject: Project = {
     "Con una paleta de colores vivos, el logo irradia versatilidad y personalidad, capturando la esencia creativa de la marca. Fue un placer ser parte de este proyecto y ver cómo el diseño cobra vida con amor y pasión.",
   ],
   images: [
+    "/img/projects/mater-design/mtr-dsgn-paper-texture-mockup.webp",
     "/img/projects/mater-design/mtr-dsgn-x-MY-02.webp",
-    "/img/projects/mater-design/mtr-dsgn-id-badge-mockup.webp",
-    "/img/projects/mater-design/mtr-dsgn-stationary-mockup.webp",
     "/img/projects/mater-design/mtr-dsgn-x-MY-03.webp",
     "/img/projects/mater-design/mtr-dsgn-x-MY-04.webp",
     "/img/projects/mater-design/mtr-dsgn-x-MY-05.webp",
     "/img/projects/mater-design/mtr-dsgn-x-MY-06.webp",
+    "/img/projects/mater-design/mtr-dsgn-stationary-mockup.webp",
     "/img/projects/mater-design/mtr-dsgn-x-MY-07.webp",
     "/img/projects/mater-design/mtr-dsgn-x-MY-08.webp",
     "/img/projects/mater-design/mtr-dsgn-x-MY-09.webp",
     "/img/projects/mater-design/mtr-dsgn-x-MY-10.webp",
     "/img/projects/mater-design/mtr-dsgn-x-MY-11.webp",
-    "/img/projects/mater-design/mtr-dsgn-paper-texture-mockup.webp",
+    "/img/projects/mater-design/mtr-dsgn-id-badge-mockup.webp",
   ],
 };
 
