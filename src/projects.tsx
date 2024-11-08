@@ -67,17 +67,17 @@ const neuschoolProject: Project = {
     "Fue un honor ser parte de este proyecto que busca facilitar el acceso a la educación en un mundo cada vez más digitalizado.",
   ],
   images: [
-    "/img/projects/neuschool/neuschool-headphones-mockup.webp",
-    "/img/projects/neuschool/neuschool-ipad-mockup.webp",
     "/img/projects/neuschool/neuschool-logo-uso-basico-03.webp",
+    "/img/projects/neuschool/neuschool-mug-mockup.webp",
     "/img/projects/neuschool/neuschool-logo-uso-basico-05.webp",
     "/img/projects/neuschool/neuschool-logo-uso-basico-06.webp",
     "/img/projects/neuschool/neuschool-logo-uso-basico-07.webp",
     "/img/projects/neuschool/neuschool-logo-uso-basico-08.webp",
-    "/img/projects/neuschool/neuschool-logo-uso-basico-09.webp",
-    "/img/projects/neuschool/neuschool-logo-uso-basico-10.webp",
-    "/img/projects/neuschool/neuschool-mug-mockup.webp",
     "/img/projects/neuschool/neuschool-notebook-mockup.webp",
+    "/img/projects/neuschool/neuschool-logo-uso-basico-09.webp",
+    "/img/projects/neuschool/neuschool-ipad-mockup.webp",
+    "/img/projects/neuschool/neuschool-headphones-mockup.webp",
+    "/img/projects/neuschool/neuschool-logo-uso-basico-10.webp",
   ],
 };
 
