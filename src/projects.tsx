@@ -141,18 +141,17 @@ const dinerologyProject: Project = {
   slug: "dinerology",
   title: "Dinerology",
   portfolioImage: "/img/projects/dinerology/logo-6-remix.gif",
-  heroImage: "/img/projects/dinerology/japan-exterior-advertising-mockup.jpg",
+  heroImage: "/img/projects/dinerology/dinerology-japan-exterior-advertising-mockup.webp",
   paragraphs: [
     "Recordando cuando trabajé para crear el logo y la línea gráfica del canal de Youtube «Dinerology», un esfuerzo de JMMB. Me inspiré en la esencia y valores de JMMB, creando un diseño que refleja la innovación, la profesionalidad y la pasión por la educación financiera.",
     "Utilicé la paleta de colores de la marca, siguiendo sus lineamientos gráficos. Logré un diseño único y coherente que atrae la atención y comunica la misión del canal. Fue un honor ser parte de este proyecto que busca empoderar a las personas a través del conocimiento financiero en un formato accesible y entretenido como Youtube."
   ],
   images: [
-    "/img/projects/dinerology/black_stand_kiosk_mockup.jpg",
-    "/img/projects/dinerology/japan-exterior-advertising-mockup.jpg",
-    "/img/projects/dinerology/my-dinerology-logo-behance-02.jpg",
-    "/img/projects/dinerology/my-dinerology-logo-behance-03.jpg",
-    "/img/projects/dinerology/my-dinerology-logo-behance-04.jpg",
-    "/img/projects/dinerology/my-dinerology-logo-behance_artboard-1.jpg",
+    "/img/projects/dinerology/dinerology-x-my-logo-behance-01.webp",
+    "/img/projects/dinerology/dinerology-x-my-logo-behance-02.webp",
+    "/img/projects/dinerology/dinerology-x-my-logo-behance-03.webp",
+    "/img/projects/dinerology/dinerology-x-my-logo-behance-04.webp",
+    "/img/projects/dinerology/dinerology-black-stand-kiosk-mockup.webp",
   ],
 };
 
