@@ -312,12 +312,24 @@ const bhMobiliarioProject: Project = {
 };
 
 const mlLogoProject: Project = {
-  slug: "",
+  slug: "maria-lunares",
   title: "Maria Lunares",
-  portfolioImage: "/img/projects/ml/ml-logo-animado-1x1-1.gif",
-  heroImage: "",
-  paragraphs: [],
-  images: [],
+  portfolioImage: "/img/projects/maria-lunares/ml-logo-animado-1x1-1.gif",
+  heroImage: "/img/projects/maria-lunares/ml-logo-x-my-01.webp",
+  paragraphs: [
+    "Viene del latín y significa Mares Lunares. Los primeros astrónomos les llamaron así a las manchas de la Luna porque parecen grandes concentraciones de agua, pero no lo son. Son planicies extensas, oscuras y basálticas, resultado de impactos de meteoritos.",
+    "Maria Lunares representa esa vista que desde una perspectiva exterior, un ser humano puede parecer algo que no es lo que realmente es.",
+  ],
+  images: [
+    "/img/projects/maria-lunares/ml-logo-x-my-02.webp",
+    "/img/projects/maria-lunares/maria-lunares-hoodie-mockup.webp",
+    "/img/projects/maria-lunares/ml-logo-x-my-03.webp",
+    "/img/projects/maria-lunares/maria-lunares-tshirt-mockup.webp",
+    "/img/projects/maria-luanres/ml-logo-x-my-04.webp",
+    "/img/projects/maria-lunares/maria-lunares-lp-mockup.webp",
+    "/img/projects/maria-lunares/maria-lunares-two-mugs-mockup.webp",
+    "/img/projects/maria-lunares/maria-lunares-black-sweater-mokcup.webp",
+  ],
 };
 
 const cdtLogoProject: Project = {
