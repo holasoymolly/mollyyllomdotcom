@@ -212,20 +212,20 @@ const distopiaProject: Project = {
   slug: "distopia",
   title: "Distopia",
   portfolioImage: "/img/projects/distopia/distopia-tee-design-animation.gif",
-  heroImage: "/img/projects/distopia/distopia-logo_positivo.jpg",
+  heroImage: "/img/projects/distopia/distopia-logo-positivo.webp",
   paragraphs: [
     "Aquí te comparto el proyecto de diseño de logo e identidad visual para Distopia, una plataforma que en su momento apoyó la escena musical y artística de la cultura de la música electrónica dominicana a nivel local e internacional.",
     "Inspirada en su nombre y su enfoque atípico y distópico, creé un diseño minimalista con influencia del Opt Art, que refleja su carácter único y diferente.",
     "Desde el logo hasta las piezas gráficas digitales y físicas, así como murales e impresos, tuve la oportunidad de desarrollar una identidad visual vibrante y distintiva para la marca."
   ],
   images: [
-    "/img/projects/distopia/distopia-logo-03.jpg",
-    "/img/projects/distopia/distopia-logo-tee-mockup.jpg",
-    "/img/projects/distopia/distopia-logo-tp-mockup.jpg",
-    "/img/projects/distopia/distopia-logo_negativo.jpg",
-    "/img/projects/distopia/distopia-posters-mockup.jpg",
     "/img/projects/distopia/distopia-tee-design-animation.gif",
-    "/img/projects/distopia/distopia-parties.gif"
+    "/img/projects/distopia/distopia-logo-negativo.webp",
+    "/img/projects/distopia/distopia-logo-tp-mockup.webp",
+    "/img/projects/distopia/distopia-parties.gif",
+    "/img/projects/distopia/distopia-logo-tee-mockup.webp",
+    "/img/projects/distopia/distopia-posters-mockup.webp",
+    "/img/projects/distopia/distopia-logo-03.webp",
   ],
 };
 
