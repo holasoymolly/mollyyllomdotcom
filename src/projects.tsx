@@ -233,25 +233,25 @@ const indhauciProject: Project = {
   slug: "indhauci",
   title: "INDHAUCI",
   portfolioImage: "/img/projects/indhauci/indhauci-gif-1.gif",
-  heroImage: "/img/projects/indhauci/indhauci-logo-animation.gif",
+  heroImage: "/img/projects/indhauci/indhauci-logo-05.webp",
   paragraphs: [
     "Fue un honor para mí trabajar en el rediseño de la imagen corporativa de Constructora INDHAUCI, la compañía fundada por mis padres hace más de 20 años con esfuerzo y dedicación.",
     "Con orgullo, he tenido la oportunidad de desarrollar una nueva identidad visual que refleje la calidad y el legado de nuestra empresa, la cual llevo muy cerca del corazón.",
     "Desde el logo hasta la implementación en distintas piezas, este proyecto representa un homenaje a nuestra historia y un paso hacia el futuro de INDHAUCI."
   ],
   images: [
-    "/img/projects/indhauci/indhauci-logo-04.jpg",
-    "/img/projects/indhauci/indhauci-logo-05.jpg",
-    "/img/projects/indhauci/indhauci-logo-06.jpg",
-    "/img/projects/indhauci/indhauci-logo-07.jpg",
-    "/img/projects/indhauci/indhauci-logo-08.jpg",
-    "/img/projects/indhauci/indhauci-logo-09.jpg",
-    "/img/projects/indhauci/indhauci-logo-10.jpg",
-    "/img/projects/indhauci/indhauci-logo-11.jpg",
-    "/img/projects/indhauci/indhauci-logo-concrete-mockup.jpg",
-    "/img/projects/indhauci/indhauci-logo-helmet-mockup.jpg",
-    "/img/projects/indhauci/indhauci-logo-pattern-mockup.jpg",
-    "/img/projects/indhauci/indhauci-logo-sticker-mockup.jpg"
+    "/img/projects/indhauci/indhauci-logo-animation.gif",
+    "/img/projects/indhauci/indhauci-logo-06.webp",
+    "/img/projects/indhauci/indhauci-logo-07.webp",
+    "/img/projects/indhauci/indhauci-logo-04.webp",
+    "/img/projects/indhauci/indhauci-logo-08.webp",
+    "/img/projects/indhauci/indhauci-logo-10.webp",
+    "/img/projects/indhauci/indhauci-logo-09.webp",
+    "/img/projects/indhauci/indhauci-logo-pattern-mockup.webp",
+    "/img/projects/indhauci/indhauci-logo-11.webp",
+    "/img/projects/indhauci/indhauci-logo-concrete-mockup.webp",
+    "/img/projects/indhauci/indhauci-logo-sticker-mockup.webp",
+    "/img/projects/indhauci/indhauci-logo-helmet-mockup.webp"
   ],
 };
 
