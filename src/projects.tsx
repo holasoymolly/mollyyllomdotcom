@@ -354,7 +354,7 @@ const cdtLogoProject: Project = {
 const advanced: Project = {
   slug: "advanced-therapy",
   title: "Advanced Therapy",
-  portfolioImage: "/img/projects/advanced-therapy/atosf-logo-animation.gif",
+  portfolioImage: "/img/projects/advanced-therapy/atosf-logo-cover-animation.gif",
   heroImage: "/img/projects/advanced-therapy/atosf-logo-02.webp",
   paragraphs: [
     "En el proyecto de creación de logo y branding para Advanced Therapy of South Florida, me propuse capturar la esencia de un centro terapéutico que sirve como refugio para individuos en buscan de servicios psicológicos. Mi objetivo fue diseñar una identidad visual que reflejara profesionalismo, elegancia y modernidad, transmitiendo confianza y dejando una impresión memorable. El concepto se basa en representar a Advanced Therapy como el lugar donde los pacientes pueden desenredar sus mentes y avanzar hacia una mejor salud mental. A través de símbolos que evocan la psicología y la terapia, el logo busca tener un impacto significativo y comunicar la excelencia en el servicio que la clínica brinda a sus pacientes.",
