@@ -13,7 +13,7 @@ export const PortfolioGrid = () => {
                 <img src={item.portfolioImage} alt={item.title} className="object-cover w-full h-full block" />
                 <div className="absolute inset-0 bg-violet-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white text-lg md:text-xl font-bold">{item.title}</span>
+                  <span className="text-white text-sm sm:text-lg md:text-xl font-bold text-center">{item.title}</span>
                 </div>
               </a>
             ) : (
@@ -21,7 +21,7 @@ export const PortfolioGrid = () => {
                 <img src={item.portfolioImage} alt={item.title} className="object-cover w-full h-full block" />
                 <div className="absolute inset-0 bg-violet-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white text-lg md:text-xl font-bold">{item.title}</span>
+                  <span className="text-white text-sm sm:text-lg md:text-xl font-bold text-center">{item.title}</span>
                 </div>
               </>
             )}
