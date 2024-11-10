@@ -333,21 +333,48 @@ const mlLogoProject: Project = {
 };
 
 const cdtLogoProject: Project = {
-  slug: "",
+  slug: "canteras-del-tropico",
   title: "Canteras del Trópico",
-  portfolioImage: "/img/projects/cdt/cdt-logo-2022-animation.gif",
-  heroImage: "",
-  paragraphs: [],
-  images: [],
+  portfolioImage: "/img/projects/canteras-del-tropico/cdt-logo-2022-animation.gif",
+  heroImage: "/img/projects/canteras-del-tropico/canteras-del-tropico-logo-01.webp",
+  paragraphs: [
+    "En el proyecto de creación de logo y branding para Canteras del Trópico, me propuse capturar la esencia de una empresa dedicada a la minería y extracción de rocas y materiales de alta calidad. El diseño integra elementos que evocan piedras y excavadoras, simbolizando la fuerza y precisión en sus operaciones. Además, quise resaltar el aspecto de humanidad y servicio que distingue a la empresa, reflejando su compromiso con las comunidades y el medio ambiente. El resultado es una identidad visual que equilibra la robustez de la industria minera con un enfoque humano y orientado al servicio.",
+  ],
+  images: [
+    "/img/projects/canteras-del-tropico/canteras-del-tropico-logo-02.webp",
+    "/img/projects/canteras-del-tropico/canteras-del-tropico-logo-03.webp",
+    "/img/projects/canteras-del-tropico/canteras-del-tropico-logo-04.webp",
+    "/img/projects/canteras-del-tropico/canteras-del-tropico-logo-05.webp",
+    "/img/projects/canteras-del-tropico/canteras-del-tropico-logo-06.webp",
+    "/img/projects/canteras-del-tropico/canteras-del-tropico-logo-07.webp",
+    "/img/projects/canteras-del-tropico/cdt-papeleria.webp",
+  ],
 };
 
 const advanced: Project = {
-  slug: "",
+  slug: "advanced-therapy",
   title: "Advanced Therapy",
-  portfolioImage: "/img/projects/advanced-therapy/ATOSF-Logo-Animation.gif",
-  heroImage: "",
-  paragraphs: [],
-  images: [],
+  portfolioImage: "/img/projects/advanced-therapy/atosf-logo-animation.gif",
+  heroImage: "/img/projects/advanced-therapy/atosf-logo-02.webp",
+  paragraphs: [
+    "En el proyecto de creación de logo y branding para Advanced Therapy of South Florida, me propuse capturar la esencia de un centro terapéutico que sirve como refugio para individuos en buscan de servicios psicológicos. Mi objetivo fue diseñar una identidad visual que reflejara profesionalismo, elegancia y modernidad, transmitiendo confianza y dejando una impresión memorable. El concepto se basa en representar a Advanced Therapy como el lugar donde los pacientes pueden desenredar sus mentes y avanzar hacia una mejor salud mental. A través de símbolos que evocan la psicología y la terapia, el logo busca tener un impacto significativo y comunicar la excelencia en el servicio que la clínica brinda a sus pacientes.",
+  ],
+  images: [
+    "/img/projects/advanced-therapy/atosf-logo-01.webp",
+    "/img/projects/advanced-therapy/atosf-logo-03.webp",
+    "/img/projects/advanced-therapy/atosf-emboss-mockup.webp",
+    "/img/projects/advanced-therapy/atosf-logo-04.webp",
+    "/img/projects/advanced-therapy/atosf-logo-09.webp",
+    "/img/projects/advanced-therapy/atosf-logo-05.webp",
+    "/img/projects/advanced-therapy/atosf-logo-10.webp",
+    "/img/projects/advanced-therapy/atosf-stationary.webp",
+    "/img/projects/advanced-therapy/atosf-logo-06.webp",
+    "/img/projects/advanced-therapy/atosf-stamp-mockup.webp",
+    "/img/projects/advanced-therapy/atosf-logo-07.webp",
+    "/img/projects/advanced-therapy/atosf-logo-08.webp",
+    "/img/projects/advanced-therapy/atosf-thermo-mockup.webp",
+    "/img/projects/advanced-therapy/atosf-door-logo-mockup.webp",
+  ],
 };
 
 export const activeProjects = [
