@@ -31,11 +31,14 @@ export const DownloadsPage: React.FC = () => {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-full px-6">
           {downloadData.map((item, index) => (
             <div key={index} className="flex flex-col items-center space-y-4 p-6 bg-stone-200 rounded-lg">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-60 object-cover rounded-lg"
-              />
+              {/* Utilizar Tailwind CSS para mantener la relación de aspecto */}
+              <div className="w-full aspect-w-16 aspect-h-9 overflow-hidden rounded-lg">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="object-cover w-full h-full"
+                />
+              </div>
               <h3 className="text-xl font-bold text-indigo-950 text-center">{item.title}</h3>
               <a
                 href={item.downloadUrl}
