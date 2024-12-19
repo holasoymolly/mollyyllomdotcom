@@ -1,25 +1,29 @@
 'use client';
 
-import { useState, useEffect } from "react"; // Asegúrate de incluir useState y useEffect
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AppDrawer } from "../AppDrawer";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [logoImage, setLogoImage] = useState("/img/logo/molly-yllom-logo-homepage.webp"); // Estado inicial del logo
+  const [logoImage, setLogoImage] = useState("/img/logo/molly-yllom-logo-homepage.webp");
+  const [isBrowser, setIsBrowser] = useState(false);  // Estado para verificar si es navegador
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsBrowser(true);  // Confirma que el código se ejecuta en el navegador
+    }
+
     const timerId = setInterval(() => {
-      // Cambia la imagen del logo cada segundo
       setLogoImage((currentImage) =>
         currentImage === "/img/logo/molly-yllom-logo-homepage.webp"
           ? "/img/logo/molly-yllom-logo-homepage-2.webp"
           : "/img/logo/molly-yllom-logo-homepage.webp"
       );
-    }, 1000); // Intervalo de 1 segundo
+    }, 1000);
 
-    return () => clearInterval(timerId); // Limpiar el intervalo al desmontar el componente
+    return () => clearInterval(timerId);
   }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -30,24 +34,23 @@ export const Header = () => {
         <div className="flex-shrink-0 group">
           <Link href="/">
             <div className="relative">
-              {/* Imagen que cambia automáticamente */}
-              <Image
-                src={logoImage}
-                alt="Molly Yllom"
-                width={137}
-                height={88}
-                priority
-                draggable={false}
-                className="transition-opacity duration-300"
-              />
+              {isBrowser && (  // Solo muestra la imagen si se confirma que es el navegador
+                <Image
+                  src={logoImage}
+                  alt="Molly Yllom"
+                  width={137}
+                  height={88}
+                  priority
+                  draggable={false}
+                  className="transition-opacity duration-300"
+                />
+              )}
             </div>
           </Link>
         </div>
 
         <button
-          className={`lg:hidden block ${
-            isMenuOpen ? "text-violet-600" : "text-indigo-950"
-          } hover:text-violet-800 transition-colors duration-300`}
+          className={`lg:hidden block ${isMenuOpen ? "text-violet-600" : "text-indigo-950"} hover:text-violet-800 transition-colors duration-300`}
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -63,12 +66,12 @@ export const Header = () => {
           )}
         </button>
 
-        {/* Navigation links for desktop */}
         <nav className="hidden lg:flex items-center space-x-6 ml-auto">
           <Link href="/conoceme" className="text-indigo-950 font-semibold hover:text-violet-900">Conóceme</Link>
           <Link href="/proyectos" className="text-indigo-950 font-semibold hover:text-violet-900">Proyectos</Link>
           <Link href="/contacto" className="text-indigo-950 font-semibold hover:text-violet-900">Contacto</Link>
           <Link href="/descargas" className="text-indigo-950 font-semibold hover:text-violet-900">Descargas</Link>
+          <Link href="/nfts" className="text-indigo-950 font-semibold hover:text-violet-900">NFTs</Link>
         </nav>
       </div>
 
