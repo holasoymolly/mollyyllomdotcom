@@ -32,18 +32,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
       <head>
         {/* Meta tags and other head elements */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="max-image-preview:large" />
-        
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3TSX67D2J"></script>
         <script
@@ -56,6 +51,15 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* LaunchMyNFT Scripts */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.ownerId = "EWT8c32rdczQ9c4b3Aegd5oxLyRjiQA3e14DuGML5Scw";
+            window.collectionId = "l2zxaR8Cfc8kjYzXsPdk";
+          `,
+        }} />
+        <script type="module" src="https://storage.googleapis.com/scriptslmt/0.1.3/solana.js"></script>
+        <link rel="stylesheet" href="https://storage.googleapis.com/scriptslmt/0.1.3/solana.css" />
       </head>
       <body className={`${font.className} antialiased`}>
         <GoogleTagManager gtmId="G-Q3TSX67D2J" />
