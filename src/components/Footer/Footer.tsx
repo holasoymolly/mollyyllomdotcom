@@ -26,6 +26,9 @@ export const Footer: React.FC = () => {
           <Link href="/descargas" className="text-indigo-950 font-bold hover:text-violet-900">
             Descargas
           </Link>
+          <Link href="/nfts" className="text-indigo-950 font-bold hover:text-violet-900"> {/* Enlace a NFTs */}
+            NFTs
+          </Link>
         </nav>
 
         {/* Logo centrado horizontalmente con márgenes controlados */}
