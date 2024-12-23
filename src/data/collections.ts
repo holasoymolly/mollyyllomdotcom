@@ -1,4 +1,22 @@
 export const collections = [
+
+  {
+    name: "Thingies Monsters",
+    link: "https://launchmynft.io/sol/12250",
+    images: [
+      "/img/nft/thingies/1.webp",
+      "/img/nft/thingies/12.webp",
+      "/img/nft/thingies/13.webp",
+      "/img/nft/thingies/16.webp",
+      "/img/nft/thingies/17.webp",
+      "/img/nft/thingies/24.webp",
+      "/img/nft/thingies/27.webp",
+      "/img/nft/thingies/30.webp",
+      "/img/nft/thingies/31.webp",
+      "/img/nft/thingies/40.webp",
+    ],
+  },
+
     {
       name: "Pixeled Flexies Vol. 2",
       link: "https://launchmynft.io/sol/12117",
