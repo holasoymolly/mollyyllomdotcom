@@ -87,6 +87,13 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
           >
             Descargas
           </Link>
+          <Link
+            href="/nfts"
+            onClick={onClose}
+            className="text-[#1e1b4b] font-semibold text-lg hover:text-violet-900"
+          >
+            NFTs
+          </Link>
         </nav>
       </div>
     </motion.div>
