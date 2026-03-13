@@ -1,36 +1,81 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { Button } from "@/components/Button";
+
+const stats = [
+  { value: '15+', label: 'proyectos completados' },
+  { value: '15+', label: 'años de experiencia' },
+  { value: '∞', label: 'ideas por descubrir' },
+];
 
 export const MediaSection = () => {
   return (
-    <section className="flex flex-col md:flex-row items-center md:py-16 max-h-[600px] overflow-hidden">
-      <figure className="w-full md:w-[65%] lg:w-[78%] xl:w-[78%] 2xl:w-[80%] h-auto md:h-[40rem] overflow-hidden flex items-center justify-center md:justify-end">
+    <section className="flex flex-col md:flex-row min-h-[560px] md:min-h-[640px]">
+      {/* Photo — left half */}
+      <figure className="w-full md:w-1/2 h-72 md:h-auto overflow-hidden shrink-0">
         <img
           src="/img/molly/molly1.webp"
-          alt="Media Image"
+          alt="Molly Yllom"
           className="object-cover w-full h-full"
-          style={{
-            objectPosition: 'center 5%', // Posición más hacia la derecha
-          }}
+          style={{ objectPosition: 'center 5%' }}
         />
       </figure>
-      <div className="w-full md:w-[55%] lg:w-[60%] xl:w-[65%] 2xl:w-[70%] flex flex-col items-center md:items-start justify-between p-6 md:p-12 lg:p-16 space-y-4 md:space-y-6 text-center md:text-left">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-indigo-950 leading-tight">
-          ¿Listx para llevar tu 
-          <span className="block sm:inline"> proyecto al siguiente nivel?</span>
-        </h2>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-indigo-950">
-          En el mundo del diseño gráfico, cada decisión cuenta. Desde la elección de colores hasta
-          la tipografía utilizada, cada detalle comunica un mensaje único sobre tu marca.
-        </p>
-        <div className="mt-6 md:mt-auto">
+
+      {/* Dark panel — right half */}
+      <div className="w-full md:w-1/2 bg-indigo-950 text-stone-200 flex flex-col justify-between p-8 md:p-14 lg:p-20">
+        <motion.p
+          className="text-violet-400 text-xs font-bold tracking-[0.3em] uppercase"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          El estudio
+        </motion.p>
+
+        <div className="flex flex-col gap-8 my-10 md:my-0">
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-black leading-tight"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            ¿Listx para llevar<br />
+            tu proyecto al<br />
+            <span className="text-violet-400">siguiente nivel?</span>
+          </motion.h2>
+
+          {/* Stats */}
+          <motion.div
+            className="grid grid-cols-3 gap-4 border-t border-stone-200/10 pt-8"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            {stats.map((s) => (
+              <div key={s.label}>
+                <p className="text-3xl md:text-4xl font-black text-violet-400 leading-none">{s.value}</p>
+                <p className="text-stone-400 text-xs leading-snug mt-1">{s.label}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <Button
             href="https://calendly.com/hola-msny/30min"
-            text="Haz tu cita aquí"
+            text="Haz tu cita aquí →"
             size="large"
-            className="px-4 py-2 text-sm md:px-6 md:py-3 md:text-base lg:px-8 lg:py-4 lg:text-lg"
-            variant="dark"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,27 @@
-import { motion } from "framer-motion";
-import Image from "next/image";
+'use client';
+
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { RiInstagramLine } from '@/icons/RiInstagramLine';
+import { RiBehanceFill } from '@/icons/RiBehanceFill';
+import { IcOutlineTiktok } from '@/icons/IcOutlineTiktok';
+import { XIcon } from '@/icons/XIcon';
+
+const navLinks = [
+  { href: '/conoceme',  label: 'Conóceme',  num: '01' },
+  { href: '/proyectos', label: 'Proyectos', num: '02' },
+  { href: '/contacto',  label: 'Contacto',  num: '03' },
+  { href: '/descargas', label: 'Descargas', num: '04' },
+  { href: '/nfts',      label: 'NFTs',      num: '05' },
+];
+
+const socials = [
+  { href: 'https://www.instagram.com/holasoymolly', Icon: RiInstagramLine, label: 'Instagram' },
+  { href: 'https://www.behance.net/holasoymolly',   Icon: RiBehanceFill,   label: 'Behance'   },
+  { href: 'https://www.tiktok.com/@soymollyyllom',  Icon: IcOutlineTiktok, label: 'TikTok'    },
+  { href: 'https://x.com/holasoymolly',             Icon: XIcon,           label: 'X'         },
+];
 
 interface AppDrawerProps {
   isOpen: boolean;
@@ -8,94 +29,94 @@ interface AppDrawerProps {
 }
 
 export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
+  const pathname = usePathname();
+
   return (
-    <motion.div
-      className="fixed inset-0 bg-stone-200 z-50"
-      initial={{ opacity: 0, x: "100%" }}
-      animate={{
-        opacity: isOpen ? 1 : 0,
-        x: isOpen ? 0 : "100%",
-        scale: isOpen ? 1 : 0.95,
-      }}
-      exit={{ opacity: 0, x: "100%", scale: 0.95 }}
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: 25,
-        duration: 0.5,
-      }}
-    >
-      <div className="flex flex-col h-full">
-        {/* Botón de cierre */}
-        <button
-          className="self-end p-4 text-[#1e1b4b] hover:text-violet-900"
-          onClick={onClose}
-          aria-label="Close menu"
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="fixed inset-0 bg-indigo-950 z-50 flex flex-col px-8 pt-6 pb-10"
+          initial={{ opacity: 0, x: '100%' }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: '100%' }}
+          transition={{ type: 'spring', stiffness: 280, damping: 28 }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            aria-hidden="true"
-            className="fill-current text-[#1e1b4b] hover:text-violet-900"
-          >
-            <path d="M13.06 12l6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z" />
-          </svg>
-        </button>
+          {/* Close */}
+          <div className="flex justify-end mb-10">
+            <button
+              onClick={onClose}
+              aria-label="Cerrar menú"
+              className="text-stone-400 hover:text-stone-200 transition-colors duration-200"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
 
-        {/* Logo */}
-        <div className="flex justify-center py-4">
-          <Link href="/" onClick={onClose}>
-            <Image
-              src="/img/logo/molly-yllom-logo-homepage.webp"
-              alt="Molly Yllom"
-              width={120}
-              height={80}
-              priority
-            />
-          </Link>
-        </div>
+          {/* Nav */}
+          <nav className="flex flex-col flex-1">
+            {navLinks.map(({ href, label, num }, i) => {
+              const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
+              return (
+                <motion.div
+                  key={href}
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.07, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                  <Link
+                    href={href}
+                    onClick={onClose}
+                    className={`flex items-center gap-5 py-5 border-b border-stone-200/10 group ${
+                      isActive ? 'text-violet-400' : 'text-stone-200'
+                    }`}
+                  >
+                    <span className="text-violet-500 text-xs font-bold tracking-widest w-6 shrink-0">
+                      {num}
+                    </span>
+                    <span className="text-4xl font-black leading-none tracking-tight group-hover:text-violet-400 transition-colors duration-200">
+                      {label}
+                    </span>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </nav>
 
-        {/* Enlaces de navegación */}
-        <nav className="flex flex-col items-center space-y-6 mt-8">
-          <Link
-            href="/conoceme"
-            onClick={onClose}
-            className="text-[#1e1b4b] font-semibold text-lg hover:text-violet-900"
+          {/* CTA + social */}
+          <motion.div
+            className="flex flex-col gap-6 pt-8"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            Conóceme
-          </Link>
-          <Link
-            href="/proyectos"
-            onClick={onClose}
-            className="text-[#1e1b4b] font-semibold text-lg hover:text-violet-900"
-          >
-            Proyectos
-          </Link>
-          <Link
-            href="/contacto"
-            onClick={onClose}
-            className="text-[#1e1b4b] font-semibold text-lg hover:text-violet-900"
-          >
-            Contacto
-          </Link>
-          <Link
-            href="/descargas"
-            onClick={onClose}
-            className="text-[#1e1b4b] font-semibold text-lg hover:text-violet-900"
-          >
-            Descargas
-          </Link>
-          <Link
-            href="/nfts"
-            onClick={onClose}
-            className="text-[#1e1b4b] font-semibold text-lg hover:text-violet-900"
-          >
-            NFTs
-          </Link>
-        </nav>
-      </div>
-    </motion.div>
+            <a
+              href="https://forms.gle/KjbtdoYvXz4PL1Ek6"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="flex items-center justify-center bg-violet-500 text-stone-200 font-black px-8 py-4 rounded-full text-sm hover:bg-violet-400 transition-colors duration-300"
+            >
+              Cotiza tu proyecto →
+            </a>
+
+            <div className="flex gap-5 justify-center">
+              {socials.map(({ href, Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="text-stone-500 hover:text-violet-400 transition-colors duration-200"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };

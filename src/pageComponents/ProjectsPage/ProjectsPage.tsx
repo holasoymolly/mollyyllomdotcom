@@ -1,43 +1,48 @@
-// 'use client';
+'use client';
 
 import { Header } from "@/components/Header";
-import { FC } from "react";
 import { Footer } from "@/components/Footer";
 import { PortfolioGrid } from "@/components/PortfolioGrid";
 import { QuoteBanner } from "@/components/QuoteBanner";
-import { NewsletterBanner } from "@/components/NewsletterBanner"; // Importar el NewsletterBanner
+import { FC } from "react";
+import { motion } from "framer-motion";
 
 export const ProjectsPage: FC = () => {
   return (
     <div>
       <Header />
-      <main className="px-0 py-12 space-y-16">
-        <section className="max-w-full flex flex-col md:flex-row md:space-x-8 px-4 lg:px-12">
-          <div className="w-full md:w-1/2">
-            <h1 className="text-4xl font-bold text-indigo-950 ml-12 sm:ml-12 md:ml-12 lg:ml-4 mb-4 sm:mb-6">
-              Proyectos
-            </h1>
-          </div>
-          <div className="w-full md:w-1/2 pl-4 md:pl-8">
-            <p className="text-lg leading-relaxed text-indigo-950 ml-9 sm:ml-8 md:ml-0 -mb-8 sm:mb-4 pr-4 sm:pr-6">
-              ¡Bienvenidx a la galería de proyectos! Aquí encontrarás algunos de los trabajos en los que he dejado mi huella creativa. Cada proyecto cuenta una historia única que espero te inspire y te motive.
-            </p>
-          </div>
-        </section>
 
-        <section className="pb-0 mb-0">
-          <div className="bg-stone-200">
-            <PortfolioGrid />
-          </div>
-        </section>
-      </main>
-      <div className="mt-[-50px]">
-        <QuoteBanner />
-      </div>
+      {/* Hero */}
+      <section className="bg-indigo-950 text-stone-200 px-6 md:px-16 lg:px-24 pt-20 pb-24">
+        <motion.p
+          className="text-violet-400 text-xs font-bold tracking-[0.3em] uppercase mb-6"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          Portfolio seleccionado
+        </motion.p>
+        <motion.h1
+          className="text-6xl sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tight mb-10"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          Proyectos
+        </motion.h1>
+        <motion.p
+          className="text-stone-400 text-lg leading-relaxed max-w-xl"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          Trabajos en los que he dejado mi huella creativa. Cada proyecto cuenta una historia única.
+        </motion.p>
+      </section>
 
-      {/* Newsletter Banner */}
-      <NewsletterBanner /> {/* Agregar el NewsletterBanner aquí */}
+      <PortfolioGrid showHeader={false} />
 
+      <QuoteBanner />
       <Footer />
     </div>
   );

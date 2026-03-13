@@ -1,0 +1,63 @@
+{
+  "name": "Molly Degen Punks #58",
+  "symbol": "MDP",
+  "description": "Molly Degen Punks is a generative art study on identity, multiplicity, and creative diversity. Born from a pixel-art self-portrait, the collection explores 111 structured variations of a single base character. Each piece reflects the idea that identity is never singular — contrast is intentional, difference is structural, and not everything can coexist. Holders receive early access to future Molly universe drops.",
+  "seller_fee_basis_points": 500,
+  "image": "ipfs://NewUriToReplace/58.png",
+  "external_url": "https://x.com/holasoymolly",
+  "attributes": [
+    {
+      "trait_type": "background",
+      "value": "background_gray_day"
+    },
+    {
+      "trait_type": "body",
+      "value": "body_titanium"
+    },
+    {
+      "trait_type": "outfit",
+      "value": "outfit_lila_hoodie"
+    },
+    {
+      "trait_type": "face",
+      "value": "face_side_smile"
+    },
+    {
+      "trait_type": "hair",
+      "value": "hair_purple"
+    },
+    {
+      "trait_type": "eyeglasses",
+      "value": "eyeglasses_baby_pink"
+    },
+    {
+      "trait_type": "earrings",
+      "value": "earrings_lila"
+    },
+    {
+      "trait_type": "headwear",
+      "value": "headwear_metal_crown"
+    },
+    {
+      "trait_type": "accessory",
+      "value": "accessory_ivory_chocker"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "58.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "EWT8c32rdczQ9c4b3Aegd5oxLyRjiQA3e14DuGML5Scw",
+        "share": 100
+      }
+    ]
+  },
+  "edition": 58,
+  "dna": "e168d77facf9e3773320099dd7ce77723544a6f6"
+}

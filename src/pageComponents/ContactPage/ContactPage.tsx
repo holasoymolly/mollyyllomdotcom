@@ -1,75 +1,132 @@
-// 'use client';
+'use client';
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { QuoteBanner } from "@/components/QuoteBanner";
-import { NewsletterBanner } from "@/components/NewsletterBanner"; // Importar el NewsletterBanner
 import { FC } from "react";
+import { motion } from "framer-motion";
 import { DeviconPlainLinkedin } from '@/icons/DeviconPlainLinkedin';
 import { IcOutlineTiktok } from "@/icons/IcOutlineTiktok";
 import { IcRoundFacebook } from "@/icons/IcRoundFacebook";
 import { RiBehanceFill } from "@/icons/RiBehanceFill";
 import { RiInstagramLine } from "@/icons/RiInstagramLine";
+import { XIcon } from "@/icons/XIcon";
+
+const socials = [
+  { href: "https://www.instagram.com/holasoymolly", label: "Instagram", Icon: RiInstagramLine },
+  { href: "https://www.behance.net/holasoymolly", label: "Behance", Icon: RiBehanceFill },
+  { href: "https://www.facebook.com/holasoymolly", label: "Facebook", Icon: IcRoundFacebook },
+  { href: "https://www.tiktok.com/@soymollyyllom", label: "TikTok", Icon: IcOutlineTiktok },
+  { href: "https://www.linkedin.com/in/mollyyllom", label: "LinkedIn", Icon: DeviconPlainLinkedin },
+  { href: "https://x.com/holasoymolly", label: "X", Icon: XIcon },
+];
 
 export const ContactPage: FC = () => {
   return (
     <div>
       <Header />
 
-      {/* Contact Section */}
-      <main className="px-4 lg:px-12 py-11 space-y-1">
-        <section className="max-w-full flex flex-col md:flex-row md:space-x-8">
-          <div className="w-full md:w-1/2">
-            <h1 className="text-4xl font-bold text-indigo-950 ml-12 sm:ml-12 md:ml-12 lg:ml-4 mb-4 sm:mb-6">
-              Contáctame
-            </h1>
-          </div>
-          <div className="w-full md:w-1/2 space-y-6 pl-4 md:pl-8">
-            <p className="text-lg leading-relaxed text-indigo-950 ml-9 sm:ml-8 md:ml-0 mb-4 sm:mb-6 pr-4 sm:pr-6">
-              Si tienes alguna pregunta o te gustaría trabajar conmigo, no dudes en contactarme a través del correo o en mis redes sociales.
-            </p>
+      {/* Hero */}
+      <section className="bg-indigo-950 text-stone-200 px-6 md:px-16 lg:px-24 pt-20 pb-24">
+        <motion.p
+          className="text-violet-400 text-xs font-bold tracking-[0.3em] uppercase mb-6"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          Hablemos
+        </motion.p>
+        <motion.h1
+          className="text-6xl sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tight"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          Contáctame
+        </motion.h1>
+      </section>
 
-            {/* Email */}
-            <div className="text-left mobile-contact-padding">
-              <p className="text-lg font-semibold text-indigo-950">Email:</p>
-              <p className="text-lg text-violet-900">
-                <a href="mailto:hola@mollyyllom.com" className="hover:underline">hola@mollyyllom.com</a>
+      {/* Contact content */}
+      <section className="bg-stone-200 px-6 md:px-16 lg:px-24 py-20 md:py-28">
+        <div className="max-w-3xl flex flex-col gap-14">
+
+          {/* Email */}
+          <motion.div
+            className="flex flex-col gap-2 border-b border-indigo-950/10 pb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase">
+              Email
+            </span>
+            <a
+              href="mailto:hola@mollyyllom.com"
+              className="text-3xl md:text-4xl lg:text-5xl font-black text-indigo-950 hover:text-violet-500 transition-colors duration-300 leading-none"
+            >
+              hola@mollyyllom.com
+            </a>
+          </motion.div>
+
+          {/* Agendar cita */}
+          <motion.div
+            className="flex flex-col gap-2 border-b border-indigo-950/10 pb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.05, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase">
+              Agenda una llamada
+            </span>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+              <p className="text-indigo-950/60 text-lg leading-snug max-w-sm">
+                ¿Prefieres hablar directamente? Reserva una sesión de 30 minutos.
               </p>
-            </div>
-
-            {/* Social Media Links */}
-            <div className="flex justify-start space-x-6 mobile-contact-padding">
-              <a href="https://www.instagram.com/holasoymolly" aria-label="Instagram" className="text-indigo-950 hover:text-violet-900">
-                <RiInstagramLine className="w-6 h-6" />
-              </a>
-              <a href="https://www.behance.net/holasoymolly" aria-label="Behance" className="text-indigo-950 hover:text-violet-900">
-                <RiBehanceFill className="w-6 h-6" />
-              </a>
-              <a href="https://www.facebook.com/holasoymolly" aria-label="Facebook" className="text-indigo-950 hover:text-violet-900">
-                <IcRoundFacebook className="w-6 h-6" />
-              </a>
-              <a href="https://www.tiktok.com/@soymollyyllom" aria-label="TikTok" className="text-indigo-950 hover:text-violet-900">
-                <IcOutlineTiktok className="w-6 h-6" />
-              </a>
-              <a href="https://www.linkedin.com/in/mollyyllom" aria-label="LinkedIn" className="text-indigo-950 hover:text-violet-900">
-                <DeviconPlainLinkedin className="w-6 h-6" />
+              <a
+                href="https://calendly.com/hola-msny/30min"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="shrink-0 bg-indigo-950 text-stone-200 font-bold px-8 py-4 rounded-full transition-colors duration-300 hover:bg-violet-500 whitespace-nowrap"
+              >
+                Reservar cita →
               </a>
             </div>
-          </div>
-        </section>
+          </motion.div>
 
-        {/* Quote Banner Section */}
-        <section className="-mx-4 lg:-mx-12" style={{ marginTop: "2rem" }}>
-          <QuoteBanner />
-        </section>
-        
-      </main>
+          {/* Social */}
+          <motion.div
+            className="flex flex-col gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase">
+              Redes sociales
+            </span>
+            <div className="flex flex-wrap gap-4">
+              {socials.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-indigo-950/5 hover:bg-indigo-950 hover:text-stone-200 text-indigo-950 font-semibold text-sm px-5 py-3 rounded-full transition-all duration-300 group"
+                >
+                  <Icon className="w-4 h-4" />
+                  {label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
 
-      {/* Newsletter Banner */}
-      <div className="-mt-11"> {/* Eliminar el margen superior */}
-        <NewsletterBanner />
-      </div>
+        </div>
+      </section>
 
+      <QuoteBanner />
       <Footer />
     </div>
   );

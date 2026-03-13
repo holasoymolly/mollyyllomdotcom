@@ -3,79 +3,88 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AppDrawer } from "../AppDrawer";
+
+const navLinks = [
+  { href: '/conoceme', label: 'Conóceme' },
+  { href: '/proyectos', label: 'Proyectos' },
+  { href: '/contacto', label: 'Contacto' },
+  { href: '/descargas', label: 'Descargas' },
+  { href: '/nfts', label: 'NFTs' },
+];
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [logoImage, setLogoImage] = useState("/img/logo/molly-yllom-logo-homepage.webp");
-  const [isBrowser, setIsBrowser] = useState(false);  // Estado para verificar si es navegador
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setIsBrowser(true);  // Confirma que el código se ejecuta en el navegador
-    }
-
-    const timerId = setInterval(() => {
-      setLogoImage((currentImage) =>
-        currentImage === "/img/logo/molly-yllom-logo-homepage.webp"
-          ? "/img/logo/molly-yllom-logo-homepage-2.webp"
-          : "/img/logo/molly-yllom-logo-homepage.webp"
-      );
-    }, 1000);
-
-    return () => clearInterval(timerId);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   return (
-    <header className="bg-stone-200 w-full">
-      <div className="w-full flex items-center justify-between py-5 px-4" style={{ paddingLeft: "65px", paddingRight: "65px" }}>
-        <div className="flex-shrink-0 group">
-          <Link href="/">
-            <div className="relative">
-              {isBrowser && (  // Solo muestra la imagen si se confirma que es el navegador
-                <Image
-                  src={logoImage}
-                  alt="Molly Yllom"
-                  width={137}
-                  height={88}
-                  priority
-                  draggable={false}
-                  className="transition-opacity duration-300"
-                />
-              )}
-            </div>
-          </Link>
-        </div>
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-stone-200/90 backdrop-blur-md shadow-sm' : 'bg-stone-200'}`}>
+      <div className="w-full flex items-center justify-between py-4 px-6 md:px-16 lg:px-24">
 
+        {/* Logo — swap on hover only */}
+        <Link href="/" className="flex-shrink-0 group relative block" style={{ width: 110, height: 71 }}>
+          <Image
+            src="/img/logo/molly-yllom-logo-homepage.webp"
+            alt="Molly Yllom"
+            width={110}
+            height={71}
+            priority
+            draggable={false}
+            className="absolute top-0 left-0 transition-opacity duration-300 group-hover:opacity-0"
+          />
+          <Image
+            src="/img/logo/molly-yllom-logo-homepage-2.webp"
+            alt="Molly Yllom"
+            width={110}
+            height={71}
+            draggable={false}
+            className="absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          />
+        </Link>
+
+        {/* Hamburger — mobile */}
         <button
-          className={`lg:hidden block ${isMenuOpen ? "text-violet-600" : "text-indigo-950"} hover:text-violet-800 transition-colors duration-300`}
-          onClick={toggleMenu}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="lg:hidden text-indigo-950 hover:text-violet-500 transition-colors duration-300"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
         >
-          {isMenuOpen ? (
-            <svg className="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-              <path d="M13.06 12l6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-              <rect x="4" y="7.5" width="16" height="1.5" />
-              <rect x="4" y="15" width="16" height="1.5" />
-            </svg>
-          )}
+          <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <rect x="4" y="7.5" width="16" height="1.5" />
+            <rect x="4" y="15" width="16" height="1.5" />
+          </svg>
         </button>
 
-        <nav className="hidden lg:flex items-center space-x-6 ml-auto">
-          <Link href="/conoceme" className="text-indigo-950 font-semibold hover:text-violet-900">Conóceme</Link>
-          <Link href="/proyectos" className="text-indigo-950 font-semibold hover:text-violet-900">Proyectos</Link>
-          <Link href="/contacto" className="text-indigo-950 font-semibold hover:text-violet-900">Contacto</Link>
-          <Link href="/descargas" className="text-indigo-950 font-semibold hover:text-violet-900">Descargas</Link>
-          <Link href="/nfts" className="text-indigo-950 font-semibold hover:text-violet-900">NFTs</Link>
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {navLinks.map(({ href, label }) => {
+            const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`relative text-sm font-semibold transition-colors duration-200 group pb-0.5 ${
+                  isActive ? 'text-violet-600' : 'text-indigo-950 hover:text-violet-500'
+                }`}
+              >
+                {label}
+                <span className={`absolute -bottom-0.5 left-0 h-[2px] bg-violet-500 rounded-full transition-all duration-300 ${
+                  isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                }`} />
+              </Link>
+            );
+          })}
         </nav>
       </div>
 
-      <AppDrawer isOpen={isMenuOpen} onClose={toggleMenu} />
+      <AppDrawer isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </header>
   );
 };

@@ -1,68 +1,125 @@
-// 'use client';
+'use client';
 
-import React from "react";
-
-interface Collection {
-  name: string;
-  link: string;
-  images: string[];
-}
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { NFTModal } from "./NFTModal";
+import { Collection } from "@/data/collections";
 
 interface NFTsGalleryProps {
   collections: Collection[];
 }
 
+interface SelectedNFT {
+  image: string;
+  collectionName: string;
+  collectionLink: string;
+  metadataUrl: string | null;
+}
+
+function getMetadataUrl(imagePath: string, metadataPath: string): string {
+  const filename = imagePath.split('/').pop()?.replace(/\.[^.]+$/, '') ?? '';
+  return `${metadataPath}/${filename}.json`;
+}
+
 export const NFTsGallery: React.FC<NFTsGalleryProps> = ({ collections }) => {
+  const [selected, setSelected] = useState<SelectedNFT | null>(null);
+
   if (!collections || collections.length === 0) {
     return (
-      <div className="text-center text-indigo-950">
+      <div className="px-6 md:px-16 lg:px-24 py-20 text-stone-400">
         <p>No hay colecciones disponibles para mostrar.</p>
       </div>
     );
   }
 
+  const handleImageClick = (image: string, collection: Collection) => {
+    setSelected({
+      image,
+      collectionName: collection.name,
+      collectionLink: collection.link,
+      metadataUrl: collection.metadataPath
+        ? getMetadataUrl(image, collection.metadataPath)
+        : null,
+    });
+  };
+
   return (
-    <div className="space-y-12">
-      {collections.map((collection, index) => (
-        // Fondo extendido para cada colección
-        <div
-          key={index}
-          className="-mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 bg-indigo-950 py-12" // Fondo extendido
-        >
-          {/* Contenedor interno con márgenes ajustados */}
-          <div className="space-y-4 px-16 sm:px-19 md:px-20 lg:px-16">
-            {/* Contenedor para el título */}
-            <h2 className="text-2xl font-bold text-stone-200">{collection.name}</h2>
-            {/* Galería de imágenes */}
-            <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-4">
-              {collection.images.map((image, idx) => (
-                <div
-                  key={idx}
-                  className="relative overflow-hidden rounded-lg group" // Contenedor para el efecto de zoom
-                >
-                  <img
-                    src={image}
-                    alt={`${collection.name} - Imagen ${idx + 1}`}
-                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" // Efecto de zoom
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-            {/* Botón de colección */}
-            <div className="text-right">
+    <div className="bg-indigo-950">
+      {collections.map((collection, index) => {
+        const reversed = index % 2 !== 0;
+        const displayNumber = String(collections.length - index).padStart(2, '0');
+
+        return (
+          <motion.div
+            key={index}
+            className="border-t border-stone-200/10 py-16"
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            {/* Collection header */}
+            <div className="px-6 md:px-16 lg:px-24 mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+              <div>
+                <span className="text-violet-400 text-xs font-bold tracking-[0.25em] uppercase">
+                  Colección {displayNumber}
+                </span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-stone-200 mt-1 leading-none">
+                  {collection.name}
+                </h2>
+              </div>
               <a
                 href={collection.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-6 py-3 bg-stone-200 text-indigo-950 font-semibold rounded-full transition hover:bg-violet-900 hover:text-stone-200"
+                className="shrink-0 border border-stone-200/20 text-stone-300 font-bold px-7 py-3.5 rounded-full text-sm transition-all duration-300 hover:bg-violet-500 hover:border-violet-500 hover:text-stone-200 whitespace-nowrap w-fit"
               >
-                Ver Colección
+                Ver colección →
               </a>
             </div>
-          </div>
-        </div>
-      ))}
+
+            {/* Scrolling image strip */}
+            <div className="overflow-hidden">
+              <div
+                className={`flex w-max ${reversed ? 'animate-marquee-reverse' : 'animate-marquee'}`}
+                style={{ willChange: 'transform' }}
+              >
+                {[0, 1].map((setIdx) => (
+                  <div key={setIdx} className="flex" aria-hidden={setIdx === 1}>
+                    {collection.images.map((image, idx) => (
+                      <div
+                        key={idx}
+                        className="relative w-56 h-56 md:w-72 md:h-72 shrink-0 overflow-hidden rounded-sm group mr-3 cursor-pointer"
+                        onClick={() => setIdx === 0 && handleImageClick(image, collection)}
+                      >
+                        <img
+                          src={image}
+                          alt={`${collection.name} — ${idx + 1}`}
+                          className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                          loading="lazy"
+                        />
+                        {/* Hover overlay */}
+                        <div className="absolute inset-0 bg-violet-500/0 group-hover:bg-violet-500/20 transition-colors duration-300" />
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        );
+      })}
+
+      {/* Modal */}
+      {selected && (
+        <NFTModal
+          image={selected.image}
+          collectionName={selected.collectionName}
+          collectionLink={selected.collectionLink}
+          metadataUrl={selected.metadataUrl}
+          onClose={() => setSelected(null)}
+        />
+      )}
     </div>
   );
 };

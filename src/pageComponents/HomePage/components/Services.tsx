@@ -1,9 +1,11 @@
 'use client';
 
+import { motion } from 'framer-motion';
+
 export const Services = () => {
   const services = [
     {
-      title: "Logos e Identidad visual",
+      title: "Branding",
       description:
         "Diseño logos únicos que capturan la esencia de tu marca y desarrollo una identidad visual coherente y atractiva, incluyendo colores y tipografías, para destacar en tu mercado.",
     },
@@ -35,15 +37,29 @@ export const Services = () => {
   ];
 
   return (
-    <section className="py-10 px-6 md:px-12">
-      <h2 className="text-4xl font-bold text-indigo-950">Servicios</h2>
+    <section className="py-20 px-6 md:px-16 lg:px-24 bg-stone-200">
+      <h2 className="text-4xl md:text-5xl font-black text-indigo-950 mb-2">Servicios</h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10">
+      <div className="mt-10 border-t border-indigo-950/15">
         {services.map((service, index) => (
-          <div key={index} className="text-left">
-            <h3 className="text-2xl font-semibold mb-4 text-indigo-950">{service.title}</h3>
-            <p className="text-lg text-indigo-950">{service.description}</p>
-          </div>
+          <motion.div
+            key={index}
+            className="flex flex-col md:flex-row gap-2 md:gap-12 py-8 border-b border-indigo-950/15 group cursor-default"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: index * 0.07, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <span className="text-violet-500 text-xs font-bold tracking-widest w-10 shrink-0 pt-1 md:pt-2">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-indigo-950 md:w-72 shrink-0 group-hover:text-violet-900 transition-colors duration-300">
+              {service.title}
+            </h3>
+            <p className="text-indigo-950/60 text-base md:text-lg leading-relaxed md:pt-1">
+              {service.description}
+            </p>
+          </motion.div>
         ))}
       </div>
     </section>

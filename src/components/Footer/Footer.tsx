@@ -3,75 +3,105 @@ import { IcOutlineTiktok } from '@/icons/IcOutlineTiktok';
 import { IcRoundFacebook } from '@/icons/IcRoundFacebook';
 import { RiBehanceFill } from '@/icons/RiBehanceFill';
 import { RiInstagramLine } from '@/icons/RiInstagramLine';
-import { XIcon } from '@/icons/XIcon'; // Importa el nuevo ícono
+import { XIcon } from '@/icons/XIcon';
 import Link from 'next/link';
 import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="w-full py-6 bg-stone-200">
-      <div className="flex flex-col items-center px-4 md:px-8 md:flex-row md:justify-between">
-        
-        {/* Menú de navegación alineado a la izquierda en tablet/desktop, centrado en móvil */}
-        <nav className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 text-center md:text-left md:flex-1">
-          <Link href="/conoceme/" className="text-indigo-950 font-bold hover:text-violet-900">
-            Conóceme
+    <footer className="w-full bg-indigo-950">
+      {/* Main grid */}
+      <div className="px-6 md:px-16 lg:px-24 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+
+        {/* Logo + tagline */}
+        <div className="flex flex-col gap-5">
+          <Link href="/" className="inline-block w-fit">
+            <img
+              src="/img/logo/molly-yllom-stacked.png"
+              alt="Molly Yllom"
+              className="h-16 w-auto object-contain opacity-90"
+              draggable={false}
+            />
           </Link>
-          <Link href="/proyectos" className="text-indigo-950 font-bold hover:text-violet-900">
-            Proyectos
-          </Link>
-          <Link href="/contacto" className="text-indigo-950 font-bold hover:text-violet-900">
-            Contacto
-          </Link>
-          <Link href="/descargas" className="text-indigo-950 font-bold hover:text-violet-900">
-            Descargas
-          </Link>
-          <Link href="/nfts" className="text-indigo-950 font-bold hover:text-violet-900"> {/* Enlace a NFTs */}
-            NFTs
-          </Link>
+          <p className="text-stone-400 text-sm leading-relaxed max-w-[220px]">
+            Estudio de diseño gráfico e identidad visual.
+          </p>
+        </div>
+
+        {/* Navigation */}
+        <nav className="flex flex-col gap-3">
+          <span className="text-stone-500 text-xs font-bold tracking-[0.2em] uppercase mb-1">
+            Páginas
+          </span>
+          {[
+            { href: '/conoceme', label: 'Conóceme' },
+            { href: '/proyectos', label: 'Proyectos' },
+            { href: '/contacto', label: 'Contacto' },
+            { href: '/descargas', label: 'Descargas' },
+            { href: '/nfts', label: 'NFTs' },
+          ].map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="text-stone-300 text-sm font-medium hover:text-violet-400 transition-colors duration-200 w-fit"
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
 
-        {/* Logo centrado horizontalmente con márgenes controlados */}
-        <div className="mt-8 mb-4 md:mt-0 md:mb-0 lg:mt-0 lg:mb-0 md:flex-none flex justify-center group">
-          <Link href="/" aria-current="page">
-            <div className="relative w-[137px] h-[88px]">
-              <img
-                src="/img/logo/molly-yllom-logo-homepage.webp"
-                alt="Molly Yllom"
-                className="w-full h-full object-contain group-hover:opacity-0 transition-opacity duration-300"
-                draggable={false}
-              />
-              <img
-                src="/img/logo/molly-yllom-logo-homepage-2.webp"
-                alt="Molly Yllom Hover"
-                className="absolute top-0 left-0 w-full h-full object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                draggable={false}
-              />
+        {/* Social + Newsletter */}
+        <div className="flex flex-col gap-8">
+          <div>
+            <span className="text-stone-500 text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
+              Sígueme
+            </span>
+            <div className="flex gap-4 items-center">
+              <a href="https://www.instagram.com/holasoymolly" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+                <RiInstagramLine className="w-5 h-5" />
+              </a>
+              <a href="https://www.behance.net/holasoymolly" aria-label="Behance" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+                <RiBehanceFill className="w-5 h-5" />
+              </a>
+              <a href="https://www.facebook.com/holasoymolly" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+                <IcRoundFacebook className="w-5 h-5" />
+              </a>
+              <a href="https://www.tiktok.com/@soymollyyllom" aria-label="TikTok" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+                <IcOutlineTiktok className="w-5 h-5" />
+              </a>
+              <a href="https://www.linkedin.com/in/mollyyllom" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+                <DeviconPlainLinkedin className="w-5 h-5" />
+              </a>
+              <a href="https://x.com/holasoymolly" aria-label="X" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+                <XIcon className="w-5 h-5" />
+              </a>
             </div>
-          </Link>
-        </div>
+          </div>
 
-        {/* Iconos de redes sociales alineados a la derecha en tablet/desktop, centrados en móvil */}
-        <div className="flex space-x-4 mt-6 md:mt-0 md:flex-1 justify-center md:justify-end items-center">
-          <a href="https://www.instagram.com/holasoymolly" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-200 hover:scale-110">
-            <RiInstagramLine className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
-          </a>
-          <a href="https://www.behance.net/holasoymolly" aria-label="Behance" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-200 hover:scale-110">
-            <RiBehanceFill className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
-          </a>
-          <a href="https://www.facebook.com/holasoymolly" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-200 hover:scale-110">
-            <IcRoundFacebook className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
-          </a>
-          <a href="https://www.tiktok.com/@soymollyyllom" aria-label="TikTok" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-200 hover:scale-110">
-            <IcOutlineTiktok className="w-6 h-6 text-indigo-950 hover:text-violet-900" />
-          </a>
-          <a href="https://www.linkedin.com/in/mollyyllom" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-200 hover:scale-110 flex items-center justify-center">
-            <DeviconPlainLinkedin className="w-5 h-5 text-indigo-950 hover:text-violet-900" />
-          </a>
-          <a href="https://x.com/holasoymolly" aria-label="X" target="_blank" rel="noopener noreferrer" className="transform transition-transform duration-200 hover:scale-110 flex items-center justify-center">
-            <XIcon className="w-5 h-5 text-indigo-950 hover:text-violet-900" />
-          </a>
+          <div className="flex flex-col gap-3">
+            <span className="text-stone-500 text-xs font-bold tracking-[0.2em] uppercase">
+              Newsletter
+            </span>
+            <a
+              href="https://forms.gle/dh6ZN4NztWXkp1jE8"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="w-fit bg-stone-200/10 border border-stone-200/15 text-stone-300 font-semibold px-6 py-3 rounded-full text-sm transition-all duration-300 hover:bg-violet-500 hover:border-violet-500 hover:text-stone-200 whitespace-nowrap"
+            >
+              Suscríbete al newsletter →
+            </a>
+          </div>
         </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-stone-200/10 px-6 md:px-16 lg:px-24 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <span className="text-stone-500 text-xs">
+          © {new Date().getFullYear()} Molly Yllom. Todos los derechos reservados.
+        </span>
+        <span className="text-stone-600 text-xs">
+          Diseñado con amor ♥
+        </span>
       </div>
     </footer>
   );
