@@ -23,14 +23,14 @@ export const Footer: React.FC = () => {
               draggable={false}
             />
           </Link>
-          <p className="text-stone-400 text-sm leading-relaxed max-w-[220px]">
+          <p className="text-violet-400 text-sm leading-relaxed max-w-[220px]">
             Estudio de diseño gráfico e identidad visual.
           </p>
         </div>
 
         {/* Navigation */}
         <nav className="flex flex-col gap-3">
-          <span className="text-stone-500 text-xs font-bold tracking-[0.2em] uppercase mb-1">
+          <span className="text-violet-400 text-xs font-bold tracking-[0.2em] uppercase mb-1">
             Páginas
           </span>
           {[
@@ -53,35 +53,32 @@ export const Footer: React.FC = () => {
         {/* Social + Newsletter */}
         <div className="flex flex-col gap-8">
           <div>
-            <span className="text-stone-500 text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
+            <span className="text-violet-400 text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
               Sígueme
             </span>
             <div className="flex gap-4 items-center">
-              <a href="https://www.instagram.com/holasoymolly" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+              <a href="https://www.instagram.com/holasoymolly" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-violet-400 transition-colors duration-200">
                 <RiInstagramLine className="w-5 h-5" />
               </a>
-              <a href="https://www.behance.net/holasoymolly" aria-label="Behance" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+              <a href="https://www.behance.net/holasoymolly" aria-label="Behance" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-violet-400 transition-colors duration-200">
                 <RiBehanceFill className="w-5 h-5" />
               </a>
-              <a href="https://www.facebook.com/holasoymolly" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+              <a href="https://www.facebook.com/holasoymolly" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-violet-400 transition-colors duration-200">
                 <IcRoundFacebook className="w-5 h-5" />
               </a>
-              <a href="https://www.tiktok.com/@soymollyyllom" aria-label="TikTok" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+              <a href="https://www.tiktok.com/@soymollyyllom" aria-label="TikTok" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-violet-400 transition-colors duration-200">
                 <IcOutlineTiktok className="w-5 h-5" />
               </a>
-              <a href="https://www.linkedin.com/in/mollyyllom" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+              <a href="https://www.linkedin.com/in/mollyyllom" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-violet-400 transition-colors duration-200">
                 <DeviconPlainLinkedin className="w-5 h-5" />
               </a>
-              <a href="https://x.com/holasoymolly" aria-label="X" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-violet-400 transition-colors duration-200">
+              <a href="https://x.com/holasoymolly" aria-label="X" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-violet-400 transition-colors duration-200">
                 <XIcon className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           <div className="flex flex-col gap-3">
-            <span className="text-stone-500 text-xs font-bold tracking-[0.2em] uppercase">
-              Newsletter
-            </span>
             <a
               href="https://forms.gle/dh6ZN4NztWXkp1jE8"
               target="_blank"
@@ -96,10 +93,10 @@ export const Footer: React.FC = () => {
 
       {/* Bottom bar */}
       <div className="border-t border-stone-200/10 px-6 md:px-16 lg:px-24 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <span className="text-stone-500 text-xs">
+        <span className="text-slate-500 text-xs">
           © {new Date().getFullYear()} Molly Yllom. Todos los derechos reservados.
         </span>
-        <span className="text-stone-600 text-xs">
+        <span className="text-slate-500 text-xs">
           Diseñado con amor ♥
         </span>
       </div>

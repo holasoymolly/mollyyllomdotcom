@@ -46,7 +46,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
             <button
               onClick={onClose}
               aria-label="Cerrar menú"
-              className="text-stone-400 hover:text-stone-200 transition-colors duration-200"
+              className="text-slate-400 hover:text-stone-200 transition-colors duration-200"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -108,7 +108,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="text-stone-500 hover:text-violet-400 transition-colors duration-200"
+                  className="text-slate-400 hover:text-violet-400 transition-colors duration-200"
                 >
                   <Icon className="w-5 h-5" />
                 </a>

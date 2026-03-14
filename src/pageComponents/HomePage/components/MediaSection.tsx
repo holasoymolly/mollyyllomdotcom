@@ -2,28 +2,29 @@
 
 import { motion } from 'framer-motion';
 import { Button } from "@/components/Button";
+import { ProtectedImage } from "@/components/ProtectedImage";
 
 const stats = [
-  { value: '15+', label: 'proyectos completados' },
-  { value: '15+', label: 'años de experiencia' },
+  { value: '20+', label: 'años de experiencia' },
+  { value: '300+', label: 'marcas y proyectos' },
   { value: '∞', label: 'ideas por descubrir' },
 ];
 
 export const MediaSection = () => {
   return (
-    <section className="flex flex-col md:flex-row min-h-[560px] md:min-h-[640px]">
+    <section className="flex flex-col md:flex-row md:h-[680px]">
       {/* Photo — left half */}
-      <figure className="w-full md:w-1/2 h-72 md:h-auto overflow-hidden shrink-0">
-        <img
+      <figure className="w-full md:w-1/2 h-56 md:h-auto overflow-hidden shrink-0">
+        <ProtectedImage
           src="/img/molly/molly1.webp"
           alt="Molly Yllom"
           className="object-cover w-full h-full"
-          style={{ objectPosition: 'center 5%' }}
+          style={{ objectPosition: 'center 20%' }}
         />
       </figure>
 
       {/* Dark panel — right half */}
-      <div className="w-full md:w-1/2 bg-indigo-950 text-stone-200 flex flex-col justify-between p-8 md:p-14 lg:p-20">
+      <div className="w-full md:w-1/2 bg-indigo-950 text-stone-200 flex flex-col justify-between p-8 md:p-10 lg:p-14">
         <motion.p
           className="text-violet-400 text-xs font-bold tracking-[0.3em] uppercase"
           initial={{ opacity: 0, y: 16 }}
@@ -34,7 +35,7 @@ export const MediaSection = () => {
           El estudio
         </motion.p>
 
-        <div className="flex flex-col gap-8 my-10 md:my-0">
+        <div className="flex flex-col gap-6 my-8 md:my-0">
           <motion.h2
             className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-black leading-tight"
             initial={{ opacity: 0, y: 24 }}
@@ -58,7 +59,7 @@ export const MediaSection = () => {
             {stats.map((s) => (
               <div key={s.label}>
                 <p className="text-3xl md:text-4xl font-black text-violet-400 leading-none">{s.value}</p>
-                <p className="text-stone-400 text-xs leading-snug mt-1">{s.label}</p>
+                <p className="text-slate-400 text-xs leading-snug mt-1">{s.label}</p>
               </div>
             ))}
           </motion.div>

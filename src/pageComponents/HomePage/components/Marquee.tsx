@@ -7,7 +7,7 @@ export const Marquee = () => {
 
   return (
     <div className="bg-violet-500 py-3 overflow-hidden">
-      <div className="flex animate-marquee whitespace-nowrap">
+      <div className="animate-marquee inline-flex whitespace-nowrap will-change-transform">
         {doubled.map((item, i) => (
           <span key={i} className="text-stone-200 text-xs font-bold tracking-[0.25em] uppercase mx-6 inline-flex items-center gap-6">
             {item}

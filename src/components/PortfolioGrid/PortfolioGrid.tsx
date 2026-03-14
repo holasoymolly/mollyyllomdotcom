@@ -2,6 +2,7 @@
 
 import { activeProjects } from "@/projects";
 import Link from "next/link";
+import { ProtectedImage } from "@/components/ProtectedImage";
 
 export const PortfolioGrid = ({ showHeader = true }: { showHeader?: boolean }) => {
   return (
@@ -33,7 +34,7 @@ export const PortfolioGrid = ({ showHeader = true }: { showHeader?: boolean }) =
           const inner = (
             <>
               <div className="overflow-hidden aspect-square">
-                <img
+                <ProtectedImage
                   src={item.portfolioImage}
                   alt={item.title}
                   className="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"

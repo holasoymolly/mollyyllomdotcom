@@ -33,7 +33,7 @@ export const Banner = () => {
 
       <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-8 mt-16 border-t border-stone-200/20 pt-8">
         <motion.p
-          className="text-stone-400 text-base md:text-lg max-w-sm leading-relaxed"
+          className="text-slate-300 text-base md:text-lg max-w-sm leading-relaxed"
           {...fadeUp(0.5)}
         >
           Convierto la esencia de tu marca en piezas visuales memorables. Desde logotipos con narrativa hasta sitios web cautivadores.
@@ -48,7 +48,7 @@ export const Banner = () => {
               height="20"
               viewBox="0 0 24 24"
               fill="none"
-              className="text-stone-500"
+              className="text-slate-400"
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
             >

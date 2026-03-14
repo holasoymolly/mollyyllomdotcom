@@ -3,6 +3,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { QuoteBanner } from "@/components/QuoteBanner";
+import { ProtectedImage } from "@/components/ProtectedImage";
 import { FC } from "react";
 import { motion } from "framer-motion";
 
@@ -30,7 +31,7 @@ export const ConocemePage: FC = () => {
           Conóceme
         </motion.h1>
         <motion.p
-          className="text-stone-400 text-lg leading-relaxed max-w-2xl"
+          className="text-slate-300 text-lg leading-relaxed max-w-2xl"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
@@ -47,7 +48,7 @@ export const ConocemePage: FC = () => {
       {/* Photo + panel */}
       <section className="flex flex-col md:flex-row md:h-[580px]">
         <figure className="w-full md:w-1/2 h-72 md:h-full overflow-hidden shrink-0">
-          <img
+          <ProtectedImage
             src="/img/molly/molly2.webp"
             alt="Molly Yllom"
             className="object-cover w-full h-full"

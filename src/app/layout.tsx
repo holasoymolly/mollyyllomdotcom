@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="max-image-preview:large" />
       </head>
-      <body className={`${font.className} antialiased`}>
+      <body className={`${font.className} antialiased`} suppressHydrationWarning>
         {/* Google Analytics utilizando el componente Script */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Q3TSX67D2J"

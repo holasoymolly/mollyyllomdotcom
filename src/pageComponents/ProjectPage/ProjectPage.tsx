@@ -1,13 +1,12 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import Link from 'next/link';
 import { projectsBySlug, activeProjects } from '../../projects';
 import { QuoteBanner } from '@/components/QuoteBanner';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { ProtectedImage } from '@/components/ProtectedImage';
 import { motion } from 'framer-motion';
 
 interface ProjectPageProps {
@@ -15,10 +14,6 @@ interface ProjectPageProps {
 }
 
 export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isHoveringImage, setIsHoveringImage] = useState(false);
-
   const project = projectsBySlug[slug];
   const projectIndex = activeProjects.findIndex((p) => p.slug === slug);
   const prevProject = projectIndex > 0 ? activeProjects[projectIndex - 1] : null;
@@ -40,25 +35,6 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
     );
   }
 
-  const allImages = [project.heroImage, ...project.images];
-
-  const openModal = (index: number) => {
-    setCurrentSlide(index);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => setIsModalOpen(false);
-
-  const nextSlide = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCurrentSlide((prev) => (prev + 1) % allImages.length);
-  };
-
-  const prevSlide = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCurrentSlide((prev) => (prev - 1 + allImages.length) % allImages.length);
-  };
-
   return (
     <div>
       <Header />
@@ -73,7 +49,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
         >
           <Link
             href="/proyectos"
-            className="inline-flex items-center gap-2 text-stone-500 hover:text-violet-400 transition-colors duration-200 text-xs font-bold tracking-[0.2em] uppercase group"
+            className="inline-flex items-center gap-2 text-slate-400 hover:text-violet-400 transition-colors duration-200 text-xs font-bold tracking-[0.2em] uppercase group"
           >
             <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1">←</span>
             Proyectos
@@ -85,7 +61,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          Proyecto
+          {String(projectIndex + 1).padStart(2, '0')} / {String(activeProjects.length).padStart(2, '0')}
         </motion.p>
         <motion.h1
           className="text-5xl sm:text-6xl md:text-7xl font-black leading-[0.9] tracking-tight"
@@ -99,14 +75,11 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
 
       <main>
         {/* Hero image — full bleed */}
-        <div
-          className="w-full cursor-pointer overflow-hidden"
-          onClick={() => openModal(0)}
-        >
-          <img
+        <div className="w-full overflow-hidden">
+          <ProtectedImage
             src={project.heroImage}
             alt={`${project.title} Hero`}
-            className="w-full h-[50vh] md:h-[70vh] object-cover transition-transform duration-700 hover:scale-[1.02]"
+            className="w-full h-[50vh] md:h-[70vh] object-cover"
           />
         </div>
 
@@ -115,7 +88,13 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
           <section className="bg-stone-200 px-6 md:px-16 lg:px-24 py-20">
             <div className="max-w-3xl flex flex-col gap-6">
               {project.paragraphs.map((paragraph, index) => (
-                <p key={index} className="text-lg text-indigo-950/80 leading-relaxed">
+                <p
+                  key={index}
+                  className={index === 0
+                    ? "text-2xl md:text-3xl font-black text-indigo-950 leading-snug"
+                    : "text-lg text-indigo-950/70 leading-relaxed"
+                  }
+                >
                   {paragraph}
                 </p>
               ))}
@@ -126,78 +105,16 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
         {/* Project images — full bleed */}
         <section>
           {project.images.map((image, index) => (
-            <div
-              key={index}
-              className="w-full cursor-pointer overflow-hidden"
-              onClick={() => openModal(index + 1)}
-            >
-              <img
+            <div key={index} className="w-full overflow-hidden">
+              <ProtectedImage
                 src={image}
                 alt={`${project.title} — ${index + 1}`}
-                className="w-full h-auto object-cover transition-transform duration-700 hover:scale-[1.02]"
+                className="w-full h-auto object-cover"
               />
             </div>
           ))}
         </section>
       </main>
-
-      {/* Lightbox */}
-      {isModalOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-indigo-950 flex justify-center items-center"
-          onClick={closeModal}
-        >
-          <div
-            className="relative w-full max-w-5xl flex flex-col justify-center items-center"
-            onMouseEnter={() => setIsHoveringImage(true)}
-            onMouseLeave={() => setIsHoveringImage(false)}
-            onClick={(e) => e.stopPropagation()}
-            style={{ minHeight: '600px' }}
-          >
-            <Carousel
-              selectedItem={currentSlide}
-              showArrows={false}
-              showThumbs={false}
-              showIndicators={false}
-              infiniteLoop={true}
-              useKeyboardArrows={true}
-              className="w-full"
-              dynamicHeight={false}
-              showStatus={false}
-              onChange={setCurrentSlide}
-              emulateTouch={true}
-              swipeable={false}
-            >
-              {allImages.map((image, index) => (
-                <div key={index} className="flex justify-center items-center h-full">
-                  <img src={image} alt={`${project.title} — ${index + 1}`} className="object-contain max-h-[600px]" />
-                </div>
-              ))}
-            </Carousel>
-          </div>
-
-          {!isHoveringImage && (
-            <>
-              <button onClick={prevSlide} className="w-[60px] h-[100px] flex items-center justify-center absolute left-8 top-1/2 -translate-y-1/2 transition-transform duration-200 hover:scale-110">
-                <svg width="50" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 18L9 12L15 6" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              <button onClick={nextSlide} className="w-[60px] h-[100px] flex items-center justify-center absolute right-8 top-1/2 -translate-y-1/2 transition-transform duration-200 hover:scale-110">
-                <svg width="50" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 18L15 12L9 6" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-              <button onClick={closeModal} className="absolute right-8 top-8 w-10 h-10 transition-transform duration-200 hover:scale-110">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18 6L6 18" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M6 6L18 18" stroke="#e7e5e4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </>
-          )}
-        </div>
-      )}
 
       {/* Prev / Next navigation */}
       {(prevProject || nextProject) && (
@@ -205,28 +122,38 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
           {prevProject?.slug ? (
             <Link
               href={`/proyectos/${prevProject.slug}`}
-              className="flex flex-col gap-3 px-6 md:px-16 lg:px-24 py-10 border-b md:border-b-0 md:border-r border-indigo-950/10 group hover:bg-indigo-950/5 transition-colors duration-300"
+              className="relative flex items-center gap-5 px-6 md:px-16 lg:px-24 py-10 border-b md:border-b-0 md:border-r border-indigo-950/10 group hover:bg-indigo-950/5 transition-colors duration-300 overflow-hidden"
             >
-              <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase flex items-center gap-2 group-hover:-translate-x-1 transition-transform duration-300">
-                ← Anterior
-              </span>
-              <span className="text-xl md:text-2xl font-black text-indigo-950 leading-tight group-hover:text-violet-900 transition-colors duration-300">
-                {prevProject.title}
-              </span>
+              <div className="shrink-0 w-16 h-16 rounded overflow-hidden border border-indigo-950/10">
+                <ProtectedImage src={prevProject.portfolioImage} alt={prevProject.title} className="w-full h-full object-cover" />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase flex items-center gap-2 group-hover:-translate-x-1 transition-transform duration-300">
+                  ← Anterior
+                </span>
+                <span className="text-xl md:text-2xl font-black text-indigo-950 leading-tight group-hover:text-violet-900 transition-colors duration-300">
+                  {prevProject.title}
+                </span>
+              </div>
             </Link>
           ) : <div />}
 
           {nextProject?.slug ? (
             <Link
               href={`/proyectos/${nextProject.slug}`}
-              className="flex flex-col gap-3 px-6 md:px-16 lg:px-24 py-10 text-right items-end group hover:bg-indigo-950/5 transition-colors duration-300"
+              className="relative flex items-center justify-end gap-5 px-6 md:px-16 lg:px-24 py-10 text-right group hover:bg-indigo-950/5 transition-colors duration-300 overflow-hidden"
             >
-              <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase flex items-center gap-2 group-hover:translate-x-1 transition-transform duration-300">
-                Siguiente →
-              </span>
-              <span className="text-xl md:text-2xl font-black text-indigo-950 leading-tight group-hover:text-violet-900 transition-colors duration-300">
-                {nextProject.title}
-              </span>
+              <div className="flex flex-col gap-1 items-end">
+                <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase flex items-center gap-2 group-hover:translate-x-1 transition-transform duration-300">
+                  Siguiente →
+                </span>
+                <span className="text-xl md:text-2xl font-black text-indigo-950 leading-tight group-hover:text-violet-900 transition-colors duration-300">
+                  {nextProject.title}
+                </span>
+              </div>
+              <div className="shrink-0 w-16 h-16 rounded overflow-hidden border border-indigo-950/10">
+                <ProtectedImage src={nextProject.portfolioImage} alt={nextProject.title} className="w-full h-full object-cover" />
+              </div>
             </Link>
           ) : <div />}
         </section>
