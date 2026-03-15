@@ -1,31 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-const services = [
-  {
-    title: "Estrategia de marca",
-    description: "Defino el posicionamiento y los fundamentos conceptuales que guían el desarrollo de una marca.",
-  },
-  {
-    title: "Identidad de marca",
-    description: "Diseño identidades visuales claras y coherentes que funcionan en múltiples contextos.",
-  },
-  {
-    title: "Dirección de arte",
-    description: "Desarrollo el lenguaje visual que conecta la marca con su audiencia.",
-  },
-  {
-    title: "Sistemas visuales",
-    description: "Creo sistemas gráficos flexibles que permiten a las marcas crecer con consistencia.",
-  },
-  {
-    title: "Aplicaciones de marca",
-    description: "Aplico la identidad en distintos formatos: digital, editorial, señalética y comunicación.",
-  },
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export const Services = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="bg-stone-200 px-6 md:px-16 lg:px-24 py-20">
       <motion.h2
@@ -35,11 +15,11 @@ export const Services = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       >
-        Capacidades
+        {t.home.capabilitiesTitle}
       </motion.h2>
 
       <div className="mt-10 border-t border-indigo-950/10">
-        {services.map((service, index) => (
+        {t.home.services.map((service, index) => (
           <motion.div
             key={index}
             className="grid grid-cols-[2rem_1fr] md:grid-cols-[2rem_1fr_2fr] gap-x-8 gap-y-1 items-start py-8 border-b border-indigo-950/10 group cursor-default"

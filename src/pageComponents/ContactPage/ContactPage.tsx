@@ -11,6 +11,7 @@ import { IcRoundFacebook } from "@/icons/IcRoundFacebook";
 import { RiBehanceFill } from "@/icons/RiBehanceFill";
 import { RiInstagramLine } from "@/icons/RiInstagramLine";
 import { XIcon } from "@/icons/XIcon";
+import { useLanguage } from "@/context/LanguageContext";
 
 const socials = [
   { href: "https://www.instagram.com/holasoymolly", label: "Instagram", Icon: RiInstagramLine },
@@ -22,6 +23,8 @@ const socials = [
 ];
 
 export const ContactPage: FC = () => {
+  const { t } = useLanguage();
+
   return (
     <div>
       <Header />
@@ -34,7 +37,7 @@ export const ContactPage: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          Hablemos
+          {t.contact.label}
         </motion.p>
         <motion.h1
           className="text-6xl sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tight"
@@ -42,7 +45,7 @@ export const ContactPage: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          Contáctame
+          {t.contact.title}
         </motion.h1>
       </section>
 
@@ -59,7 +62,7 @@ export const ContactPage: FC = () => {
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase">
-              Email
+              {t.contact.emailLabel}
             </span>
             <a
               href="mailto:hola@mollyyllom.com"
@@ -69,7 +72,7 @@ export const ContactPage: FC = () => {
             </a>
           </motion.div>
 
-          {/* Agendar cita */}
+          {/* Schedule a call */}
           <motion.div
             className="flex flex-col gap-2 border-b border-indigo-950/10 pb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -78,11 +81,11 @@ export const ContactPage: FC = () => {
             transition={{ duration: 0.6, delay: 0.05, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase">
-              Agenda una llamada
+              {t.contact.callLabel}
             </span>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
               <p className="text-indigo-950/60 text-lg leading-snug max-w-sm">
-                ¿Prefieres hablar directamente? Reserva una sesión de 30 minutos.
+                {t.contact.callDescription}
               </p>
               <a
                 href="https://calendly.com/hola-msny/30min"
@@ -90,7 +93,7 @@ export const ContactPage: FC = () => {
                 rel="noreferrer noopener"
                 className="shrink-0 bg-indigo-950 text-stone-200 font-bold px-8 py-4 rounded-full transition-colors duration-300 hover:bg-violet-500 whitespace-nowrap"
               >
-                Reservar cita →
+                {t.contact.callButton}
               </a>
             </div>
           </motion.div>
@@ -104,7 +107,7 @@ export const ContactPage: FC = () => {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase">
-              Redes sociales
+              {t.contact.socialsLabel}
             </span>
             <div className="flex flex-wrap gap-4">
               {socials.map(({ href, label, Icon }) => (

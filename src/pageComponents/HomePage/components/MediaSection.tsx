@@ -3,14 +3,18 @@
 import { motion } from 'framer-motion';
 import { Button } from "@/components/Button";
 import { ProtectedImage } from "@/components/ProtectedImage";
-
-const stats = [
-  { value: '20+', label: 'años de experiencia' },
-  { value: '300+', label: 'marcas y proyectos' },
-  { value: '∞', label: 'ideas por descubrir' },
-];
+import { useLanguage } from '@/context/LanguageContext';
 
 export const MediaSection = () => {
+  const { t } = useLanguage();
+  const readyLines = t.home.readyHeadline.split('\n');
+
+  const stats = [
+    { value: '20+', label: t.home.stat1 },
+    { value: '300+', label: t.home.stat2 },
+    { value: '∞', label: t.home.stat3 },
+  ];
+
   return (
     <section className="flex flex-col md:flex-row md:h-[680px]">
       {/* Photo — left half */}
@@ -32,7 +36,7 @@ export const MediaSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          El estudio
+          {t.home.studioSection}
         </motion.p>
 
         <div className="flex flex-col gap-6 my-8 md:my-0">
@@ -43,9 +47,9 @@ export const MediaSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            ¿Listx para llevar<br />
-            tu proyecto al<br />
-            <span className="text-violet-400">siguiente nivel?</span>
+            {readyLines[0]}<br />
+            {readyLines[1]}<br />
+            <span className="text-violet-400">{t.home.readyHighlight}</span>
           </motion.h2>
 
           {/* Stats */}
@@ -73,7 +77,7 @@ export const MediaSection = () => {
         >
           <Button
             href="https://calendly.com/hola-msny/30min"
-            text="Haz tu cita aquí →"
+            text={t.home.bookCta}
             size="large"
           />
         </motion.div>

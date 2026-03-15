@@ -6,8 +6,11 @@ import { FC } from "react";
 import { NFTsGallery } from "@/components/NFTsGallery";
 import { collections } from "@/data/collections";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const NFTsPage: FC = () => {
+  const { t } = useLanguage();
+
   return (
     <div>
       <Header />
@@ -20,7 +23,7 @@ export const NFTsPage: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          Arte digital
+          {t.nfts.label}
         </motion.p>
         <motion.h1
           className="text-6xl sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tight"

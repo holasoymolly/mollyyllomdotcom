@@ -6,8 +6,12 @@ import { QuoteBanner } from "@/components/QuoteBanner";
 import { ProtectedImage } from "@/components/ProtectedImage";
 import { FC } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const ConocemePage: FC = () => {
+  const { t } = useLanguage();
+  const ctaLines = t.about.ctaHeadline.split('\n');
+
   return (
     <div>
       <Header />
@@ -20,7 +24,7 @@ export const ConocemePage: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          El estudio
+          {t.about.label}
         </motion.p>
         <motion.h1
           className="text-6xl sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tight mb-10"
@@ -28,7 +32,7 @@ export const ConocemePage: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          Conóceme
+          {t.about.title}
         </motion.h1>
         <motion.p
           className="text-slate-300 text-lg leading-relaxed max-w-2xl"
@@ -36,12 +40,7 @@ export const ConocemePage: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          Con más de 15 años de experiencia en diseño gráfico y dirección de arte, mi pasión es
-          crear historias visuales que conecten con las audiencias y dejen una impresión duradera.
-          He liderado y colaborado con equipos talentosos, estrechamente con clientes y socios
-          externos para garantizar la ejecución exitosa de estrategias creativas y campañas
-          publicitarias. Mi enfoque es desarrollar soluciones creativas que impactan, con un ojo
-          siempre puesto en los detalles que hacen la diferencia.
+          {t.about.bio}
         </motion.p>
       </section>
 
@@ -64,7 +63,7 @@ export const ConocemePage: FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            Trabajemos juntas
+            {t.about.ctaLabel}
           </motion.p>
           <motion.h2
             className="text-3xl sm:text-4xl lg:text-5xl font-black text-indigo-950 leading-tight"
@@ -73,9 +72,9 @@ export const ConocemePage: FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            ¿Listx para llevar<br />
-            tu proyecto al<br />
-            <span className="text-violet-500">siguiente nivel?</span>
+            {ctaLines[0]}<br />
+            {ctaLines[1]}<br />
+            <span className="text-violet-500">{t.about.ctaHighlight}</span>
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -89,7 +88,7 @@ export const ConocemePage: FC = () => {
               rel="noreferrer noopener"
               className="inline-block bg-indigo-950 text-stone-200 font-bold px-8 py-4 rounded-full transition-colors duration-300 hover:bg-violet-500 hover:text-stone-200"
             >
-              Haz tu cita aquí →
+              {t.about.ctaButton}
             </a>
           </motion.div>
         </div>

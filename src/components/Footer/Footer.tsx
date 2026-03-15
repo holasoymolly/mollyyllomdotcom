@@ -1,3 +1,5 @@
+'use client';
+
 import { DeviconPlainLinkedin } from '@/icons/DeviconPlainLinkedin';
 import { IcOutlineTiktok } from '@/icons/IcOutlineTiktok';
 import { IcRoundFacebook } from '@/icons/IcRoundFacebook';
@@ -6,8 +8,19 @@ import { RiInstagramLine } from '@/icons/RiInstagramLine';
 import { XIcon } from '@/icons/XIcon';
 import Link from 'next/link';
 import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const Footer: React.FC = () => {
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { href: '/conoceme', label: t.nav.conoceme },
+    { href: '/proyectos', label: t.nav.proyectos },
+    { href: '/contacto', label: t.nav.contacto },
+    { href: '/descargas', label: t.nav.descargas },
+    { href: '/nfts', label: t.nav.nfts },
+  ];
+
   return (
     <footer className="w-full bg-indigo-950">
       {/* Main grid */}
@@ -24,22 +37,16 @@ export const Footer: React.FC = () => {
             />
           </Link>
           <p className="text-violet-400 text-sm leading-relaxed max-w-[220px]">
-            Estudio de diseño gráfico e identidad visual.
+            {t.footer.tagline}
           </p>
         </div>
 
         {/* Navigation */}
         <nav className="flex flex-col gap-3">
           <span className="text-violet-400 text-xs font-bold tracking-[0.2em] uppercase mb-1">
-            Páginas
+            {t.footer.pages}
           </span>
-          {[
-            { href: '/conoceme', label: 'Conóceme' },
-            { href: '/proyectos', label: 'Proyectos' },
-            { href: '/contacto', label: 'Contacto' },
-            { href: '/descargas', label: 'Descargas' },
-            { href: '/nfts', label: 'NFTs' },
-          ].map(({ href, label }) => (
+          {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
@@ -54,7 +61,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col gap-8">
           <div>
             <span className="text-violet-400 text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
-              Sígueme
+              {t.footer.follow}
             </span>
             <div className="flex gap-4 items-center">
               <a href="https://www.instagram.com/holasoymolly" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-violet-400 transition-colors duration-200">
@@ -85,7 +92,7 @@ export const Footer: React.FC = () => {
               rel="noreferrer noopener"
               className="w-fit bg-stone-200/10 border border-stone-200/15 text-stone-300 font-semibold px-6 py-3 rounded-full text-sm transition-all duration-300 hover:bg-violet-500 hover:border-violet-500 hover:text-stone-200 whitespace-nowrap"
             >
-              Suscríbete al newsletter →
+              {t.footer.newsletter}
             </a>
           </div>
         </div>
@@ -94,10 +101,10 @@ export const Footer: React.FC = () => {
       {/* Bottom bar */}
       <div className="border-t border-stone-200/10 px-6 md:px-16 lg:px-24 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
         <span className="text-slate-500 text-xs">
-          © {new Date().getFullYear()} Molly Yllom. Todos los derechos reservados.
+          © {new Date().getFullYear()} Molly Yllom. {t.footer.rights}
         </span>
         <span className="text-slate-500 text-xs">
-          Diseñado con amor ♥
+          {t.footer.madeWith}
         </span>
       </div>
     </footer>

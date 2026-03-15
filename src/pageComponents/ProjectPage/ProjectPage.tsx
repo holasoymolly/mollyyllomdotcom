@@ -8,6 +8,7 @@ import { projectsBySlug, activeProjects } from '../../projects';
 import { QuoteBanner } from '@/components/QuoteBanner';
 import { ProtectedImage } from '@/components/ProtectedImage';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface ProjectPageProps {
   slug: string;
@@ -18,16 +19,19 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
   const projectIndex = activeProjects.findIndex((p) => p.slug === slug);
   const prevProject = projectIndex > 0 ? activeProjects[projectIndex - 1] : null;
   const nextProject = projectIndex < activeProjects.length - 1 ? activeProjects[projectIndex + 1] : null;
+  const { lang, t } = useLanguage();
+
+  const paragraphs = lang === 'en' ? project?.paragraphsEn : project?.paragraphs;
 
   if (!project) {
     return (
       <div>
         <Header />
         <main className="flex flex-col justify-center items-center h-[80vh] text-center px-6">
-          <h1 className="text-5xl font-black text-indigo-950">Proyecto no encontrado</h1>
-          <p className="text-indigo-950/60 mt-4">Lo siento, el proyecto que buscas no existe.</p>
+          <h1 className="text-5xl font-black text-indigo-950">{t.projects.notFound}</h1>
+          <p className="text-indigo-950/60 mt-4">{t.projects.notFoundSub}</p>
           <Link href="/proyectos" className="mt-8 bg-indigo-950 text-stone-200 font-bold py-3 px-8 rounded-full transition-colors duration-300 hover:bg-violet-500">
-            Ver todos los proyectos →
+            {t.projects.viewAll}
           </Link>
         </main>
         <Footer />
@@ -52,7 +56,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
             className="inline-flex items-center gap-2 text-slate-400 hover:text-violet-400 transition-colors duration-200 text-xs font-bold tracking-[0.2em] uppercase group"
           >
             <span className="inline-block transition-transform duration-200 group-hover:-translate-x-1">←</span>
-            Proyectos
+            {t.projects.backLink}
           </Link>
         </motion.div>
         <motion.p
@@ -84,10 +88,10 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
         </div>
 
         {/* Body text */}
-        {project.paragraphs.length > 0 && (
+        {paragraphs && paragraphs.length > 0 && (
           <section className="bg-stone-200 px-6 md:px-16 lg:px-24 py-20">
             <div className="max-w-3xl flex flex-col gap-6">
-              {project.paragraphs.map((paragraph, index) => (
+              {paragraphs.map((paragraph, index) => (
                 <p
                   key={index}
                   className={index === 0
@@ -129,7 +133,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase flex items-center gap-2 group-hover:-translate-x-1 transition-transform duration-300">
-                  ← Anterior
+                  {t.projects.prev}
                 </span>
                 <span className="text-xl md:text-2xl font-black text-indigo-950 leading-tight group-hover:text-violet-900 transition-colors duration-300">
                   {prevProject.title}
@@ -145,7 +149,7 @@ export const ProjectPage: FC<ProjectPageProps> = ({ slug }) => {
             >
               <div className="flex flex-col gap-1 items-end">
                 <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase flex items-center gap-2 group-hover:translate-x-1 transition-transform duration-300">
-                  Siguiente →
+                  {t.projects.next}
                 </span>
                 <span className="text-xl md:text-2xl font-black text-indigo-950 leading-tight group-hover:text-violet-900 transition-colors duration-300">
                   {nextProject.title}

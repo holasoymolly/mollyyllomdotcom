@@ -4,6 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Roboto } from "next/font/google";
 import Script from "next/script"; // Importar Script de Next.js
 import { GoogleTagManager } from "@next/third-parties/google";
+import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 const font = Roboto({
@@ -73,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://storage.googleapis.com/scriptslmt/0.1.3/solana.css"
         />
         <GoogleTagManager gtmId="G-Q3TSX67D2J" />
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
         <SpeedInsights />
         <Analytics />
       </body>

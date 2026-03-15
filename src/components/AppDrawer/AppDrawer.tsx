@@ -7,14 +7,7 @@ import { RiInstagramLine } from '@/icons/RiInstagramLine';
 import { RiBehanceFill } from '@/icons/RiBehanceFill';
 import { IcOutlineTiktok } from '@/icons/IcOutlineTiktok';
 import { XIcon } from '@/icons/XIcon';
-
-const navLinks = [
-  { href: '/conoceme',  label: 'Conóceme',  num: '01' },
-  { href: '/proyectos', label: 'Proyectos', num: '02' },
-  { href: '/contacto',  label: 'Contacto',  num: '03' },
-  { href: '/descargas', label: 'Descargas', num: '04' },
-  { href: '/nfts',      label: 'NFTs',      num: '05' },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const socials = [
   { href: 'https://www.instagram.com/holasoymolly', Icon: RiInstagramLine, label: 'Instagram' },
@@ -30,6 +23,15 @@ interface AppDrawerProps {
 
 export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
   const pathname = usePathname();
+  const { lang, t, toggleLang } = useLanguage();
+
+  const navLinks = [
+    { href: '/conoceme',  label: t.nav.conoceme,  num: '01' },
+    { href: '/proyectos', label: t.nav.proyectos, num: '02' },
+    { href: '/contacto',  label: t.nav.contacto,  num: '03' },
+    { href: '/descargas', label: t.nav.descargas, num: '04' },
+    { href: '/nfts',      label: t.nav.nfts,      num: '05' },
+  ];
 
   return (
     <AnimatePresence>
@@ -41,11 +43,21 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
           exit={{ opacity: 0, x: '100%' }}
           transition={{ type: 'spring', stiffness: 280, damping: 28 }}
         >
-          {/* Close */}
-          <div className="flex justify-end mb-10">
+          {/* Close + lang toggle */}
+          <div className="flex items-center justify-between mb-10">
+            <button
+              onClick={toggleLang}
+              aria-label="Cambiar idioma"
+              className="text-xs font-bold tracking-widest select-none"
+            >
+              <span className={lang === 'es' ? 'text-violet-400' : 'text-stone-200/30'}>ES</span>
+              <span className="text-stone-200/20 mx-1">/</span>
+              <span className={lang === 'en' ? 'text-violet-400' : 'text-stone-200/30'}>EN</span>
+            </button>
+
             <button
               onClick={onClose}
-              aria-label="Cerrar menú"
+              aria-label={t.nav.closeMenu}
               className="text-slate-400 hover:text-stone-200 transition-colors duration-200"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -97,7 +109,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
               rel="noreferrer noopener"
               className="flex items-center justify-center bg-violet-500 text-stone-200 font-black px-8 py-4 rounded-full text-sm hover:bg-violet-400 transition-colors duration-300"
             >
-              Cotiza tu proyecto →
+              {t.home.cta}
             </a>
 
             <div className="flex gap-5 justify-center">

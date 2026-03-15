@@ -3,7 +3,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { NFTModal } from "./NFTModal";
+import { ProtectedImage } from "./ProtectedImage";
 import { Collection } from "@/data/collections";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface NFTsGalleryProps {
   collections: Collection[];
@@ -23,6 +25,7 @@ function getMetadataUrl(imagePath: string, metadataPath: string): string {
 
 export const NFTsGallery: React.FC<NFTsGalleryProps> = ({ collections }) => {
   const [selected, setSelected] = useState<SelectedNFT | null>(null);
+  const { t } = useLanguage();
 
   if (!collections || collections.length === 0) {
     return (
@@ -62,7 +65,7 @@ export const NFTsGallery: React.FC<NFTsGalleryProps> = ({ collections }) => {
             <div className="px-6 md:px-16 lg:px-24 mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
               <div>
                 <span className="text-violet-400 text-xs font-bold tracking-[0.25em] uppercase">
-                  Colección {displayNumber}
+                  {t.nfts.collection} {displayNumber}
                 </span>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-stone-200 mt-1 leading-none">
                   {collection.name}
@@ -74,7 +77,7 @@ export const NFTsGallery: React.FC<NFTsGalleryProps> = ({ collections }) => {
                 rel="noopener noreferrer"
                 className="shrink-0 border border-stone-200/20 text-stone-300 font-bold px-7 py-3.5 rounded-full text-sm transition-all duration-300 hover:bg-violet-500 hover:border-violet-500 hover:text-stone-200 whitespace-nowrap w-fit"
               >
-                Ver colección →
+                {t.nfts.viewCollection}
               </a>
             </div>
 
@@ -92,11 +95,12 @@ export const NFTsGallery: React.FC<NFTsGalleryProps> = ({ collections }) => {
                         className="relative w-56 h-56 md:w-72 md:h-72 shrink-0 overflow-hidden rounded-sm group mr-3 cursor-pointer"
                         onClick={() => setIdx === 0 && handleImageClick(image, collection)}
                       >
-                        <img
+                        <ProtectedImage
                           src={image}
                           alt={`${collection.name} — ${idx + 1}`}
                           className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                           loading="lazy"
+                          wrapperClassName="w-full h-full"
                         />
                         {/* Hover overlay */}
                         <div className="absolute inset-0 bg-violet-500/0 group-hover:bg-violet-500/20 transition-colors duration-300" />

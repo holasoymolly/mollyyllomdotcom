@@ -5,19 +5,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AppDrawer } from "../AppDrawer";
-
-const navLinks = [
-  { href: '/conoceme', label: 'Conóceme' },
-  { href: '/proyectos', label: 'Proyectos' },
-  { href: '/contacto', label: 'Contacto' },
-  { href: '/descargas', label: 'Descargas' },
-  { href: '/nfts', label: 'NFTs' },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { lang, t, toggleLang } = useLanguage();
+
+  const navLinks = [
+    { href: '/conoceme', label: t.nav.conoceme },
+    { href: '/proyectos', label: t.nav.proyectos },
+    { href: '/contacto', label: t.nav.contacto },
+    { href: '/descargas', label: t.nav.descargas },
+    { href: '/nfts', label: t.nav.nfts },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -50,38 +52,54 @@ export const Header = () => {
           />
         </Link>
 
-        {/* Hamburger — mobile */}
-        <button
-          className="lg:hidden text-indigo-950 hover:text-violet-500 transition-colors duration-300"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
-        >
-          <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-            <rect x="4" y="7.5" width="16" height="1.5" />
-            <rect x="4" y="15" width="16" height="1.5" />
-          </svg>
-        </button>
+        {/* Right side: hamburger (mobile) or nav + lang toggle (desktop) */}
+        <div className="flex items-center gap-6">
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map(({ href, label }) => {
-            const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={`relative text-sm font-semibold transition-colors duration-200 group pb-0.5 ${
-                  isActive ? 'text-violet-600' : 'text-indigo-950 hover:text-violet-500'
-                }`}
-              >
-                {label}
-                <span className={`absolute -bottom-0.5 left-0 h-[2px] bg-violet-500 rounded-full transition-all duration-300 ${
-                  isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                }`} />
-              </Link>
-            );
-          })}
-        </nav>
+          {/* Language toggle — visible on all sizes */}
+          <button
+            onClick={toggleLang}
+            aria-label="Cambiar idioma"
+            className="text-xs font-bold tracking-widest select-none"
+          >
+            <span className={lang === 'es' ? 'text-violet-600' : 'text-indigo-950/35'}>ES</span>
+            <span className="text-indigo-950/25 mx-1">/</span>
+            <span className={lang === 'en' ? 'text-violet-600' : 'text-indigo-950/35'}>EN</span>
+          </button>
+
+          {/* Hamburger — mobile only */}
+          <button
+            className="lg:hidden text-indigo-950 hover:text-violet-500 transition-colors duration-300"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
+          >
+            <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <rect x="4" y="7.5" width="16" height="1.5" />
+              <rect x="4" y="15" width="16" height="1.5" />
+            </svg>
+          </button>
+
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map(({ href, label }) => {
+              const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`relative text-sm font-semibold transition-colors duration-200 group pb-0.5 ${
+                    isActive ? 'text-violet-600' : 'text-indigo-950 hover:text-violet-500'
+                  }`}
+                >
+                  {label}
+                  <span className={`absolute -bottom-0.5 left-0 h-[2px] bg-violet-500 rounded-full transition-all duration-300 ${
+                    isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
+                </Link>
+              );
+            })}
+          </nav>
+
+        </div>
       </div>
 
       <AppDrawer isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />

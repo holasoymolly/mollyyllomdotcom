@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from "@/components/Button";
+import { useLanguage } from '@/context/LanguageContext';
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 40 },
@@ -10,6 +11,9 @@ const fadeUp = (delay: number) => ({
 });
 
 export const Banner = () => {
+  const { t } = useLanguage();
+  const lines = t.home.headline.split('\n');
+
   return (
     <section className="bg-indigo-950 text-stone-200 min-h-[88vh] flex flex-col justify-between px-6 sm:px-10 md:px-16 lg:px-24 pt-14 md:pt-20 pb-12">
       <div>
@@ -17,17 +21,16 @@ export const Banner = () => {
           className="text-violet-400 text-xs font-semibold tracking-[0.3em] uppercase mb-8"
           {...fadeUp(0.15)}
         >
-          Estudio de Diseño Gráfico
+          {t.home.studioLabel}
         </motion.p>
 
         <motion.h1
           className="text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] font-black leading-[0.9] tracking-tight"
           {...fadeUp(0.3)}
         >
-          Diseño que<br />
-          comunica,<br />
-          <span className="text-violet-400">marca</span> que<br />
-          impacta.
+          {lines[0]}<br />
+          {lines[1]}<br />
+          <span className="text-violet-400">{lines[2]}</span> {lines[3]}
         </motion.h1>
       </div>
 
@@ -36,7 +39,7 @@ export const Banner = () => {
           className="text-slate-300 text-base md:text-lg max-w-sm leading-relaxed"
           {...fadeUp(0.5)}
         >
-          Convierto la esencia de tu marca en piezas visuales memorables. Desde logotipos con narrativa hasta sitios web cautivadores.
+          {t.home.subheadline}
         </motion.p>
         <div className="flex items-center gap-6">
           <motion.div
@@ -56,7 +59,7 @@ export const Banner = () => {
             </motion.svg>
           </motion.div>
           <motion.div {...fadeUp(0.6)}>
-            <Button href="https://forms.gle/KjbtdoYvXz4PL1Ek6" text="Cotiza tu proyecto →" size="large" />
+            <Button href="https://forms.gle/KjbtdoYvXz4PL1Ek6" text={t.home.cta} size="large" />
           </motion.div>
         </div>
       </div>
