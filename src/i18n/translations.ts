@@ -22,6 +22,7 @@ export const translations = {
     quoteBanner: {
       heading: '¿Listx para\nllevar tu marca\nal siguiente nivel?',
       cta: 'Cotiza tu proyecto →',
+      url: 'https://forms.gle/KjbtdoYvXz4PL1Ek6',
     },
     home: {
       studioLabel: 'Estudio de Diseño Gráfico',
@@ -121,6 +122,7 @@ export const translations = {
     quoteBanner: {
       heading: 'Ready to take\nyour brand\nto the next level?',
       cta: 'Get a quote →',
+      url: 'https://forms.gle/ZmTZ9CE8hsnpgoUz5',
     },
     home: {
       studioLabel: 'Graphic Design Studio',

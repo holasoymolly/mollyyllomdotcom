@@ -104,7 +104,7 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
             transition={{ delay: 0.4, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <a
-              href="https://forms.gle/KjbtdoYvXz4PL1Ek6"
+              href={t.quoteBanner.url}
               target="_blank"
               rel="noreferrer noopener"
               className="flex items-center justify-center bg-violet-500 text-stone-200 font-black px-8 py-4 rounded-full text-sm hover:bg-violet-400 transition-colors duration-300"

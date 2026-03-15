@@ -18,17 +18,8 @@ const LanguageContext = createContext<LanguageContextType>({
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Language>('es');
 
-  useEffect(() => {
-    const saved = localStorage.getItem('molly-lang') as Language | null;
-    if (saved === 'es' || saved === 'en') setLang(saved);
-  }, []);
-
   const toggleLang = () => {
-    setLang((prev) => {
-      const next = prev === 'es' ? 'en' : 'es';
-      localStorage.setItem('molly-lang', next);
-      return next;
-    });
+    setLang((prev) => (prev === 'es' ? 'en' : 'es'));
   };
 
   return (

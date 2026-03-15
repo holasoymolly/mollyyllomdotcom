@@ -59,7 +59,7 @@ export const Banner = () => {
             </motion.svg>
           </motion.div>
           <motion.div {...fadeUp(0.6)}>
-            <Button href="https://forms.gle/KjbtdoYvXz4PL1Ek6" text={t.home.cta} size="large" />
+            <Button href={t.quoteBanner.url} text={t.home.cta} size="large" />
           </motion.div>
         </div>
       </div>

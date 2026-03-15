@@ -16,7 +16,7 @@ export const QuoteBanner: React.FC = () => {
           <span className="text-violet-400">{lines[2]}</span>
         </h2>
         <a
-          href="https://forms.gle/KjbtdoYvXz4PL1Ek6"
+          href={t.quoteBanner.url}
           target="_blank"
           rel="noreferrer noopener"
           className="shrink-0 bg-stone-200 text-indigo-950 font-bold px-8 py-4 rounded-full transition-colors duration-300 hover:bg-violet-500 hover:text-stone-200 whitespace-nowrap"
