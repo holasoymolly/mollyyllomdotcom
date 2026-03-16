@@ -14,7 +14,7 @@ const font = Roboto({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mollyyllom.com"),
+  metadataBase: new URL("https://www.mollyyllom.com"),
   title: "MOLLY YLLOM | Estudio de Diseño Gráfico",
   description: "Estudio de Diseño Gráfico especializado en Branding",
   robots: "max-image-preview:large",
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     type: "website",
     title: "MOLLY YLLOM | Estudio de Diseño Gráfico",
     description: "Estudio de Diseño Gráfico especializado en Branding",
-    url: "https://mollyyllom.com/",
+    url: "https://www.mollyyllom.com/",
     images: [
       {
-        url: "https://mollyyllom.com/img/my-open-graph-image.jpg",
+        url: "https://www.mollyyllom.com/img/my-open-graph-image.jpg",
         width: 1200,
         height: 630,
         alt: "MOLLY YLLOM | Estudio de Diseño Gráfico",
