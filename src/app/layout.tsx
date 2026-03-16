@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     url: "https://mollyyllom.com/",
     images: [
       {
-        url: "/img/logo/molly-yllom-icon.webp",
-        width: 200,
-        height: 200,
-        alt: "Molly Yllom Logo",
+        url: "/img/my-open-graph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MOLLY YLLOM | Estudio de Diseño Gráfico",
       },
     ],
     locale: "es_ES",
