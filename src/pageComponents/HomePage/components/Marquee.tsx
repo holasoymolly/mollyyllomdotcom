@@ -1,8 +1,10 @@
+'use client';
+
+import { useLanguage } from '@/context/LanguageContext';
+
 export const Marquee = () => {
-  const items = [
-    'Branding', 'Logos', 'Identidad Visual', 'Editorial',
-    'Redes Sociales', 'Web', 'Gran Formato', 'NFTs',
-  ];
+  const { t } = useLanguage();
+  const items = t.home.marqueeItems;
   const doubled = [...items, ...items];
 
   return (

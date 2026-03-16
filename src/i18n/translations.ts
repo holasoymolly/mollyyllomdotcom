@@ -37,6 +37,7 @@ export const translations = {
       stat3: 'ideas por descubrir',
       bookCta: 'Haz tu cita aquí →',
       capabilitiesTitle: 'Capacidades',
+      marqueeItems: ['Branding', 'Logos', 'Identidad Visual', 'Editorial', 'Redes Sociales', 'Web', 'Gran Formato', 'NFTs'],
       services: [
         { title: 'Estrategia de marca', description: 'Defino el posicionamiento y los fundamentos conceptuales que guían el desarrollo de una marca.' },
         { title: 'Identidad de marca', description: 'Diseño identidades visuales claras y coherentes que funcionan en múltiples contextos.' },
@@ -54,8 +55,8 @@ export const translations = {
     about: {
       label: 'El estudio',
       title: 'Conóceme',
-      bio: 'Con más de 15 años de experiencia en diseño gráfico y dirección de arte, mi pasión es crear historias visuales que conecten con las audiencias y dejen una impresión duradera. He liderado y colaborado con equipos talentosos, estrechamente con clientes y socios externos para garantizar la ejecución exitosa de estrategias creativas y campañas publicitarias. Mi enfoque es desarrollar soluciones creativas que impactan, con un ojo siempre puesto en los detalles que hacen la diferencia.',
-      ctaLabel: 'Trabajemos juntas',
+      bio: 'Con más de 20 años de experiencia en diseño gráfico y dirección de arte, mi pasión es crear historias visuales que conecten con las audiencias y dejen una impresión duradera. He liderado y colaborado con equipos talentosos, estrechamente con clientes y socios externos para garantizar la ejecución exitosa de estrategias creativas y campañas publicitarias. Mi enfoque es desarrollar soluciones creativas que impactan, con un ojo siempre puesto en los detalles que hacen la diferencia.',
+      ctaLabel: 'Trabajemos juntxs',
       ctaHeadline: '¿Listx para llevar\ntu proyecto al',
       ctaHighlight: 'siguiente nivel?',
       ctaButton: 'Haz tu cita aquí →',
@@ -137,6 +138,7 @@ export const translations = {
       stat3: 'ideas to discover',
       bookCta: 'Book a call →',
       capabilitiesTitle: 'Capabilities',
+      marqueeItems: ['Branding', 'Logos', 'Visual Identity', 'Editorial', 'Social Media', 'Web', 'Large Format', 'NFTs'],
       services: [
         { title: 'Brand Strategy', description: "I define the positioning and conceptual foundations that guide a brand's development." },
         { title: 'Brand Identity', description: 'I design clear and coherent visual identities that work across multiple contexts.' },
@@ -154,7 +156,7 @@ export const translations = {
     about: {
       label: 'The studio',
       title: 'About me',
-      bio: 'With more than 15 years of experience in graphic design and art direction, my passion is creating visual stories that connect with audiences and leave a lasting impression. I have led and collaborated with talented teams, working closely with clients and external partners to ensure the successful execution of creative strategies and advertising campaigns. My focus is on developing creative solutions that make an impact, with an eye always on the details that make the difference.',
+      bio: 'With more than 20 years of experience in graphic design and art direction, my passion is creating visual stories that connect with audiences and leave a lasting impression. I have led and collaborated with talented teams, working closely with clients and external partners to ensure the successful execution of creative strategies and advertising campaigns. My focus is on developing creative solutions that make an impact, with an eye always on the details that make the difference.',
       ctaLabel: "Let's work together",
       ctaHeadline: 'Ready to take\nyour project to',
       ctaHighlight: 'the next level?',
