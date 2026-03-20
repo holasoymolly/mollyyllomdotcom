@@ -9,7 +9,7 @@ export const collections: Collection[] = [
 
   {
     name: "Molly Degen Punks",
-    link: "https://launchmynft.io/sol/22578",
+    link: "https://mollyverse.art/",
     metadataPath: "/img/nft/molly-degen-punks/metadata",
     images: [
       "/img/nft/molly-degen-punks/2.png",
