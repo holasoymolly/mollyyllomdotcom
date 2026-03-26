@@ -16,7 +16,7 @@ No test suite is configured.
 
 ## Architecture
 
-**Next.js 15 App Router** portfolio site for MOLLY YLLOM, a graphic design studio. Deployed on Vercel. Primary language is Spanish, CV section is bilingual (ES/EN).
+**Next.js 15.3.9 App Router** portfolio site for MOLLY YLLOM, a graphic design studio. Deployed on Vercel. Primary language is Spanish, CV section is bilingual (ES/EN).
 
 ### Two-layer component pattern
 - `src/app/` — Thin Next.js route files. Each `page.tsx` imports and renders from `pageComponents/`.
@@ -152,13 +152,13 @@ Logo images in the `<Header>` are exempt (they are decorative/brand assets serve
 ### Toggle pills (Brand/Web3, EN/ES)
 ```jsx
 <div className="inline-flex items-center rounded-full border p-1 gap-1 border-stone-200/20">
-  <Link className="px-5 py-2 rounded-full text-xs font-bold tracking-[0.15em] uppercase
-    bg-violet-500 text-stone-200">Active</Link>
-  <Link className="px-5 py-2 rounded-full text-xs font-bold tracking-[0.15em] uppercase
-    text-slate-400 hover:text-stone-200">Inactive</Link>
+  <button className="px-5 py-2 rounded-full text-xs font-bold tracking-[0.15em] uppercase
+    bg-violet-500 text-stone-200 cursor-pointer">Active</button>
+  <button className="px-5 py-2 rounded-full text-xs font-bold tracking-[0.15em] uppercase
+    text-slate-400 hover:text-stone-200 cursor-pointer">Inactive</button>
 </div>
 ```
-Use `variant="light"` prop on `CVVersionToggle` / `CVLangToggle` when placed on a `bg-stone-200` background — switches border and inactive text to dark-on-light variants.
+Toggles use `<button>` (not `<Link>`) with `React.startTransition(() => router.push(href))` for View Transitions integration. Use `variant="light"` prop on `CVVersionToggle` / `CVLangToggle` when placed on a `bg-stone-200` background — switches border and inactive text to dark-on-light variants.
 
 ---
 
@@ -188,7 +188,7 @@ src/cv/
 - **No site Header/Footer** on CV pages — CVs are standalone documents. A discreet `← mollyyllom.com` link sits inside the hero section (top-left), aligned with content padding.
 - **Brand CV** (`/cv`, `/cv/es`): alternating dark/light sections matching the main site pattern.
 - **Web3 CV** (`/cv/web3`, `/cv/es/web3`): fully dark (`bg-indigo-950` throughout), violet accents, darker atmosphere aligned with the NFTs page aesthetic.
-- **Page transition:** `CVPageTransition` in `src/app/cv/layout.tsx` wraps all 4 routes in `AnimatePresence mode="wait"` with a 0.35s crossfade.
+- **Page transition:** Native View Transitions API via `experimental: { viewTransition: true }` (Next.js 15.1+). Toggles use `React.startTransition(() => router.push(href))` — Next.js hooks this into the View Transitions API automatically. CSS crossfade (350ms) defined in `globals.css`. No AnimatePresence/CVPageTransition wrapper needed.
 - **Language toggle** (`CVLangToggle`) and **version toggle** (`CVVersionToggle`) are cross-aware: switching language keeps the current mode, switching mode keeps the current language.
 - **Skills stay in English** in both language versions — standard for design/tech CVs.
 - **Profile photos:** `molly_pfp.jpg` (brand), `molly_pfp_web3.jpg` (web3) — both in `public/img/molly/`. Size: `w-64 h-64 md:w-80 md:h-80`, circular with violet glow shadow.
