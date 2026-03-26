@@ -12,44 +12,174 @@ npm run lint     # Run ESLint
 
 No test suite is configured.
 
+---
+
 ## Architecture
 
-This is a **Next.js 15 App Router** portfolio site for MOLLY YLLOM, a graphic design studio. The site is in Spanish and deployed on Vercel.
+**Next.js 15 App Router** portfolio site for MOLLY YLLOM, a graphic design studio. Deployed on Vercel. Primary language is Spanish, CV section is bilingual (ES/EN).
 
-### Key Conventions
+### Two-layer component pattern
+- `src/app/` — Thin Next.js route files. Each `page.tsx` imports and renders from `pageComponents/`.
+- `src/pageComponents/` — Full page implementations. Each folder has an `index.ts` barrel export.
+- `src/components/` — Shared UI components (`Header`, `Footer`, `AppDrawer`, `PortfolioGrid`, etc.).
 
-**Two-layer component pattern:**
-- `src/app/` — Thin Next.js route files. Each `page.tsx` simply imports and renders from `pageComponents/`.
-- `src/pageComponents/` — Full page implementations (e.g., `HomePage/HomePage.tsx`). Each folder has an `index.ts` barrel export.
-- `src/components/` — Shared UI components (`Header`, `Footer`, `AppDrawer`, `PortfolioGrid`, etc.), also with barrel `index.ts` exports.
-
-**Data files (not API/DB):**
-- `src/projects.tsx` — All portfolio projects as static data. Exports `activeProjects` (ordered array) and `projectsBySlug` (lookup map). Add new projects here and they automatically appear in `PortfolioGrid` and get a dynamic route at `/proyectos/[slug]`.
-- `src/data/collections.ts` — NFT collections data for the `/nfts` page.
+### Data files
+- `src/projects.tsx` — All portfolio projects as static data. Exports `activeProjects` (ordered array) and `projectsBySlug` (lookup map).
+- `src/data/collections.ts` — NFT collections for `/nfts`.
 - `src/pageComponents/DownloadsPage/downloadData.ts` — Downloads page data.
-
-**Styling:** Tailwind CSS. Brand colors are `indigo-950` (primary text/dark), `violet-900` (hover/accent), and `stone-200` (background).
-
-**Icons:** Custom SVG icon components in `src/icons/` (not from a library).
 
 ### Routes
 
-| Route | Page Component |
-|-------|---------------|
-| `/` | `HomePage` |
-| `/conoceme` | `ConocemePage` |
-| `/proyectos` | `ProjectsPage` (grid via `PortfolioGrid`) |
-| `/proyectos/[slug]` | `ProjectPage` (data from `projectsBySlug`) |
-| `/contacto` | `ContactPage` |
-| `/descargas` | `DownloadsPage` |
-| `/nfts` | `NFTsPage` |
+| Route | Page Component | Notes |
+|-------|---------------|-------|
+| `/` | `HomePage` | |
+| `/conoceme` | `ConocemePage` | |
+| `/proyectos` | `ProjectsPage` | Grid via `PortfolioGrid` |
+| `/proyectos/[slug]` | `ProjectPage` | Data from `projectsBySlug` |
+| `/contacto` | `ContactPage` | |
+| `/descargas` | `DownloadsPage` | |
+| `/nfts` | `NFTsPage` | |
+| `/cv` | `NormieCV` | Brand CV, English |
+| `/cv/es` | `NormieCV` | Brand CV, Spanish |
+| `/cv/web3` | `Web3CV` | Web3 CV, English |
+| `/cv/es/web3` | `Web3CV` | Web3 CV, Spanish |
 
-### Adding a New Project
+### Analytics
+`src/app/layout.tsx` includes Google Analytics (`G-Q3TSX67D2J`), Vercel Analytics, Vercel Speed Insights, LaunchMyNFT scripts.
 
-1. Define a new `Project` object in `src/projects.tsx` with `slug`, `title`, `portfolioImage`, `heroImage`, `paragraphs`, and `images`.
-2. Add it to the `activeProjects` array (order determines grid position).
+---
+
+## Design System
+
+### Color palette
+| Token | Value | Usage |
+|-------|-------|-------|
+| `bg-indigo-950` | #1e1b4b | Dark backgrounds, hero sections, alternating dark sections |
+| `bg-stone-200` | #e7e5e4 | Light backgrounds, alternating light sections |
+| `bg-white` | #ffffff | Cards inside light sections |
+| `text-violet-400` | accent | Dark section headings, kickers, accents |
+| `text-violet-500` | accent | Light section headings, kickers, accents |
+| `bg-violet-500` | primary CTA | Buttons, active toggle states |
+| `hover:bg-violet-400` | hover | Button hover state |
+| `text-slate-300/400` | body text on dark | Paragraphs and secondary text on dark backgrounds |
+| `text-indigo-950/70` | body text on light | Paragraphs on light backgrounds |
+
+### Typography
+- **H1 (hero):** `text-6xl sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tight`
+- **H2 (section):** `text-4xl sm:text-5xl font-black leading-tight` — always two lines, second line in violet accent
+- **Kicker (above h2):** `text-xs font-bold tracking-[0.3em] uppercase` in violet
+- **Body:** `text-lg leading-relaxed`
+- **Tags/pills:** `text-xs px-3 py-1 rounded-full`
+- Font family: Arial / Helvetica (system sans-serif)
+
+### Section pattern
+Every section follows: **violet kicker → big two-line h2 → content**. The h2 always has a plain first line and a colored second line:
+```jsx
+<p className="text-violet-400 text-xs font-bold tracking-[0.3em] uppercase mb-4">Kicker</p>
+<h2 className="text-4xl sm:text-5xl font-black leading-tight mb-16">
+  First line<br />
+  <span className="text-violet-400">Second line</span>
+</h2>
+```
+
+### Layout
+- **Horizontal padding:** `px-6 md:px-16 lg:px-24` (used consistently everywhere)
+- **Section vertical padding:** `py-20`
+- **Max width (content):** `max-w-4xl mx-auto` for text-heavy sections, `max-w-6xl mx-auto` for grids
+- **Alternating sections:** Dark (`bg-indigo-950`) → Light (`bg-stone-200`) → Dark → Light...
+- **Cards on light:** `bg-white rounded-2xl border border-stone-200 p-6 md:p-8`
+- **Cards on dark:** `border border-stone-200/10 rounded-2xl p-6 md:p-8` with hover `hover:border-violet-500/40`
+
+### Animations (Framer Motion)
+Two helpers used throughout:
+```ts
+// Hero entrance (uses animate, not whileInView)
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] },
+})
+
+// Scroll-triggered sections
+const fadeUpView = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] },
+})
+```
+Hero elements stagger: 0, 0.1, 0.2, 0.25, 0.35. Section items stagger: `i * 0.04` to `i * 0.1`.
+
+### Buttons
+- **Primary CTA:** `bg-violet-500 text-stone-200 font-bold px-8 py-4 rounded-full hover:bg-violet-400`
+- **Secondary (on dark):** `border border-stone-200/20 text-slate-300 font-semibold px-8 py-4 rounded-full hover:border-violet-400 hover:text-violet-400`
+- **Secondary (on light):** `border border-indigo-950/20 text-indigo-950/70 font-semibold px-8 py-4 rounded-full hover:border-violet-500 hover:text-violet-500`
+
+### Toggle pills (Brand/Web3, EN/ES)
+```jsx
+<div className="inline-flex items-center rounded-full border p-1 gap-1 border-stone-200/20">
+  <Link className="px-5 py-2 rounded-full text-xs font-bold tracking-[0.15em] uppercase
+    bg-violet-500 text-stone-200">Active</Link>
+  <Link className="px-5 py-2 rounded-full text-xs font-bold tracking-[0.15em] uppercase
+    text-slate-400 hover:text-stone-200">Inactive</Link>
+</div>
+```
+Use `variant="light"` prop on `CVVersionToggle` / `CVLangToggle` when placed on a `bg-stone-200` background — switches border and inactive text to dark-on-light variants.
+
+---
+
+## CV Section (`src/cv/`)
+
+Self-contained namespace. All CV code lives under `src/cv/` with `@/cv/` import paths.
+
+### Structure
+```
+src/cv/
+  components/          # Shared CV UI (CVVersionToggle, CVLangToggle, CVPageTransition)
+  data/
+    constants.ts       # BASE_URL, URLS (Aerosol, BurnAndClaim, etc.)
+    resumeData/
+      common/          # education.ts, education.es.ts, skills.ts
+      web2/            # Brand CV data (EN + ES)
+      web3/            # Web3 CV data (EN + ES)
+  icons/               # MdiLinkedin, MdiX, MdiGithub, MdiNinjaStar
+  pageComponents/
+    normie/NormieCV.tsx   # Brand CV component
+    web3/Web3CV.tsx       # Web3 CV component
+  types.ts
+  utils/experience.ts
+```
+
+### CV design decisions
+- **No site Header/Footer** on CV pages — CVs are standalone documents. A discreet `← mollyyllom.com` link sits inside the hero section (top-left), aligned with content padding.
+- **Brand CV** (`/cv`, `/cv/es`): alternating dark/light sections matching the main site pattern.
+- **Web3 CV** (`/cv/web3`, `/cv/es/web3`): fully dark (`bg-indigo-950` throughout), violet accents, darker atmosphere aligned with the NFTs page aesthetic.
+- **Page transition:** `CVPageTransition` in `src/app/cv/layout.tsx` wraps all 4 routes in `AnimatePresence mode="wait"` with a 0.35s crossfade.
+- **Language toggle** (`CVLangToggle`) and **version toggle** (`CVVersionToggle`) are cross-aware: switching language keeps the current mode, switching mode keeps the current language.
+- **Skills stay in English** in both language versions — standard for design/tech CVs.
+- **Profile photos:** `molly_pfp.jpg` (brand), `molly_pfp_web3.jpg` (web3) — both in `public/img/molly/`. Size: `w-64 h-64 md:w-80 md:h-80`, circular with violet glow shadow.
+- **Social links** (LinkedIn, X) — icon-only, no text labels.
+
+### CV i18n pattern
+Each page component receives `lang: 'en' | 'es'` prop. A `copy` object inside the component holds all UI strings for both languages. Resume data is separate: `web2Resume` / `web2ResumeES`, `web3Resume` / `web3ResumeES`.
+
+### CV content rules (from audits)
+- `featureHighlight` must be different from the first bullet point — no duplication.
+- Every section h2 uses the two-line violet accent pattern (no exceptions).
+- Kicker labels and badge text ("Current"/"Actual") must match the page language.
+- Hero photo uses `md:items-start` (not `md:items-center`) to avoid floating when text is taller than photo.
+
+### Adding/editing CV content
+- Job experience: `src/cv/data/resumeData/web2/experience.tsx` (EN) and `experience.es.tsx` (ES)
+- Selected projects: `contractWork.tsx` / `contractWork.es.tsx`
+- Skills: `src/cv/data/resumeData/common/skills.ts` (shared EN), `web3/skills.ts` (web3 reordered)
+- Education: `common/education.ts` (EN), `common/education.es.ts` (ES)
+- Social/contact: `web2/contact.tsx` and `web3/contact.tsx`
+
+---
+
+## Adding a New Project
+
+1. Define a `Project` object in `src/projects.tsx` with `slug`, `title`, `portfolioImage`, `heroImage`, `paragraphs`, `images`.
+2. Add it to `activeProjects` (order = grid position).
 3. Place images in `public/img/projects/[slug]/`.
-
-### Analytics & Third-party Scripts
-
-`src/app/layout.tsx` includes Google Analytics (GTM ID: `G-Q3TSX67D2J`), Vercel Analytics, Vercel Speed Insights, and LaunchMyNFT scripts for the Solana NFT integration.
