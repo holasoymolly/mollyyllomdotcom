@@ -1,7 +1,7 @@
 'use client'
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import React from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 
 interface Props {
   variant?: 'dark' | 'light'
@@ -9,6 +9,7 @@ interface Props {
 
 export function CVVersionToggle({ variant = 'dark' }: Props) {
   const pathname = usePathname()
+  const router = useRouter()
   const isES = pathname.startsWith('/cv/es')
   const isWeb3 = pathname.includes('/web3')
 
@@ -23,24 +24,28 @@ export function CVVersionToggle({ variant = 'dark' }: Props) {
     ? 'border-indigo-950/20'
     : 'border-stone-200/20'
 
+  function navigate(href: string) {
+    React.startTransition(() => router.push(href))
+  }
+
   return (
     <div className={`inline-flex items-center rounded-full border p-1 gap-1 ${borderClass}`}>
-      <Link
-        href={brandHref}
-        className={`px-5 py-2 rounded-full text-xs font-bold tracking-[0.15em] uppercase transition-all duration-200 ${
+      <button
+        onClick={() => navigate(brandHref)}
+        className={`px-5 py-2 rounded-full text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-200 cursor-pointer ${
           !isWeb3 ? 'bg-violet-500 text-stone-200' : inactiveClass
         }`}
       >
         Brand
-      </Link>
-      <Link
-        href={web3Href}
-        className={`px-5 py-2 rounded-full text-xs font-bold tracking-[0.15em] uppercase transition-all duration-200 ${
+      </button>
+      <button
+        onClick={() => navigate(web3Href)}
+        className={`px-5 py-2 rounded-full text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-200 cursor-pointer ${
           isWeb3 ? 'bg-violet-500 text-stone-200' : inactiveClass
         }`}
       >
         Web3
-      </Link>
+      </button>
     </div>
   )
 }
