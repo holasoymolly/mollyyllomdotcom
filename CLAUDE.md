@@ -115,6 +115,40 @@ Hero elements stagger: 0, 0.1, 0.2, 0.25, 0.35. Section items stagger: `i * 0.04
 - **Secondary (on dark):** `border border-stone-200/20 text-slate-300 font-semibold px-8 py-4 rounded-full hover:border-violet-400 hover:text-violet-400`
 - **Secondary (on light):** `border border-indigo-950/20 text-indigo-950/70 font-semibold px-8 py-4 rounded-full hover:border-violet-500 hover:text-violet-500`
 
+### Image protection (ALWAYS apply this)
+
+**Never use plain `<img>` or Next.js `<Image>` directly for content images.** All visible images must be protected against dragging and right-click saving.
+
+| Use case | Component |
+|----------|-----------|
+| Regular `<img>` tags | `<ProtectedImage>` from `@/components/ProtectedImage` |
+| Next.js `<Image fill>` or sized images | `<ProtectedNextImage>` from `@/components/ProtectedNextImage` |
+
+`ProtectedNextImage` replaces the outer `<div className="relative ...">` container that fill images require. Pass all sizing, shape, border, and shadow classes via `containerClassName`:
+
+```tsx
+// ✅ Correct
+<ProtectedNextImage
+  containerClassName="w-64 h-64 rounded-full overflow-hidden border-2 border-violet-500/50"
+  src="/img/photo.jpg"
+  alt="Description"
+  fill
+  sizes="256px"
+  className="object-cover"
+/>
+
+// ❌ Wrong — unprotected
+<div className="relative w-64 h-64 rounded-full overflow-hidden">
+  <Image src="/img/photo.jpg" alt="Description" fill className="object-cover" />
+</div>
+```
+
+Both components block: drag-and-drop, right-click context menu, and drag ghost preview.
+
+Logo images in the `<Header>` are exempt (they are decorative/brand assets served publicly anyway).
+
+---
+
 ### Toggle pills (Brand/Web3, EN/ES)
 ```jsx
 <div className="inline-flex items-center rounded-full border p-1 gap-1 border-stone-200/20">
