@@ -45,7 +45,7 @@ export const experienceES: Experience[] = [
       <>Concebí, diseñé, construí y lancé <a href={URLS.MOLLYVERSE} target="_blank" rel="noreferrer" className="text-accent underline hover:opacity-80">mollyverse.art</a> de principio a fin, una plataforma web de consumo para un universo ilustrado original hecho a mano de 420 piezas en cuatro series, construida en Next.js, React y Tailwind.</>,
       "Fui dueña de todo el proceso, del concepto y la identidad al lanzamiento; la primera colección de 111 piezas se agotó.",
     ],
-    stack: ["Next.js", "React", "Tailwind CSS", "Brand Identity", "Product Design", "Solana"],
+    stack: ["Next.js", "React", "Tailwind CSS", "Brand Identity", "Product Design"],
   },
   {
     company: "Freelance",

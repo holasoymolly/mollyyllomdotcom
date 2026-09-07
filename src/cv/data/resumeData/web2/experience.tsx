@@ -45,7 +45,7 @@ export const experience: Experience[] = [
       <>Conceived, designed, built, and shipped <a href={URLS.MOLLYVERSE} target="_blank" rel="noreferrer" className="text-accent underline hover:opacity-80">mollyverse.art</a> end to end, a consumer web platform for an original hand-drawn illustrated universe of 420 pieces across four series, built in Next.js, React, and Tailwind.</>,
       "Owned the full journey from concept and identity to launch; first collection of 111 pieces sold out.",
     ],
-    stack: ["Next.js", "React", "Tailwind CSS", "Brand Identity", "Product Design", "Solana"],
+    stack: ["Next.js", "React", "Tailwind CSS", "Brand Identity", "Product Design"],
   },
   {
     company: "Freelance",
