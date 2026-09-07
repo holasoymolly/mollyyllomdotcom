@@ -13,7 +13,7 @@ export const PortfolioGrid = ({
   /** Cap the grid at the N newest projects. Omit to show every project. */
   limit?: number;
 }) => {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const items = limit ? activeProjects.slice(0, limit) : activeProjects;
 
   return (
@@ -58,7 +58,7 @@ export const PortfolioGrid = ({
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-indigo-950/90 via-indigo-950/40 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] h-2/3 pointer-events-none" />
               <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-75 ease-[cubic-bezier(0.33,1,0.68,1)] pointer-events-none">
                 <p className="text-violet-400 text-[10px] font-bold tracking-[0.2em] uppercase mb-1">
-                  {t.portfolio.brandingLabel}
+                  {(lang === 'en' ? item.gridLabelEn : item.gridLabel) ?? t.portfolio.brandingLabel}
                 </p>
                 <span className="text-stone-200 font-bold text-sm md:text-base lg:text-lg leading-tight">
                   {item.title}

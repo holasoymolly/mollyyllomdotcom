@@ -24,6 +24,15 @@ export interface Project {
   roleEn?: string;
   scope?: string[];
   scopeEn?: string[];
+  /**
+   * Overrides the grid tile's kicker, which otherwise reads "Branding ·
+   * Identidad" for every project and hides the product, web and systems work.
+   * Derived from `scope` / `scopeEn`: the two most representative entries,
+   * written exactly as they appear there. A project whose scope really is only
+   * branding leaves this out and keeps the default.
+   */
+  gridLabel?: string;
+  gridLabelEn?: string;
   brief?: string;
   briefEn?: string;
   shipped?: string[];
@@ -116,6 +125,8 @@ const burnClaimProject: Project = {
   roleEn: "Product identity and app redesign",
   scope: ["Identidad de submarca", "Ilustración", "Arquitectura de información", "Diseño de interfaz", "Onboarding", "Handoff a desarrollo"],
   scopeEn: ["Sub-brand identity", "Illustration", "Information architecture", "Interface design", "Onboarding", "Developer handoff"],
+  gridLabel: "Diseño de interfaz · Arquitectura de información",
+  gridLabelEn: "Interface design · Information architecture",
   brief: "Burn & Claim recupera el rent de cuentas y NFTs que ya no se usan. Es una operación irreversible en cadena, así que la app tenía que verse confiable antes de que alguien conectara su wallet. El reto era doble: que se sintiera segura sin volverse solemne, y que se leyera como parte de Aerosol sin dejar de tener carácter propio.",
   briefEn: "Burn & Claim reclaims rent from unused accounts and NFTs. It is an irreversible on-chain action, so the app had to look trustworthy before anyone would connect a wallet. The challenge was double: feel safe without turning solemn, and read as part of Aerosol while keeping a character of its own.",
   shipped: [
@@ -194,19 +205,21 @@ const aerosolProject: Project = {
   roleEn: "Brand consultant and art director, later Head of Design",
   scope: ["Estrategia de marca", "Identidad", "Arquitectura de submarcas", "Sistema de diseño", "Ilustración", "Web"],
   scopeEn: ["Brand strategy", "Identity", "Sub-brand architecture", "Design system", "Illustration", "Web"],
+  gridLabel: "Sistema de diseño · Identidad",
+  gridLabelEn: "Design system · Identity",
   brief: "Aerosol construye herramientas para el ecosistema Solana. El producto ya funcionaba y tenía usuarios reales, pero la marca lo hacía ver como un proyecto secundario, y los productos se iban acumulando sin un sistema que los relacionara entre sí.",
   briefEn: "Aerosol builds tools for the Solana ecosystem. The product already worked and had real users, but the brand made it look like a side project, and products were piling up with no system relating them to each other.",
   shipped: [
     "Identidad completa: logotipo, isotipo, personaje y sistema de color",
     "Arquitectura de submarcas para Burn & Claim, Spotlight y Aerosol ID",
-    "Sistema de diseño por niveles para que producto, marketing y comunidad publiquen sin pasar por diseño",
+    "Una biblioteca de assets organizada, para que producto, marketing y socios encuentren lo que necesitan sin que diseño sea el cuello de botella",
     "Sitio corporativo y páginas de producto",
     "Escenas ilustradas, avatares y piezas de comunidad",
   ],
   shippedEn: [
     "Full identity: wordmark, symbol, character and color system",
     "Sub-brand architecture for Burn & Claim, Spotlight and Aerosol ID",
-    "A tiered design system so product, marketing and community can publish without going through design",
+    "An organized asset library, so product, marketing and partner teams find what they need without design becoming a bottleneck",
     "Corporate site and product pages",
     "Illustrated scenes, avatars and community pieces",
   ],
@@ -820,6 +833,8 @@ const distopiaProject: Project = {
     "Print",
     "Murals",
   ],
+  gridLabel: "Identidad · Murales",
+  gridLabelEn: "Identity · Murals",
   brief: "Distopia sostuvo la escena de música electrónica dominicana dentro y fuera del país. El nombre pedía un enfoque atípico, y la marca tenía que aguantar tanto una pantalla como la pared de un espacio de fiesta.",
   briefEn: "Distopia supported the Dominican electronic music scene at home and abroad. The name asked for an atypical approach, and the brand had to hold up on a screen and on the wall of a party space alike.",
   shipped: [
@@ -1087,6 +1102,8 @@ const mlLogoProject: Project = {
   roleEn: "Creative direction, identity and front-end development",
   scope: ["Concepto", "Identidad", "Dirección de arte", "Diseño web", "Desarrollo front-end"],
   scopeEn: ["Concept", "Identity", "Art direction", "Web design", "Front-end development"],
+  gridLabel: "Diseño web · Desarrollo front-end",
+  gridLabelEn: "Web design · Front-end development",
   brief: "Una artista musical independiente necesitaba una identidad digital propia y un lugar donde viviera. La marca se construyó primero, y el sitio salió de ella.",
   briefEn: "An independent music artist needed a digital identity of her own and a place for it to live. The brand was built first, and the site came out of it.",
   shipped: [
