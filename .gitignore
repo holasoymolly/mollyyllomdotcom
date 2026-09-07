@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 *.pdf
+# ...except the résumé PDFs, which are served to visitors out of public/ and
+# have to be committed or they never reach the deploy.
+!public/downloads/**/*.pdf
 
 # debug
 npm-debug.log*
