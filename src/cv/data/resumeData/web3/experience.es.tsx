@@ -6,28 +6,34 @@ export const experienceES: Experience[] = [
   {
     company: "Aerosol",
     role: "Head of Design",
-    start: "2026",
+    start: "2024",
     end: "Presente",
     current: true,
     featureHighlight: "Liderando el diseño del ecosistema Aerosol en Solana: sistema de marca, interfaces de producto y frontend.",
-    highlights: [
-      "Lidero todo el diseño de la empresa: identidad de marca, UX de producto, marketing y web.",
-      "Diseño para producto, web, redes sociales y campañas de los productos del ecosistema, incluyendo JobSkr y Spotlight.",
-      <>Lideré el rediseño completo de <a href={URLS.BURN_AND_CLAIM} target="_blank" rel="noreferrer" className="text-accent underline hover:opacity-80">Burn & Claim</a>, y programo el frontend en Next.js, React y Tailwind.</>,
+    highlights: [],
+    stages: [
+      {
+        role: "Head of Design",
+        start: "2026",
+        end: "Presente",
+        highlights: [
+          "Lidero todo el diseño de la empresa: identidad de marca, UX de producto, marketing y web.",
+          "Diseño para producto, web, redes sociales y campañas de los productos del ecosistema, incluyendo JobSkr y Spotlight.",
+          <>Lideré el rediseño completo de <a href={URLS.BURN_AND_CLAIM} target="_blank" rel="noreferrer" className="text-accent underline hover:opacity-80">Burn & Claim</a>, y programo el frontend en Next.js, React y Tailwind.</>,
+        ],
+      },
+      {
+        role: "Brand Consultant & Art Director",
+        start: "2024",
+        end: "2026",
+        featureHighlight: "Definí la identidad visual inicial del ecosistema Aerosol antes del rol de Head of Design.",
+        highlights: [
+          "Evolución de la marca Aerosol hacia un sistema visual digital-first, escalable y alineado con la cultura Web3.",
+          "Diseño de las primeras piezas de producto, web, redes y campañas del ecosistema.",
+        ],
+      },
     ],
-    stack: ["Brand Systems", "Product Design", "Figma", "Next.js", "React", "Solana"],
-  },
-  {
-    company: "Aerosol",
-    role: "Brand Consultant & Art Director",
-    start: "2024",
-    end: "2026",
-    featureHighlight: "Definí la identidad visual inicial del ecosistema Aerosol antes del rol de Head of Design.",
-    highlights: [
-      "Evolución de la marca Aerosol hacia un sistema visual digital-first, escalable y alineado con la cultura Web3.",
-      "Diseño de las primeras piezas de producto, web, redes y campañas del ecosistema.",
-    ],
-    stack: ["Brand Identity", "Art Direction", "Figma", "Landing Pages", "Solana"],
+    stack: ["Brand Systems", "Brand Identity", "Art Direction", "Product Design", "Figma", "Next.js", "React", "Landing Pages", "Solana"],
   },
   {
     company: "Mollyverse",

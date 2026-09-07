@@ -33,6 +33,22 @@ export interface SkillCategory {
   items: string[]
 }
 
+/**
+ * One role inside a single tenure at a company.
+ *
+ * A promotion is one continuous stay, not two short jobs. Split into separate
+ * `Experience` entries, "Head of Design, 2026 - Present" reads as eight months
+ * of leadership to anyone looking in 2026, which understates the tenure and
+ * matches neither LinkedIn nor the PDF résumé.
+ */
+export interface ExperienceStage {
+  role: string
+  start: string
+  end: string
+  highlights: ReactNode[]
+  featureHighlight?: string | ReactNode
+}
+
 export interface Experience {
   company: string
   role: string
@@ -43,6 +59,12 @@ export interface Experience {
   current?: boolean
   featureHighlight?: string | ReactNode
   companyNotes?: string | ReactNode
+  /**
+   * Roles held at the same company, newest first. When present, the card header
+   * carries the company and the full date range, and each stage carries its own
+   * title, dates and bullets.
+   */
+  stages?: ExperienceStage[]
 }
 
 export interface Education {

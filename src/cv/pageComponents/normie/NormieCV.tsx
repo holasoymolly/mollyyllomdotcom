@@ -7,6 +7,7 @@ import { web2Resume } from "@/cv/data/resumeData/web2"
 import { web2ResumeES } from "@/cv/data/resumeData/web2/index.es"
 import { CVVersionToggle } from "@/cv/components/CVVersionToggle"
 import { CVLangToggle } from "@/cv/components/CVLangToggle"
+import { CVResumeDownload } from "@/cv/components/CVResumeDownload"
 import { MdiLinkedin } from "@/cv/icons/MdiLinkedin"
 import { MdiX } from "@/cv/icons/MdiX"
 
@@ -15,7 +16,7 @@ type Lang = 'en' | 'es'
 const copy = {
   en: {
     kicker: 'Senior Brand & Product Designer',
-    heroBio: 'Brand and Product Designer with 17+ years building scalable visual systems across agencies, freelance work, and Web3 products. I design brands and products end to end, and ship the front-end in React, Next.js, and Tailwind.',
+    heroBio: 'Brand and Product Designer with 17+ years building scalable visual systems across agencies, independent practice, and digital products. I design brands and products end to end, and ship the front-end in React, Next.js, and Tailwind.',
     experienceKicker: 'Professional Experience',
     experienceH2a: 'Building brands',
     experienceH2b: 'for 17+ years',
@@ -35,7 +36,7 @@ const copy = {
   },
   es: {
     kicker: 'Diseñadora Sénior de Marca y Producto',
-    heroBio: 'Diseñadora de Marca y Producto con más de 17 años construyendo sistemas visuales escalables en agencias, trabajo independiente y productos Web3. Diseño marca y producto de punta a punta, y programo el frontend en React, Next.js y Tailwind.',
+    heroBio: 'Diseñadora de Marca y Producto con más de 17 años construyendo sistemas visuales escalables en agencias, trabajo independiente y productos digitales. Diseño marca y producto de punta a punta, y programo el frontend en React, Next.js y Tailwind.',
     experienceKicker: 'Experiencia Profesional',
     experienceH2a: 'Construyendo marcas',
     experienceH2b: 'por más de 17 años',
@@ -141,6 +142,7 @@ export function NormieCV({ lang = 'en' }: { lang?: Lang }) {
                 </a>
                 <CVVersionToggle />
                 <CVLangToggle />
+                <CVResumeDownload />
               </motion.div>
             </div>
 
@@ -196,7 +198,9 @@ export function NormieCV({ lang = 'en' }: { lang?: Lang }) {
                         </span>
                       )}
                     </div>
-                    <h3 className="text-indigo-950 text-xl font-black">{role.role}</h3>
+                    {!role.stages && (
+                      <h3 className="text-indigo-950 text-xl font-black">{role.role}</h3>
+                    )}
                     <p className="text-indigo-950/50 text-sm mt-1">{role.start} - {role.end}</p>
                   </div>
                 </div>
@@ -207,14 +211,39 @@ export function NormieCV({ lang = 'en' }: { lang?: Lang }) {
                   </div>
                 )}
 
-                <ul className="space-y-2 mb-5">
-                  {role.highlights.map((h, j) => (
-                    <li key={j} className="flex gap-3 text-sm text-indigo-950/70 leading-relaxed">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
+                {role.highlights.length > 0 && (
+                  <ul className="space-y-2 mb-5">
+                    {role.highlights.map((h, j) => (
+                      <li key={j} className="flex gap-3 text-sm text-indigo-950/70 leading-relaxed">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {/* A promotion: one tenure, each title as its own stage inside it. */}
+                {role.stages && (
+                  <div className="space-y-6 mb-5">
+                    {role.stages.map((stage) => (
+                      <div key={stage.role} className="border-l-2 border-violet-200 pl-5">
+                        <h4 className="text-indigo-950 text-lg font-black leading-tight">{stage.role}</h4>
+                        <p className="text-indigo-950/50 text-xs mt-1 mb-3">{stage.start} - {stage.end}</p>
+                        {stage.featureHighlight && (
+                          <p className="text-indigo-950/80 text-sm leading-relaxed mb-3">{stage.featureHighlight}</p>
+                        )}
+                        <ul className="space-y-2">
+                          {stage.highlights.map((h, j) => (
+                            <li key={j} className="flex gap-3 text-sm text-indigo-950/70 leading-relaxed">
+                              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+                              <span>{h}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {role.stack && (
                   <div className="flex flex-wrap gap-2">
@@ -359,6 +388,7 @@ export function NormieCV({ lang = 'en' }: { lang?: Lang }) {
             <div className="flex justify-center gap-3">
               <CVVersionToggle variant="light" />
               <CVLangToggle variant="light" />
+              <CVResumeDownload variant="light" />
             </div>
           </motion.div>
         </div>

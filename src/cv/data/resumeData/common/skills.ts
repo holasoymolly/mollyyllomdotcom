@@ -42,12 +42,12 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
-    title: "Marketing & Web3",
+    // BRAND only. WEB3 keeps its crypto items in web3/skills.ts, which is a
+    // separate file despite this one living in common/.
+    title: "Marketing & Web",
     items: [
       "Campaign Design",
       "Social Media Design",
-      "Solana Ecosystem",
-      "Token Branding",
       "Go-to-Market Design",
     ],
   },

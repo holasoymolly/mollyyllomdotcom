@@ -8,6 +8,7 @@ import { web3ResumeES } from "@/cv/data/resumeData/web3/index.es"
 import { URLS } from "@/cv/data/constants"
 import { CVVersionToggle } from "@/cv/components/CVVersionToggle"
 import { CVLangToggle } from "@/cv/components/CVLangToggle"
+import { CVResumeDownload } from "@/cv/components/CVResumeDownload"
 import { MdiLinkedin } from "@/cv/icons/MdiLinkedin"
 import { MdiX } from "@/cv/icons/MdiX"
 
@@ -155,6 +156,7 @@ export function Web3CV({ lang = 'en' }: { lang?: Lang }) {
               </a>
               <CVVersionToggle />
               <CVLangToggle />
+              <CVResumeDownload />
             </motion.div>
           </div>
 
@@ -207,7 +209,9 @@ export function Web3CV({ lang = 'en' }: { lang?: Lang }) {
                     </span>
                   )}
                 </div>
-                <h3 className="text-stone-200 text-2xl font-black">{role.role}</h3>
+                {!role.stages && (
+                  <h3 className="text-stone-200 text-2xl font-black">{role.role}</h3>
+                )}
                 <p className="text-slate-400 text-sm mt-1">{role.start} - {role.end}</p>
               </div>
 
@@ -217,14 +221,39 @@ export function Web3CV({ lang = 'en' }: { lang?: Lang }) {
                 </div>
               )}
 
-              <ul className="space-y-3 mb-6">
-                {role.highlights.map((h, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-slate-300 leading-relaxed">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
+              {role.highlights.length > 0 && (
+                <ul className="space-y-3 mb-6">
+                  {role.highlights.map((h, i) => (
+                    <li key={i} className="flex gap-3 text-sm text-slate-300 leading-relaxed">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {/* A promotion: one tenure, each title as its own stage inside it. */}
+              {role.stages && (
+                <div className="space-y-6 mb-6">
+                  {role.stages.map((stage) => (
+                    <div key={stage.role} className="border-l-2 border-violet-500/40 pl-5">
+                      <h4 className="text-stone-200 text-xl font-black leading-tight">{stage.role}</h4>
+                      <p className="text-slate-400 text-xs mt-1 mb-3">{stage.start} - {stage.end}</p>
+                      {stage.featureHighlight && (
+                        <p className="text-stone-300 text-sm leading-relaxed mb-3">{stage.featureHighlight}</p>
+                      )}
+                      <ul className="space-y-3">
+                        {stage.highlights.map((h, j) => (
+                          <li key={j} className="flex gap-3 text-sm text-slate-300 leading-relaxed">
+                            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {role.stack && (
                 <div className="flex flex-wrap gap-2">
@@ -368,6 +397,7 @@ export function Web3CV({ lang = 'en' }: { lang?: Lang }) {
             <div className="flex justify-center gap-3">
               <CVVersionToggle />
               <CVLangToggle />
+              <CVResumeDownload />
             </div>
           </motion.div>
         </div>
