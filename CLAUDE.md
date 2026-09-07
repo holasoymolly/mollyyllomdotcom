@@ -49,7 +49,7 @@ Non-trivial changes ship as a sequence of small commits (one per logical phase),
 
 | Route | Page Component | Notes |
 |-------|---------------|-------|
-| `/` · `/en` | `HomePage` | Grid via `PortfolioGrid`, capped at `HOME_GRID_LIMIT` (15) |
+| `/` · `/en` | `HomePage` | Grid via `PortfolioGrid`, capped at `HOME_GRID_LIMIT` (15). `Availability` sits directly under the hero |
 | `/conoceme` · `/en/conoceme` | `ConocemePage` | |
 | `/proyectos` · `/en/proyectos` | `ProjectsPage` | Grid via `PortfolioGrid`, uncapped |
 | `/proyectos/[slug]` · `/en/proyectos/[slug]` | `ProjectPage` | Data from `projectsBySlug` |
@@ -65,6 +65,8 @@ The Mollyverse nav item is an **external** link (`https://www.mollyverse.art/wel
 ### Bilingual routing (`/` = ES, `/en` = EN)
 
 **The URL is the only source of truth for language.** `LanguageProvider` derives `lang` from `usePathname()`; there is no state and no `localStorage`. Metadata is resolved on the server, so a page can only advertise one language, and it must be the one the visitor actually sees. This also means a shared link keeps its language, which a stored preference could never do.
+
+**The two languages address two different readers, but the copy is kept in lockstep.** Spanish is read by Dominican clients who buy design projects; English is read by US recruiters arriving from her CV. In September 2026 both sides moved off "graphic design studio / cotiza tu proyecto" and onto the art director and brand designer positioning, with an availability block under the hero, because the studio framing read as "runs her own business, not open to being hired". Any copy change to one language now ships with its counterpart in the same commit: `Translations` is `typeof translations.es`, so a key added to only one branch fails `tsc`.
 
 The helpers all live in `src/i18n/routes.ts` and every route change goes through them:
 
@@ -93,6 +95,22 @@ Per-route metadata lives on the **server-component `page.tsx`** wrappers in `src
 - Descriptions and OG copy are written per language, not machine-translated from the other side.
 - Root-level metadata + OG image live in `src/app/layout.tsx`.
 - `src/app/sitemap.ts` and `src/app/robots.ts` produce `/sitemap.xml` and `/robots.txt` automatically — `sitemap.ts` emits both languages of every static route and every entry in `activeProjects`, each carrying `alternates.languages`, plus the four CV routes.
+
+### Where the CTAs point
+
+The site serves two readers at once: US recruiters hiring a person, and Dominican clients commissioning a project. Both paths converge on `/contacto`, and neither may lose its door.
+
+| CTA | Goes to |
+|---|---|
+| Hero button (`home.cta`), closing banner (`quoteBanner.cta`), mobile drawer button | `/contacto` |
+| Availability block, "Get in touch" (`home.availabilityContactCta`) | `/contacto` |
+| Availability block, "Download resume" | `public/downloads/brand/…` |
+| Contact page, "Book a call" | Calendly |
+| Contact page, "Request a quote" (`contact.quoteUrl`) | The Google quote form |
+
+Until September 2026 the hero and closing CTAs went straight to the Google quote form. Once their labels became "Get in touch" / "Hablemos", that destination contradicted them: a recruiter clicking a neutral CTA landed on a form asking for a project budget. They now point at `/contacto`, which is why **the contact page carries the quote block: it is the quote form's only entry point on the whole site.** Never remove it, and never point a general CTA back at the form directly.
+
+`contact.quoteUrl` is a different form per language and lives in `contact` rather than `quoteBanner` for exactly this reason. There is no second copy of either URL.
 
 ### Navigation & page transitions
 The site uses the native **View Transitions API** for all internal navigation, enabled via `experimental: { viewTransition: true }` in `next.config.ts`. The crossfade keyframes (`cv-fade-out` / `cv-fade-in`, 350ms ease-in-out) live in `src/app/globals.css` and respect `prefers-reduced-motion`.
@@ -136,8 +154,9 @@ Autocapture records every click as a generic `[Amplitude] Element Clicked` ident
 |-------|-----------|------------|-----------|
 | `Booking CTA Clicked` | Any Calendly button is clicked — the strongest buying signal on the site | `location`, `lang` | `HomePage/components/MediaSection`, `ConocemePage`, `ContactPage` |
 | `Email CTA Clicked` | The `hola@mollyyllom.com` mailto link is clicked | `location`, `lang` | `ContactPage` |
+| `Quote CTA Clicked` | The project quote form is opened, the design-client counterpart to a booking | `location`, `lang` | `ContactPage` |
 | `Newsletter CTA Clicked` | The newsletter signup link in the footer is clicked | `location`, `lang` | `Footer` |
-| `Asset Downloaded` | A downloadable asset on `/descargas` is opened | `assetTitle`, `assetUrl`, `lang` | `DownloadsPage` |
+| `Asset Downloaded` | A downloadable asset is opened, on `/descargas` or from the home availability block | `assetTitle`, `assetUrl`, `lang` | `DownloadsPage`, `HomePage/components/Availability` |
 | `Project Viewed` | A case study page mounts (once per slug; the language toggle does not re-fire it) | `projectSlug`, `projectTitle`, `lang` | `ProjectPage` |
 
 **RULE — whenever you add, remove, or change a user-facing conversion point, update Amplitude tracking and this table in the same commit.** Concretely:
@@ -351,6 +370,39 @@ src/cv/
 - **Skills stay in English** in both language versions — standard for design/tech CVs.
 - **Profile photos:** `molly_pfp.jpg` (brand), `molly_pfp_web3.jpg` (web3) — both in `public/img/molly/`. Size: `w-64 h-64 md:w-80 md:h-80`, circular with violet glow shadow.
 - **Social links** (LinkedIn, X) — icon-only, no text labels.
+- **Downloadable PDFs:** `CVResumeDownload` sits beside the toggles on all four CV pages and follows the active version, serving `public/downloads/brand/` on `/cv` and `/cv/es` and `public/downloads/web3/` on the web3 pair.
+
+#### The résumé PDFs
+
+Two files, both named **exactly** `Cinthya-Paulino-Resume.pdf`:
+
+| Path | Served from |
+|---|---|
+| `public/downloads/brand/Cinthya-Paulino-Resume.pdf` | `/cv`, `/cv/es`, the home availability block, `/descargas` |
+| `public/downloads/web3/Cinthya-Paulino-Resume.pdf` | `/cv/web3`, `/cv/es/web3` |
+
+The variant lives in the **folder name, never in the filename**, on purpose: the filename is what a recruiter sees in their downloads folder, and it must not advertise that other versions exist. Never rename either file, and never add a suffix, a date, a version, or the word ATS. Both URLs are exported from `src/lib/resume.ts`; nothing hard-codes the path.
+
+Both PDFs are in English. There is no Spanish translation yet, so `/cv/es` deliberately serves the English file.
+
+`.gitignore` has a blanket `*.pdf`, with a `!public/downloads/**/*.pdf` exception directly under it. Without that exception the PDFs are never committed and every download 404s on the deploy, while working perfectly in local dev.
+
+### BRAND is not a reordering of WEB3
+
+The BRAND CV (`/cv`, `/cv/es`) and the WEB3 CV (`/cv/web3`, `/cv/es/web3`) describe the same work in different vocabulary. That divergence is the point of the toggle: if both pages name Solana six times, the toggle does nothing.
+
+**The downloadable PDF is the source of truth for BRAND's wording.** The two are one click apart now that `CVResumeDownload` sits on the page, so a recruiter can hold them side by side. Where they disagree, the page is wrong. The PDF says "a digital products company", "a transactional web application", "a consumer web platform", "Mollyverse, Independent Product Venture"; BRAND was audited to match in September 2026.
+
+Nothing is hidden: WEB3 still carries the full crypto record, which is its job. When editing, keep the two data sets apart, and note which files are shared:
+
+| File | Feeds |
+|---|---|
+| `web2/experience.tsx`, `.es.tsx` | BRAND only |
+| `web3/experience.tsx`, `.es.tsx` | WEB3 only |
+| `common/skills.ts` | **BRAND only**, despite the folder name. WEB3 has its own copy in `web3/skills.ts` |
+| `common/education.ts`, `.es.ts` | Both |
+
+A change meant for one variant that lands in `common/` will silently reach the other. Check before editing.
 
 ### CV i18n pattern
 Each page component receives `lang: 'en' | 'es'` prop. A `copy` object inside the component holds all UI strings for both languages. Resume data is separate: `web2Resume` / `web2ResumeES`, `web3Resume` / `web3ResumeES`.
@@ -361,14 +413,21 @@ Each page component receives `lang: 'en' | 'es'` prop. A `copy` object inside th
 - Kicker labels and badge text ("Current"/"Actual") must match the page language.
 - Hero photo uses `md:items-start` (not `md:items-center`) to avoid floating when text is taller than photo.
 - **The CV here is the same résumé as Molly's LinkedIn, Indeed, and the downloadable PDFs, so keep all of them consistent.** LinkedIn is the source of truth for titles, dates, and the years-of-experience figure. If you change a role, a date, or that number here, update the other surfaces too, and vice versa. Do not add project names, client counts, awards, or launch specifics that go stale, keep it general and verifiable.
-- **Aerosol is two roles (a promotion), not one:** Head of Design (2026 to Present) and Brand Consultant & Art Director (2024 to 2026). Molly has partnered with Aerosol since early 2024 and became Head of Design in Jan 2026. Never collapse these into "Head of Design since 2024", that overstates how long she has held the title. Mollyverse is a separate current role (Designer & Front-end Developer, 2026 to Present).
-- **The years-of-experience figure is "17+", and it is scattered across the CV *and the main site*.** It has drifted twice: once between a CV page and its own meta description, and once between the CV section (updated to 17+) and the whole rest of the site (left at 20+ for a full release, because that change only touched `src/cv/**` and `src/app/cv/**`). When the number, the headline role, or the summary changes, update every row below in the same commit and then `grep -rn "20+\|17+\|20 años\|17 años\|20 years\|17 years" src/` to confirm nothing is left behind:
+- **Aerosol is two roles (a promotion) inside one tenure.** Molly has partnered with Aerosol since early 2024 and became Head of Design in Jan 2026. Both facts have to survive, and neither shape below is optional:
+  - Never collapse them into "Head of Design since 2024". That overstates how long she has held the title.
+  - Never split them into two sibling `Experience` entries either. Read in 2026, a standalone "Head of Design, 2026 - Present" card says eight months of leadership and buries the two years before it.
+  - The shape that holds both is one `Experience` for Aerosol, `2024 - Present`, with the two titles as `stages` (see `ExperienceStage` in `src/cv/types.ts`). The card header carries the company and the full range, each stage carries its own title, dates and bullets, and the card-level `highlights` array stays empty. Both CV components render `stages`; the Web3 CV renders `experience[0]` only, so on that page the stages are the *only* way the 2024 to 2026 work appears at all.
+  - This mirrors the PDF résumé, which merged the two stages in August 2026. Mollyverse is a separate current role (Designer & Front-end Developer, 2026 to Present).
+- **Do not describe the Aerosol design system as "tiered" or "por niveles".** No such tiered system exists; the claim was audited out of both the CV and `/proyectos/aerosol` in September 2026. The approved wording is a brand system with sub-brand architecture and an organized asset library, so product, marketing and partner teams find what they need without design becoming a bottleneck.
+- **Molly is not an illustrator.** Her words: "no soy ilustradora, soy entusiasta de la ilustración." Illustration can appear inside a project's `scope`, but never as a headline label that positions her as one, which is why Dito Dico keeps the default grid label instead of "Ilustración de personaje".
+- **The years-of-experience figure is "17+", and it is scattered across the CV *and the main site*.** It has drifted twice: once between a CV page and its own meta description, and once between the CV section (updated to 17+) and the whole rest of the site (left at 20+ for a full release, because that change only touched `src/cv/**` and `src/app/cv/**`). When the number, the headline role, or the summary changes, update every row below in the same commit and then `grep -rni "20+\|17+\|20 años\|17 años\|20 years\|17 years\|diecisiete\|seventeen\|veinte\|twenty" src/` to confirm nothing is left behind. The spelled-out forms matter: the home hero and both home meta descriptions write the number as a word:
 
   | Where | What |
   |---|---|
   | `src/cv/pageComponents/{normie/NormieCV,web3/Web3CV}.tsx` | the `copy` object: `heroBio` and `experienceH2b`, EN and ES |
   | `src/app/cv/page.tsx`, `cv/es`, `cv/web3`, `cv/es/web3` | `metadata.description` on all four |
-  | `src/i18n/translations.ts` | `about.bio`, EN and ES |
+  | `src/i18n/translations.ts` | `about.bio` *and* `home.subheadline`, EN and ES. The subheadline spells the figure out ("Seventeen years" / "Diecisiete años"), so the numeric grep below will not catch it |
+  | `src/app/page.tsx`, `src/app/en/page.tsx` | `metadata.description` *and* `openGraph.description` on both homes, also spelled out |
   | `src/pageComponents/HomePage/components/MediaSection.tsx` | the `stats` array — the `stat1` value tile |
   | `src/app/conoceme/page.tsx` | `metadata.description` *and* `openGraph.description` |
   | `src/app/en/conoceme/page.tsx` | the same two, in English. Easy to miss: it is a separate file from the Spanish one |
@@ -412,5 +471,7 @@ The two grids differ only in length, and both render from the same `<PortfolioGr
 |---|---|---|
 | `/` (home) | `<PortfolioGrid limit={HOME_GRID_LIMIT} />` | Always exactly 15 tiles. A new project enters at the top and the oldest one drops off the bottom. |
 | `/proyectos` | `<PortfolioGrid showHeader={false} />` | No limit. Grows forever, nothing is ever displaced. |
+
+Each tile's kicker comes from the project's optional `gridLabel` / `gridLabelEn`, falling back to `portfolio.brandingLabel` ("Branding · Identidad"). Those labels are **derived from that project's own `scope` / `scopeEn`**, taking the two most representative entries written exactly as they appear there. Never invent a label, and leave the field out when the scope really is only branding. Two projects deliberately keep the default despite a broader scope: Dito Dico, because an illustration label positions Molly as an illustrator, and Dinerology, because it won a Bronze Effie (Dominican Republic, 2023) and a "YouTube assets" label sells it as loose social pieces.
 
 `HOME_GRID_LIMIT` is exported from `src/projects.tsx`. A project that scrolls off the home grid is **not** removed: it keeps its `/proyectos` tile, its case study page, and its sitemap entry. Nothing needs deleting when the list grows, so never trim `activeProjects` to keep the home page at 15.
