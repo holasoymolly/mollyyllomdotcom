@@ -192,14 +192,12 @@ export const AppDrawer: React.FC<AppDrawerProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.32, ease: drawerEase }}
           >
-            <a
-              href={t.quoteBanner.url}
-              target="_blank"
-              rel="noreferrer noopener"
+            <TransitionLink
+              href="/contacto"
               className="flex items-center justify-center bg-violet-500 text-stone-200 font-black px-8 py-4 rounded-full text-sm hover:bg-violet-400 transition-colors duration-300"
             >
               {t.home.cta}
-            </a>
+            </TransitionLink>
 
             <div className="flex gap-5 justify-center">
               {socials.map(({ href, Icon, label }) => (

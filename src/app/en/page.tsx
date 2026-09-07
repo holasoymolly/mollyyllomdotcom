@@ -3,20 +3,22 @@ import { HomePage } from "@/pageComponents/HomePage";
 import { languageAlternates } from "@/i18n/metadata";
 
 export const metadata: Metadata = {
-  title: "MOLLY YLLOM | Graphic Design Studio",
-  description: "Graphic design studio specializing in branding and visual identity.",
+  title: "Molly Yllom | Art Director and Brand Designer",
+  description:
+    "Art director and brand designer with seventeen years of experience. Working with US companies since 2019. Available for remote roles on US Eastern hours.",
   alternates: { canonical: "/en", languages: languageAlternates("/") },
   openGraph: {
     type: "website",
-    title: "MOLLY YLLOM | Graphic Design Studio",
-    description: "Graphic design studio specializing in branding and visual identity.",
+    title: "Molly Yllom | Art Director and Brand Designer",
+    description:
+      "Art director and brand designer with seventeen years of experience. Working with US companies since 2019. Available for remote roles on US Eastern hours.",
     url: "/en",
     images: [
       {
         url: "https://www.mollyyllom.com/img/my-open-graph-image.jpg",
         width: 1200,
         height: 630,
-        alt: "MOLLY YLLOM | Graphic Design Studio",
+        alt: "Molly Yllom | Art Director and Brand Designer",
       },
     ],
     locale: "en_US",

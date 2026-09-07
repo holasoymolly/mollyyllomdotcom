@@ -10,7 +10,7 @@ import { IcOutlineTiktok } from "@/icons/IcOutlineTiktok";
 import { RiInstagramLine } from "@/icons/RiInstagramLine";
 import { XIcon } from "@/icons/XIcon";
 import { useLanguage } from "@/context/LanguageContext";
-import { trackBookingCTAClicked, trackEmailCTAClicked } from "@/lib/analytics";
+import { trackBookingCTAClicked, trackEmailCTAClicked, trackQuoteCTAClicked } from "@/lib/analytics";
 
 const socials = [
   { href: "https://www.instagram.com/holasoymolly", label: "Instagram", Icon: RiInstagramLine },
@@ -93,6 +93,37 @@ export const ContactPage: FC = () => {
                 className="shrink-0 bg-indigo-950 text-stone-200 font-bold px-8 py-4 rounded-full transition-colors duration-300 hover:bg-violet-500 whitespace-nowrap"
               >
                 {t.contact.callButton}
+              </a>
+            </div>
+          </motion.div>
+
+          {/*
+            Project quote. The hero and the closing banner now send everyone to
+            this page, so this is the quote form's only door: one page serving
+            both readers, whoever hires a person and whoever commissions work.
+          */}
+          <motion.div
+            className="flex flex-col gap-2 border-b border-indigo-950/10 pb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.08, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <span className="text-violet-500 text-xs font-bold tracking-[0.25em] uppercase">
+              {t.contact.quoteLabel}
+            </span>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+              <p className="text-indigo-950/60 text-lg leading-snug max-w-sm">
+                {t.contact.quoteDescription}
+              </p>
+              <a
+                href={t.contact.quoteUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                onClick={() => trackQuoteCTAClicked('contacto', lang)}
+                className="shrink-0 bg-indigo-950 text-stone-200 font-bold px-8 py-4 rounded-full transition-colors duration-300 hover:bg-violet-500 whitespace-nowrap"
+              >
+                {t.contact.quoteButton}
               </a>
             </div>
           </motion.div>

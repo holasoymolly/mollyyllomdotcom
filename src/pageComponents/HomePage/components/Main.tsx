@@ -1,3 +1,4 @@
+import { Availability } from './Availability';
 import { Banner } from './Banner';
 import { Marquee } from './Marquee';
 import { MediaSection } from './MediaSection';
@@ -10,6 +11,7 @@ export const Main = () => {
   return (
     <main className="bg-stone-200">
       <Banner />
+      <Availability />
       <Marquee />
       <MediaSection />
       <PortfolioGrid limit={HOME_GRID_LIMIT} />

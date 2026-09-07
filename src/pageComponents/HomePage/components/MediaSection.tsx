@@ -52,8 +52,12 @@ export const MediaSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            {readyLines[0]}<br />
-            {readyLines[1]}<br />
+            {readyLines.map((line) => (
+              <span key={line}>
+                {line}
+                <br />
+              </span>
+            ))}
             <span className="text-violet-400">{t.home.readyHighlight}</span>
           </motion.h2>
 

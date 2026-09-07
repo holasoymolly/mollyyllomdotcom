@@ -37,6 +37,10 @@ type Surface =
 export const trackBookingCTAClicked = (location: Surface, lang: Language) =>
   track('Booking CTA Clicked', { location, lang });
 
+/** Clicked through to the project quote form, the design-client counterpart to a booking. */
+export const trackQuoteCTAClicked = (location: Surface, lang: Language) =>
+  track('Quote CTA Clicked', { location, lang });
+
 /** Clicked the hola@mollyyllom.com mailto link. */
 export const trackEmailCTAClicked = (location: Surface, lang: Language) =>
   track('Email CTA Clicked', { location, lang });

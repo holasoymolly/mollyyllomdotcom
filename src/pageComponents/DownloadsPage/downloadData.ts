@@ -1,28 +1,52 @@
+import { RESUME_PDF_URL } from "@/lib/resume";
+
 export interface DownloadItem {
-  title: string;
   image: string;
-  downloadUrl: string;
+  /**
+   * Where the item points. A string is the same target in both languages; the
+   * online CV needs one URL per language, since `/cv/**` is outside the `/en`
+   * prefix and carries its language in the path instead.
+   */
+  downloadUrl: string | { es: string; en: string };
+  /**
+   * `true` leaves the click to the browser: a PDF or an external form. `false`
+   * is an internal route and goes through `TransitionLink`.
+   */
+  external: boolean;
+  /** `'view'` opens something to read, `'download'` hands over a file. */
+  action?: "download" | "view";
 }
 
 export const downloadData: DownloadItem[] = [
   {
-    title: "Plantilla para presentación de logos a cliente",
+    image: "/img/molly/molly_pfp.jpg",
+    downloadUrl: RESUME_PDF_URL,
+    external: true,
+  },
+  {
+    image: "/img/molly/molly_pfp.jpg",
+    downloadUrl: { es: "/cv/es", en: "/cv" },
+    external: false,
+    action: "view",
+  },
+  {
     image: "/img/downloads/molly-yllom-web-descargas-portadas-1.webp",
     downloadUrl: "https://forms.gle/7xLe2jeHb2qPKsVR8",
+    external: true,
   },
   {
-    title: "Plantilla de preferencias en Illustrator",
     image: "/img/downloads/molly-yllom-plantilla-preferencias-portada.webp",
     downloadUrl: "https://forms.gle/fLKtHgpvFT7YsFLeA",
+    external: true,
   },
   {
-    title: "Checklist de entrega final de proyecto de logotipo",
     image: "/img/downloads/molly-yllom-web-descargas-portadas-02.webp",
     downloadUrl: "https://forms.gle/oTo2azeJw1Cx1XYg6",
+    external: true,
   },
   {
-    title: "Checklist de contenido del Manual de Marca",
     image: "/img/downloads/molly-yllom-web-descargas-portadas-03.webp",
     downloadUrl: "https://forms.gle/R2ub4yCdnwsecgL29",
+    external: true,
   },
 ];

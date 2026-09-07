@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Button } from "@/components/Button";
+import { TransitionLink } from "@/components/TransitionLink";
 import { useLanguage } from '@/context/LanguageContext';
 
 const fadeUp = (delay: number) => ({
@@ -69,7 +69,12 @@ export const Banner = () => {
             </motion.svg>
           </motion.div>
           <motion.div {...fadeUp(0.6)}>
-            <Button href={t.quoteBanner.url} text={t.home.cta} size="large" />
+            <TransitionLink
+              href="/contacto"
+              className="rounded-full font-bold inline-block transition-colors duration-300 py-3 px-8 text-lg bg-stone-200 text-indigo-950 hover:bg-violet-900 hover:text-stone-200"
+            >
+              {t.home.cta}
+            </TransitionLink>
           </motion.div>
         </div>
       </div>
