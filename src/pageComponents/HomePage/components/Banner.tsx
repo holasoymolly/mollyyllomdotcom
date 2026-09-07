@@ -30,7 +30,7 @@ export const Banner = () => {
         </motion.p>
 
         <motion.h1
-          className="text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] font-black leading-[0.9] tracking-tight"
+          className="text-[clamp(2.25rem,11.5vw,3.5rem)] sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[10rem] font-black leading-[0.9] tracking-tight"
           {...fadeUp(0.3)}
         >
           {lead.map((line, i) => (

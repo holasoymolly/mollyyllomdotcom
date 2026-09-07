@@ -37,7 +37,7 @@ export const ContactPage: FC = () => {
           {t.contact.label}
         </motion.p>
         <motion.h1
-          className="text-6xl sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tight"
+          className="text-[clamp(2.5rem,14vw,3.75rem)] sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tight"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
@@ -64,7 +64,7 @@ export const ContactPage: FC = () => {
             <a
               href="mailto:hola@mollyyllom.com"
               onClick={() => trackEmailCTAClicked('contacto', lang)}
-              className="text-3xl md:text-4xl lg:text-5xl font-black text-indigo-950 hover:text-violet-500 transition-colors duration-300 leading-none"
+              className="text-[clamp(1.375rem,7.5vw,1.875rem)] md:text-4xl lg:text-5xl font-black text-indigo-950 hover:text-violet-500 transition-colors duration-300 leading-none break-all"
             >
               hola@mollyyllom.com
             </a>

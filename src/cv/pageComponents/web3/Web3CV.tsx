@@ -394,7 +394,7 @@ export function Web3CV({ lang = 'en' }: { lang?: Lang }) {
             >
               {contact.email}
             </a>
-            <div className="flex justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               <CVVersionToggle />
               <CVLangToggle />
               <CVResumeDownload />

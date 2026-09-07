@@ -385,7 +385,7 @@ export function NormieCV({ lang = 'en' }: { lang?: Lang }) {
             >
               {contact.email}
             </a>
-            <div className="flex justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               <CVVersionToggle variant="light" />
               <CVLangToggle variant="light" />
               <CVResumeDownload variant="light" />

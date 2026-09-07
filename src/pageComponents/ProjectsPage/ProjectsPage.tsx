@@ -26,7 +26,7 @@ export const ProjectsPage: FC = () => {
           {t.projects.label}
         </motion.p>
         <motion.h1
-          className="text-6xl sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tight mb-10"
+          className="text-[clamp(2.5rem,14vw,3.75rem)] sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tight mb-10"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
